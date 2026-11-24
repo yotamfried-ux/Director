@@ -1,0 +1,35 @@
+# Experiment log
+Format: `experiments/template.md`. Qualitative entries are Yotam's feedback in chat (2026-11-24); no channel metrics exist yet.
+
+### EXP-001 — site clip pacing (2026-11-24)
+- **Product / asset:** Tori site cut (he/en)
+- **Hypothesis:** a faster, zoomed cut reads better in the ~630px portfolio card than the 10s phone cut.
+- **Variants:** A = phone-cut pacing, UI small · B = fast cut · C = 8s, soft ease-in-out, longer holds, zoomed UI.
+- **Evidence:** A "too slow and hard to read in the small frame"; B "too fast, unnatural, unpleasant"; C accepted ("upload this one").
+- **Decision:** keep C (8s @30fps, `bezier(.45,0,.2,1)`).
+- **Where recorded:** `docs/06-lessons-learned.md`, `skills/site-video`.
+
+### EXP-002 — advantages-first storyboard (2026-11-24)
+- **Product / asset:** Tori phone promo
+- **Hypothesis:** a buyer-lens storyboard (pain → flow → automation → reports) conveys the product's strengths better than a feature walk-through.
+- **Variants:** A = 10s feature walk-through · B = v1 20s with stacked feature cards · C = v6 27s with continuous automation scene + reports.
+- **Evidence:** A "doesn't emphasise advantages enough"; B direction "better", cards "not smooth"; C "excellent".
+- **Decision:** keep C; keep buyer-lens research as mandatory step.
+- **Where recorded:** `docs/02-marketing-method.md`, `products/tori-script-v6.md`.
+
+### EXP-003 — touch indicator (2026-11-24)
+- **Hypothesis:** an on-screen tap indicator makes the demo feel real.
+- **Variants:** A = ripple dots · B = travelling translucent finger · C = no cursor, soft highlight on the pressed element.
+- **Evidence:** A and B "unnatural"; C accepted.
+- **Decision:** C. **Recorded:** `skills/remotion-product-video`.
+
+### EXP-004 — music (2026-11-24)
+- **Hypothesis:** background music strengthens the phone version.
+- **Variants:** A = synthesized warm pads · B = real CC0 "Advertime" (~117 BPM) · C = real CC0 "Elevate Inspirate" (~103 BPM).
+- **Evidence:** synthesized: "odd, unpleasant", then "doesn't carry the message"; real tracks: preferred; chose Elevate Inspirate.
+- **Decision:** real CC0 only; Elevate Inspirate for Tori. **Recorded:** `docs/04-music.md`.
+
+### EXP-005 — state-change smoothness in the automation scene (2026-11-24)
+- **Variants:** A = threshold swaps at 50% (button, status chip, toggles) · B = continuous colour blend + crossfaded labels.
+- **Evidence:** A "button presses not smooth"; B accepted.
+- **Decision:** B. **Recorded:** `skills/remotion-product-video`.

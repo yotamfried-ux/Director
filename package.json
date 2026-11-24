@@ -1,0 +1,26 @@
+{
+  "name": "director",
+  "version": "1.0.0",
+  "description": "Marketing & content studio: product videos, site clips, social content. Operated by Claude.",
+  "scripts": {
+    "studio": "remotion studio",
+    "typecheck": "tsc --noEmit",
+    "render:showcase": "bash scripts/render-showcase.sh",
+    "render:site": "bash scripts/render-site.sh",
+    "qa": "bash scripts/qa.sh"
+  },
+  "dependencies": {
+    "@fontsource/heebo": "^5.3.0",
+    "@remotion/bundler": "^4.0.546",
+    "@remotion/cli": "^4.0.546",
+    "@remotion/google-fonts": "^4.0.546",
+    "@remotion/renderer": "^4.0.546",
+    "@types/react": "^19.3.0",
+    "playwright": "^1.65.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "remotion": "^4.0.546",
+    "typescript": "^7.0.2"
+  },
+  "private": true
+}

@@ -1,0 +1,38 @@
+{
+  "slug": "tori",
+  "name": "Tori",
+  "tagline_he": "ניהול יומן ותורים",
+  "tagline_en": "Booking & calendar management",
+  "url": "https://turim.d2ryf.com/",
+  "theme": "dark",
+  "accent": "#4fd1bb",
+  "bg": "#050d0e",
+  "beats": [
+    {
+      "id": "book",
+      "caption_he": "הלקוח בוחר שעה פנויה",
+      "asset": "assets/tori/mobile-booking.png"
+    },
+    {
+      "id": "confirm",
+      "caption_he": "התור נקבע ומאושר",
+      "asset": "assets/tori/mobile-confirmed.png"
+    },
+    {
+      "id": "calendar",
+      "caption_he": "היומן שלך תמיד מסודר",
+      "asset": "assets/tori/desktop-calendar.png"
+    }
+  ],
+  "must_appear_text": [
+    "TORI",
+    "ניהול יומן ותורים"
+  ],
+  "outputs": [
+    "16x9",
+    "9x16",
+    "1x1"
+  ],
+  "duration_seconds": 10,
+  "notes": "Machine config for first-generation Promo + scripts/qa.sh. Source of truth for marketing: products/tori.md. Showcase/Site props live in src/Root.tsx."
+}
