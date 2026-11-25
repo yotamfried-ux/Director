@@ -14,3 +14,6 @@ description: Produce silent per-locale (he/en) 16:9 clips and poster for Yotam's
 - Tests: `npm test` (tsx unit tests incl. `tests/content.test.ts`), Playwright e2e with `PLAYWRIGHT_CHROMIUM_PATH=/usr/bin/google-chrome`.
 - PRs: GitHub GraphQL is blocked → create/merge with `gh api repos/yotamfried-ux/Portfolio/pulls …` (REST). CI is "Portfolio CI" (must pass; re-run via `gh api -X POST …/actions/runs/<id>/rerun`). Vercel gives preview URLs; Yotam verifies the live site.
 - Never merge without Yotam's go-ahead.
+
+## Encoding
+Use `scripts/encode.sh <master> site-demo` (project page, 1080p) and `site-preview` (card, 720p). Never CRF for noisy footage (40 MB for 30 s); mid-fade blocking can still show at the preview bitrate, raise it in the profile if Yotam notices.
