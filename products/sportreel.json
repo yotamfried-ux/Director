@@ -1,0 +1,20 @@
+{
+  "slug": "sportreel",
+  "name": "SportReel",
+  "tagline_en": "A personal reel for every athlete",
+  "tagline_he": "ריל אישי לכל ספורטאי",
+  "theme": "dark",
+  "accent": "#00E5FF",
+  "bg": "#0A0E1A",
+  "must_appear_text": [
+    "SportReel"
+  ],
+  "forbidden_text": [
+    "4K",
+    "99%",
+    "AI-powered",
+    "face id"
+  ],
+  "notes": "Used by scripts/qa-gate.py. Source of truth for claims: products/sportreel.md.",
+  "claims_verified_at": "2026-11-25"
+}

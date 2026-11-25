@@ -1,0 +1,13 @@
+# Creative brief — <product> — <video> (vN, <date>)
+- **Business goal (one):**
+- **Viewer / where / sound:**
+- **What they believe or fear now:**
+- **The one promise (one sentence):**
+- **Desired action / next step:**
+- **Claims verified on <date> against <repo HEAD / live URL / changelog>:** (ranked proof; mark anything new since last video)
+- **Not shipped / not to claim (as of the same date):**
+- **Objections and the scene that answers each (or "not answered"):**
+- **Angles:** A — promise / opening / proof order / risk · B — … · C — …  → **Recommended:** X because …
+- **Form:** length, pace, locale(s), sound; why this length:
+- **Success looks like:** (qualitative until analytics exist)
+- **Open questions for Yotam (max 3, with recommendation):**

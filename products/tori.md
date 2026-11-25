@@ -6,7 +6,7 @@
 - **Tagline (video):** "ניהול יומן ותורים". Hook line (from the product's own auth shell): "פחות הודעות. יותר תורים."
 - **Trial:** product copy says 14 days free, no credit card (only mention if Yotam confirms the offer is current).
 
-## Verified claims (safe to show or say) — source: `messages/he.json` home.*, `docs/01-project-8-summary.md`, readiness evidence
+## Verified claims (safe to show or say) — verified 2026-11-24; the product is still in development: re-verify against repo HEAD before the next video — source: `messages/he.json` home.*, `docs/01-project-8-summary.md`, readiness evidence
 - Public booking page per business, no app/account/password; works on mobile; only free slots matching service duration, hours, breaks and closed days.
 - Instant confirmation; personal link to cancel/reschedule until the cut-off the business sets (reschedule max 3 moves).
 - Automatic reminder the day before with one-click arrival confirmation.
@@ -18,7 +18,7 @@
 - Google Calendar sync; WhatsApp contact button; slug redirects; settings revisions/undo (see docs; mention only if shown).
 - Quality evidence: 688 unit tests passing at last audit; race-free booking under load (60 concurrent requests on 12 slots → exactly 12 bookings). Use sparingly and only with Yotam's OK.
 
-## Forbidden / not to advertise
+## Forbidden / not to advertise (as of 2026-11-24 — may change with development)
 - **Payments, invoicing, card checkout** — skeleton/fake provider only.
 - Anything about SMS reminders (reminders are email today; WhatsApp is a contact button).
 - Any fabricated customers, ratings, percentages of no-show reduction, or "AI" claims.

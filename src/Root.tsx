@@ -3,6 +3,12 @@ import {Composition} from 'remotion';
 import {Promo, PromoProps} from './Promo';
 import {Site, SiteProps} from './Site';
 import {Showcase, ShowcaseProps} from './Showcase';
+import {ToriSiteLong} from './ToriSite';
+import {SportReelSite} from './SportReelSite';
+import {SportReelSite2} from './SportReelSite2';
+import {SportReelSite3} from './SportReelSite3';
+import {SportReelSite4} from './SportReelSite4';
+import {SportReelSite5} from './SportReelSite5';
 
 const defaults: PromoProps = {
   name: 'TORI',
@@ -38,6 +44,19 @@ export const Root: React.FC = () => (
     <Composition id="Promo-1x1" component={Promo} durationInFrames={240} fps={24} width={1080} height={1080} defaultProps={defaults} />
     <Composition id="Site-he" component={Site} durationInFrames={240} fps={30} width={1280} height={720} defaultProps={siteHe} />
     <Composition id="Site-en" component={Site} durationInFrames={240} fps={30} width={1280} height={720} defaultProps={siteEn} />
+    <Composition id="ToriSite-long-he" component={ToriSiteLong} durationInFrames={1260} fps={30} width={1920} height={1080} defaultProps={{lang: 'he' as const, accent: '#4fd1bb', bg: '#050d0e'}} />
+    <Composition id="ToriSite-long-en" component={ToriSiteLong} durationInFrames={1260} fps={30} width={1920} height={1080} defaultProps={{lang: 'en' as const, accent: '#4fd1bb', bg: '#050d0e'}} />
     <Composition id="Showcase-9x16" component={Showcase} durationInFrames={820} fps={30} width={1080} height={1920} defaultProps={showcaseHe} />
+    <Composition id="SportReel5-short-en" component={SportReelSite5} durationInFrames={336} fps={30} width={1920} height={1080} defaultProps={{locale: 'en' as const, variant: 'short' as const}} />
+    <Composition id="SportReel5-short-he" component={SportReelSite5} durationInFrames={336} fps={30} width={1920} height={1080} defaultProps={{locale: 'he' as const, variant: 'short' as const}} />
+    <Composition id="SportReel5-long-en" component={SportReelSite5} durationInFrames={902} fps={30} width={1920} height={1080} defaultProps={{locale: 'en' as const, variant: 'long' as const}} />
+    <Composition id="SportReel5-long-he" component={SportReelSite5} durationInFrames={902} fps={30} width={1920} height={1080} defaultProps={{locale: 'he' as const, variant: 'long' as const}} />
+    <Composition id="SportReel-short-en" component={SportReelSite4} durationInFrames={330} fps={30} width={1920} height={1080} defaultProps={{locale: 'en' as const, variant: 'short' as const}} />
+    <Composition id="SportReel-short-he" component={SportReelSite4} durationInFrames={330} fps={30} width={1920} height={1080} defaultProps={{locale: 'he' as const, variant: 'short' as const}} />
+    <Composition id="SportReel-long-en" component={SportReelSite4} durationInFrames={916} fps={30} width={1920} height={1080} defaultProps={{locale: 'en' as const, variant: 'long' as const}} />
+    <Composition id="SportReel-long-he" component={SportReelSite4} durationInFrames={916} fps={30} width={1920} height={1080} defaultProps={{locale: 'he' as const, variant: 'long' as const}} />
+    <Composition id="SportReel-site-v3" component={SportReelSite3} durationInFrames={730} fps={30} width={1920} height={1080} defaultProps={{name: 'SportReel'}} />
+    <Composition id="SportReel-site-v2" component={SportReelSite2} durationInFrames={730} fps={30} width={1920} height={1080} defaultProps={{name: 'SportReel'}} />
+      <Composition id="SportReel-site" component={SportReelSite} durationInFrames={480} fps={30} width={1920} height={1080} defaultProps={{name: 'SportReel'}} />
   </>
 );

@@ -34,5 +34,13 @@
     "1x1"
   ],
   "duration_seconds": 10,
-  "notes": "Machine config for first-generation Promo + scripts/qa.sh. Source of truth for marketing: products/tori.md. Showcase/Site props live in src/Root.tsx."
+  "notes": "Machine config for first-generation Promo + scripts/qa.sh. Source of truth for marketing: products/tori.md. Showcase/Site props live in src/Root.tsx.",
+  "forbidden_text": [
+    "תשלום",
+    "חשבונית",
+    "SMS",
+    "payment",
+    "invoice"
+  ],
+  "claims_verified_at": "2026-11-24"
 }

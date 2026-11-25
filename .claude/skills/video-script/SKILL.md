@@ -4,6 +4,8 @@ description: Turn product research into a scene-by-scene promo video script with
 ---
 # Video script
 
+Requires a creative brief (`video-brief`, `products/<slug>-brief-vN.md`). Every scene must serve the one promise, a ranked proof or an objection; cut the rest.
+
 ## Structure (short promo, 20–30s, vertical)
 1. **Hook (≈2s):** the pain in four words ("פחות הודעות. יותר תורים."). Text only.
 2. **Core flow (≈8–10s):** the main job done on a real screen (customer books alone), 3 captions, one idea each.

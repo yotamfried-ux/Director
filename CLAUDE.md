@@ -26,6 +26,7 @@ Owner: Yotam (independent builder, Israel). **Talk to him in Hebrew.** Docs and 
 | Skill | Use when |
 |---|---|
 | `product-research` | Starting a video for any product: buyer lens, verified feature list, claims |
+| `video-brief` | Before any script: goal, viewer, one promise, sales angle A/B/C; again as director review after the build |
 | `video-script` | Turning research into a scene-by-scene script with timings and Hebrew copy |
 | `remotion-product-video` | Building/modifying compositions in `src/` |
 | `whatsapp-export` | Final encode, music mux, delivery guidance for WhatsApp |

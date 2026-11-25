@@ -3,3 +3,4 @@ out/
 tmp/
 *.wav
 .DS_Store
+public/sportreel/
