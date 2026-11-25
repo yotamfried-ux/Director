@@ -1,0 +1,19 @@
+# Creative brief — Customer Churn Prediction — site presentation + video (v1, 2026-11-25)
+- **Business goal (one):** a freelance client with customer data reads this as "he can turn my customer data into a decision" and writes to Yotam.
+- **Viewer / where / sound:** small-business owner or manager, not technical; portfolio card (~600 px, silent, autoplay loop) and project page (can hold 30 s, silent, transcript). Believes "ML = black box / hype"; fears being sold buzzwords.
+- **The one promise:** "Know which customers are likely to leave, so you can reach them first."
+- **Desired action:** open the project page, play with the threshold, then contact Yotam.
+- **Claims verified on 2026-11-25 (ranked proof):** (1) baseline "nobody leaves" is 73.5% accurate but finds 0 churners; the model finds 193 of 374 held-out churners (52%) at 66% precision; (2) tested on 1,409 customers the model never saw; (3) ROC-AUC 0.84; (4) real drivers: month-to-month contracts churn 42.7% vs 2.8% on two-year; first-year customers 47.4% vs 17.1%. Details: `products/churn-prediction.md`.
+- **Not shipped / not to claim (same date):** money saved, deployment, real company or customers, dataset provenance, Part B predicted share, student identity.
+- **Objections:** "is it real or a toy?" → show the held-out test and the honest misses (98 false alarms, 181 missed) instead of hiding them; "what do I do with it?" → ranked list + threshold = business choice; "is 80% good?" → answered by the baseline comparison, not by the number alone.
+- **Angles:**
+  - **A — "Who's next?" (outcome-first):** 7,043 customers as dots → 26.5% turn amber (left) → model ranks everyone → threshold slider decides how many to call → result card (193 of 374 caught; baseline 0). Proof order: baseline paradox → ranking → threshold trade-off. Risk: 52% recall can read as "misses half"; frame as "finds 193 where guessing finds 0; the threshold trades calls for catches".
+  - **B — "Why they leave" (insight-first):** bars of real churn rates (contract, first year, fiber, no tech support) → "where to act". Proof: dataset rates + feature importance. Risk: reads as analytics, not ML; strong as a static panel, weaker as the single hook.
+  - **C — "Honest ML" (how it works):** cleaning → 61 configs → CV winner → untouched test → scoring from a database. Risk: speaks to engineers; belongs in the project-page exploration view, not the client video.
+- **Recommended:** **A** for the video and the interactive explorer; **B** as a static panel under it; **C** as the architecture/engineering exploration view. Why: A is the only one that turns "ML" into a decision a client makes, it is fully backed by real test-set numbers, and the baseline paradox is a hook few templates have.
+- **Form:** video 25–30 s, 16:9, silent, he/en captions, dark, house motion rules (match-cut dots → list); 3 beats (hook 4 s, ranking 10 s, threshold + result 12 s). Card preview only if it carries its own idea (e.g. dots turning amber); otherwise use the long, as for SportReel. Site: replace the synthetic 5-bar demo with the real held-out test set (model probabilities for the 1,409 test rows); the slider changes the threshold and shows caught vs false alarms; label "held-out test set of the project dataset".
+- **Success looks like:** Yotam would send it to a prospective client; viewers can repeat the promise after one watch.
+- **Open questions for Yotam (max 3, with recommendation):**
+  1. Dataset provenance, and may we say "course project"? Recommend: "a project on a 7,043-customer telecom-style dataset"; add "course project" only if he wants.
+  2. Part B's 25,000 MongoDB records: real, synthetic or copies? Recommend: skip Part B in the client video; mention it only in the engineering view.
+  3. Approve angle A + real-data explorer for the site? Recommend yes.
