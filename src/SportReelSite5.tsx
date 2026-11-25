@@ -1,6 +1,7 @@
 import React, {useEffect, useMemo, useState} from 'react';
-import {AbsoluteFill, Easing, Freeze, Img, OffthreadVideo, Sequence, continueRender, delayRender, interpolate, staticFile, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Freeze, Img, OffthreadVideo, continueRender, delayRender, staticFile, useCurrentFrame} from 'remotion';
 import {fontFamily} from './Promo';
+import {Local, Scene, clamp, lerp, prog} from './lib/motion';
 
 // SportReel portfolio videos v4 (client-facing, silent, 1920x1080 @30).
 //  - short: ~12 s, for the project card.   - long: ~33 s, for the project page.
@@ -15,10 +16,6 @@ const SRC_W = 3840;
 const SRC_H = 2160;
 const CONF_MIN = 0.4;
 const CLIP97_T0 = 1.001;
-const soft = Easing.bezier(0.45, 0, 0.2, 1);
-const prog = (f: number, a: number, b: number) => interpolate(f, [a, b], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: soft});
-const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
-const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
 
 type Det = {track_id: number; bbox_xyxy: [number, number, number, number]; confidence: number; time_sec: number};
 type Sample = {t: number; dets: Det[]};
@@ -183,22 +180,6 @@ const Caption: React.FC<{text: string; sub?: string; opacity: number; he: boolea
       {sub && <div style={{fontSize: 34, color: '#B6C4D6', marginTop: 8}}>{sub}</div>}
     </div>
   </div>
-);
-
-const Scene: React.FC<{from: number; dur: number; fadeIn?: boolean; fadeOut?: boolean; children: (local: number) => React.ReactNode}> = ({from, dur, fadeIn = true, fadeOut = true, children}) => (
-  <Sequence from={from} durationInFrames={dur}>
-    <SceneInner dur={dur} fadeIn={fadeIn} fadeOut={fadeOut}>{children}</SceneInner>
-  </Sequence>
-);
-const SceneInner: React.FC<{dur: number; fadeIn: boolean; fadeOut: boolean; children: (local: number) => React.ReactNode}> = ({dur, fadeIn, fadeOut, children}) => {
-  const lf = useCurrentFrame();
-  const o = (fadeIn ? prog(lf, 0, 24) : 1) * (fadeOut ? 1 - prog(lf, dur - 24, dur) : 1);
-  return <AbsoluteFill style={{opacity: o, filter: o < 0.999 ? `blur(${(1 - o) * 12}px)` : undefined}}>{children(lf)}</AbsoluteFill>;
-};
-
-const LocalInner: React.FC<{children: (lf: number) => React.ReactNode}> = ({children}) => <>{children(useCurrentFrame())}</>;
-const Local: React.FC<{from: number; dur?: number; children: (lf: number) => React.ReactNode}> = ({from, dur, children}) => (
-  <Sequence from={from} durationInFrames={dur}><LocalInner>{children}</LocalInner></Sequence>
 );
 
 const PhoneShell: React.FC<{w: number; h: number; children: React.ReactNode; glow?: string}> = ({w, h, children, glow = ACCENT}) => (
