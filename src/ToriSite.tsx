@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, Img, interpolateColors, staticFile, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Img, interpolate, interpolateColors, staticFile, useCurrentFrame} from 'remotion';
 import {Fade, Highlight, prog} from './lib/motion';
 import {Background, Monitor, Phone, Sheen, Shot, SHOT_H, SHOT_W, ease, fontFamily, lerp} from './Promo';
 
