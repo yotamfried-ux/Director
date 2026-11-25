@@ -12,18 +12,18 @@ export const CHURN_OVERVIEW_FRAMES = 1185;
 const FADE = 30; // scene cross-fade (frames); scenes overlap by exactly this much
 const SWITCH = [225, 435, 705, 930]; // stepper changes in the middle of each cross-fade
 
-const T = {
+export const T = {
   he: {
-    s1: 'חיזוי נטישת לקוחות', s1c: 'פרויקט גמר · קורס אנליסט נתונים · הטכניון', s1b: 'המטרה: לזהות לקוח שעומד לעזוב, לפני שהוא עוזב', feat: 'מאפיינים', steps: ['הבעיה', 'הנתונים', 'המודל', 'התוצאה', 'מסד נתונים'], cust: 'לקוחות חברת תקשורת', left: 'עזבו', dotsNote: 'כל נקודה: לקוח מקבוצת הבדיקה (1,409)',
+    s1: 'חיזוי נטישת לקוחות', s1c: 'פרויקט גמר · קורס אנליסט ביג דאטה · הטכניון', s1b: 'המטרה: לזהות לקוח שעומד לעזוב, לפני שהוא עוזב', feat: 'מאפיינים', steps: ['הבעיה', 'הנתונים', 'המודל', 'התוצאה', 'מסד נתונים'], cust: 'לקוחות חברת תקשורת', left: 'עזבו', dotsNote: 'כל נקודה: לקוח מקבוצת הבדיקה (1,409)',
     s2: 'מה מנבא נטישה?', s2sub: 'שיעור הנטישה בכל קבוצה', pairs: [['חוזה חודשי', 42.7, 'חוזה דו-שנתי', 2.8], ['ותק עד שנה', 47.4, 'ותק מעל שנה', 17.1], ['תשלום בצ׳ק אלקטרוני', 45.3, 'תשלום אוטומטי', 16.0]] as [string, number, string, number][],
-    prep: 'הכנת הנתונים', chips: ['ניקוי ערכים חסרים', 'קידוד קטגוריות', 'נרמול מספרים'], cols: 'עמודות', models: '61 הגדרות · 3 משפחות מודלים', fams: ['KNN', 'עץ החלטה', 'יער אקראי'], base: 'ניחוש ללא מודל 73.5%', axis: 'דיוק בבדיקה · תחילת הציר: 70%', win: 'יער אקראי ניצח · 200 עצים', badge: 'ניצח',
+    prep: 'הכנת הנתונים', chips: ['ניקוי ערכים חסרים', 'קידוד קטגוריות', 'נרמול מספרים'], cols: 'עמודות', models: '61 הגדרות · 3 משפחות מודלים', tool: 'בעזרת scikit-learn', fams: ['KNN', 'עץ החלטה', 'יער אקראי'], base: 'ניחוש ללא מודל 73.5%', axis: 'דיוק בבדיקה · תחילת הציר: 70%', win: 'יער אקראי ניצח · 200 עצים', badge: 'ניצח',
     s4: 'התוצאה על לקוחות שלא נראו', acc: 'דיוק', of: 'מתוך', found: 'נוטשים זוהו', alarms: 'התראות שווא', s4b: 'מעל ניחוש ללא מודל: 73.5%',
     s5: 'ובשלב ב׳: מסד נתונים', m: ['25,000 רשומות\nב-MongoDB', 'תיקון שדה\nבסכמה', '24,218 רשומות\nקיבלו ציון', 'ייצוא\nCSV'], close: 'לדעת מי עומד לעזוב, לפני שהוא עוזב', foot: 'מערך נתונים ציבורי מהקורס',
   },
   en: {
-    s1: 'Customer churn prediction', s1c: 'Final project · Data Analyst course · Technion', s1b: 'Goal: spot a customer about to leave, before they do', feat: 'features', steps: ['Problem', 'Data', 'Model', 'Result', 'Database'], cust: 'telecom customers', left: 'churned', dotsNote: 'Each dot: a test-set customer (1,409)',
+    s1: 'Customer churn prediction', s1c: 'Final project · Big Data Analyst course · Technion', s1b: 'Goal: spot a customer about to leave, before they do', feat: 'features', steps: ['Problem', 'Data', 'Model', 'Result', 'Database'], cust: 'telecom customers', left: 'churned', dotsNote: 'Each dot: a test-set customer (1,409)',
     s2: 'What predicts churn?', s2sub: 'Churn rate in each group', pairs: [['Month-to-month', 42.7, 'Two-year contract', 2.8], ['Tenure up to 1 year', 47.4, 'Tenure over 1 year', 17.1], ['Electronic check', 45.3, 'Automatic payment', 16.0]] as [string, number, string, number][],
-    prep: 'Preparing the data', chips: ['Fix missing values', 'Encode categories', 'Scale numbers'], cols: 'columns', models: '61 configurations · 3 model families', fams: ['KNN', 'Decision tree', 'Random forest'], base: 'No-model guess 73.5%', axis: 'Test accuracy · axis starts at 70%', win: 'Random forest wins · 200 trees', badge: 'Winner',
+    prep: 'Preparing the data', chips: ['Fix missing values', 'Encode categories', 'Scale numbers'], cols: 'columns', models: '61 configurations · 3 model families', tool: 'with scikit-learn', fams: ['KNN', 'Decision tree', 'Random forest'], base: 'No-model guess 73.5%', axis: 'Test accuracy · axis starts at 70%', win: 'Random forest wins · 200 trees', badge: 'Winner',
     s4: 'Results on customers it never saw', acc: 'accuracy', of: 'of', found: 'churners found', alarms: 'false alarms', s4b: 'Above guessing without a model: 73.5%',
     s5: 'Part B: a database', m: ['25,000 records\nin MongoDB', 'Schema field\nfixed', '24,218 complete\nrecords scored', 'CSV\nexport'], close: 'Know who is about to leave, before they do', foot: 'Public dataset from the course',
   },
@@ -91,16 +91,13 @@ export const ChurnOverview: React.FC<{locale: Loc}> = ({locale}) => {
           <>
             <Dots d={d} s={0} n={null} r={6} gap={16} cx={he ? 480 : 1440} cy={470} lit={prog(lf, 56, 120)} />
             <div style={{position: 'absolute', top: 730, left: (he ? 480 : 1440) - 384, width: 768, textAlign: 'center', direction: rtl, fontFamily, fontSize: 30, fontWeight: 600, color: MUTED, opacity: o(40, 70)}}>{t.dotsNote}</div>
-            <div style={{...box, top: he ? 112 : 130, fontSize: he ? 104 : 70, fontWeight: 800, whiteSpace: 'nowrap', color: INK, opacity: o(6, 36), transform: slide(6, 36), lineHeight: 1.1}}>{t.s1}</div>
-            <div style={{...box, top: 246, fontSize: 46, fontWeight: 600, color: ACCENT, opacity: o(26, 56), transform: slide(26, 56)}}>{t.s1c}</div>
-            <div style={{...box, top: 338, fontSize: 58, fontWeight: 700, color: INK, opacity: o(56, 92), transform: slide(56, 92), lineHeight: 1.25}}>{t.s1b}</div>
-            <div style={{...box, top: 556, display: 'flex', gap: 20, opacity: o(104, 138), transform: slide(104, 138)}}>
+            <div style={{...box, top: he ? 140 : 156, fontSize: he ? 104 : 70, fontWeight: 800, whiteSpace: 'nowrap', color: INK, opacity: o(6, 36), transform: slide(6, 36), lineHeight: 1.1}}>{t.s1}</div>
+            <div style={{...box, top: 280, fontSize: he ? 46 : 40, fontWeight: 600, color: ACCENT, whiteSpace: 'nowrap', opacity: o(26, 56), transform: slide(26, 56)}}>{t.s1c}</div>
+            <div style={{...box, top: 376, fontSize: 58, fontWeight: 700, color: INK, opacity: o(56, 92), transform: slide(56, 92), lineHeight: 1.25}}>{t.s1b}</div>
+            <div style={{...box, top: 610, display: 'flex', gap: 20, opacity: o(104, 138), transform: slide(104, 138)}}>
               <Stat v="7,043" label={t.cust} color={INK} loc={locale} w={360} />
               <Stat v="19" label={t.feat} color={INK} loc={locale} w={240} />
               <Stat v="26.5%" label={t.left} color={CHURN} loc={locale} w={250} />
-            </div>
-            <div style={{...box, top: 770, display: 'flex', gap: 16, opacity: o(146, 176), transform: slide(146, 176)}}>
-              {['Python', 'scikit-learn', 'pandas', 'MongoDB'].map((c) => <div key={c} style={{padding: '12px 30px', borderRadius: 999, border: `2px solid ${ACCENT}77`, background: 'rgba(125,211,252,.09)', fontSize: 36, fontWeight: 600, color: INK, direction: 'ltr'}}>{c}</div>)}
             </div>
           </>
         );
@@ -133,21 +130,22 @@ export const ChurnOverview: React.FC<{locale: Loc}> = ({locale}) => {
         const hdr = (txt: string, y: number, a: number) => <div style={{position: 'absolute', left: 0, right: 0, top: y, textAlign: 'center', direction: rtl, fontFamily, fontSize: 46, fontWeight: 700, color: ACCENT, opacity: prog(lf, a, a + 28)}}>{txt}</div>;
         return (
           <>
-            {hdr(t.prep, 48, 4)}
-            <div style={{position: 'absolute', left: 0, right: 0, top: 122, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 22, direction: rtl, fontFamily}}>
+            {hdr(t.prep, 40, 4)}
+            <div style={{position: 'absolute', left: 0, right: 0, top: 112, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 22, direction: rtl, fontFamily}}>
               {t.chips.map((c, i) => {
                 const o = prog(lf, 10 + i * 12, 40 + i * 12);
                 return <div key={i} style={{...glass, borderRadius: 26, padding: '22px 36px', fontSize: 40, fontWeight: 700, color: INK, opacity: o, transform: `translateY(${(1 - o) * 18}px)`, border: `2px solid ${ACCENT}66`}}>{c}</div>;
               })}
-              <div style={{display: 'flex', alignItems: 'center', gap: 22, marginInlineStart: 36, opacity: prog(lf, 48, 80)}}>
+              <div style={{display: 'flex', alignItems: 'center', gap: 22, marginInlineStart: 12, opacity: prog(lf, 48, 80), transform: 'scale(0.74)'}}>
                 <Stat v="19" label={t.cols} color={INK} loc={locale} w={170} />
                 <div style={{fontSize: 64, color: ACCENT, transform: he ? 'scaleX(-1)' : 'none'}}>→</div>
                 <Stat v="46" label={t.cols} color={CHURN} loc={locale} w={170} />
               </div>
             </div>
-            {hdr(t.models, 274, 84)}
-            <div style={{position: 'absolute', left: 0, right: 0, top: 410, display: 'flex', justifyContent: 'center'}}>
-              <div style={{position: 'relative', direction: rtl}}>
+            {hdr(t.models, 276, 84)}
+            <div style={{position: 'absolute', left: 0, right: 0, top: 336, textAlign: 'center', direction: rtl, fontFamily, opacity: prog(lf, 96, 126)}}><span style={{display: 'inline-block', padding: '6px 24px', borderRadius: 999, border: `2px solid ${ACCENT}77`, background: 'rgba(125,211,252,.09)', fontSize: 32, fontWeight: 600, color: INK}}>{t.tool}</span></div>
+            <div style={{position: 'absolute', left: 0, right: 0, top: 486, display: 'flex', justifyContent: 'center'}}>
+              <div style={{position: 'relative', direction: rtl, fontFamily}}>
                 {t.fams.map((fm, i) => (
                   <Row key={i} loc={locale} label={fm} frac={(accs[i] - 70) / 12} W={W} labW={labW} barH={58} labSize={44} glow={i === 2} color={i === 2 ? CHURN : ACCENT} on={prog(lf, 104 + i * 18, 140 + i * 18)} val={`${accs[i].toFixed(1)}%`} />
                 ))}
@@ -159,7 +157,7 @@ export const ChurnOverview: React.FC<{locale: Loc}> = ({locale}) => {
                 <div style={{position: 'absolute', top: 3 * 80 + 62, left: 0, right: 0, textAlign: 'center', fontSize: 32, color: MUTED, opacity: prog(lf, 110, 140), direction: rtl}}>{t.axis}</div>
               </div>
             </div>
-            <Cap text={t.win} y={800} size={56} loc={locale} color={CHURN} op={prog(lf, 196, 228)} />
+            <Cap text={t.win} y={836} size={52} loc={locale} color={CHURN} op={prog(lf, 196, 228)} />
           </>
         );
       }}</Scene>

@@ -17,7 +17,7 @@
 - Part B: pulls from a MongoDB collection (25,000 documents in the Compass screenshot), found `PaperlessBilling` stored as a one-item array and fixed it, kept 24,218 complete rows, exported predictions in the original CSV schema with a duplicate check.
 
 ## Provenance (confirmed by Yotam 2026-11-25)
-- Final project of the **Technion data-analyst course**; the dataset is a **public dataset provided by the course**. No real customers, no real company. Say "project" / "Technion data-analyst course project"; never "real customers", "client" or "company data".
+- Final project of the **Technion Big Data Analyst course (Technion Certified Big Data Analyst; Hebrew on the site: ניתוח ביג דאטה)**; the dataset is a **public dataset provided by the course**. No real customers, no real company. Say "project" / "Technion data-analyst course project"; never "real customers", "client" or "company data".
 - Part B: the MongoDB processing really happened (import, cleaning, scoring); the records are the same kind of public data, not real customers.
 - Course certificate is on the portfolio site; do not state a grade or score unless Yotam gives the exact wording.
 

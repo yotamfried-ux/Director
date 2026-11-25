@@ -40,7 +40,7 @@ const T = {
     h5: '1,409 לקוחות שהמודל לא ראה, מדורגים לפי סיכון', caught: 'נוטשים נתפסו', alarms: 'התראות שווא', called: 'לקוחות לטיפול', thr: 'סף',
     h6: 'הסף הוא החלטה עסקית: יותר שיחות, יותר נתפסים', cust: 'הלקוח מהדוגמה', risk: 'סיכון 76%\nואכן עזב',
     h7: 'אותו תהליך, על נתונים ממסד נתונים', m1: '25,000 רשומות נטענו ל-MongoDB', m2: 'שדה בסכמה לא תקינה תוקן', m3: '24,218 רשומות שלמות קיבלו ציון', m4: 'ייצוא CSV',
-    end1: 'לדעת מי עומד לעזוב,', end2: 'לפני שהוא עוזב', end3: 'פרויקט גמר · קורס אנליסט נתונים · הטכניון',
+    end1: 'לדעת מי עומד לעזוב,', end2: 'לפני שהוא עוזב', end3: 'פרויקט גמר · קורס אנליסט ביג דאטה · הטכניון',
     foot: 'מערך נתונים ציבורי מהקורס',
   },
   en: {
@@ -51,7 +51,7 @@ const T = {
     h5: '1,409 customers the model never saw, ranked by risk', caught: 'churners caught', alarms: 'false alarms', called: 'customers to contact', thr: 'threshold',
     h6: 'The threshold is a business choice: more calls, more caught', cust: 'The example customer', risk: '76% risk\nand did leave',
     h7: 'Same process, on data from a database', m1: '25,000 records loaded into MongoDB', m2: 'Malformed schema field fixed', m3: '24,218 complete records scored', m4: 'CSV export',
-    end1: 'Know who is about to leave,', end2: 'before they do', end3: 'Final project · Data Analyst course · Technion',
+    end1: 'Know who is about to leave,', end2: 'before they do', end3: 'Final project · Big Data Analyst course · Technion',
     foot: 'Public dataset from the course',
   },
 };

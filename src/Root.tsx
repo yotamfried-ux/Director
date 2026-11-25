@@ -10,6 +10,8 @@ import {SportReelSite3} from './SportReelSite3';
 import {SportReelSite4} from './SportReelSite4';
 import {SportReelSite5} from './SportReelSite5';
 import {ChurnJourney} from './ChurnJourney';
+import {ChurnOverviewB} from './ChurnOverviewB';
+import {ChurnStyleA, ChurnStyleB, ChurnStyleC} from './ChurnStyles';
 import {ChurnOverview} from './ChurnOverview';
 
 const defaults: PromoProps = {
@@ -41,8 +43,13 @@ const showcaseHe: ShowcaseProps = {
 
 export const Root: React.FC = () => (
   <>
+    <Composition id="Churn-style-A" component={ChurnStyleA} durationInFrames={1} fps={30} width={1920} height={1080} />
+    <Composition id="Churn-style-B" component={ChurnStyleB} durationInFrames={1} fps={30} width={1920} height={1080} />
+    <Composition id="Churn-style-C" component={ChurnStyleC} durationInFrames={1} fps={30} width={1920} height={1080} />
     <Composition id="Churn-overview-he" component={ChurnOverview} durationInFrames={1185} fps={30} width={1920} height={1080} defaultProps={{locale: 'he' as const}} />
     <Composition id="Churn-overview-en" component={ChurnOverview} durationInFrames={1185} fps={30} width={1920} height={1080} defaultProps={{locale: 'en' as const}} />
+    <Composition id="Churn-overview-B-he" component={ChurnOverviewB} durationInFrames={1185} fps={30} width={1920} height={1080} defaultProps={{locale: 'he' as const}} />
+    <Composition id="Churn-overview-B-en" component={ChurnOverviewB} durationInFrames={1185} fps={30} width={1920} height={1080} defaultProps={{locale: 'en' as const}} />
     <Composition id="Churn-journey-he" component={ChurnJourney} durationInFrames={888} fps={30} width={1920} height={1080} defaultProps={{locale: 'he' as const}} />
     <Composition id="Churn-journey-en" component={ChurnJourney} durationInFrames={888} fps={30} width={1920} height={1080} defaultProps={{locale: 'en' as const}} />
     <Composition id="Promo-16x9" component={Promo} durationInFrames={240} fps={24} width={1920} height={1080} defaultProps={defaults} />

@@ -6,7 +6,7 @@ Claims: `products/churn-prediction.md` (verified 2026-11-25). Brief: `products/c
 
 | Time | Step | Visual (source) | Text (he) |
 |---|---|---|---|
-| 0–7.2 | 1. Background | Left: held-out customers as dots, 26.5% amber. Right: title, "פרויקט גמר · קורס אנליסט נתונים · הטכניון", goal sentence, three numbers (7,043 לקוחות · 19 מאפיינים · 26.5% עזבו), tool chips Python · scikit-learn · pandas · MongoDB (notebooks, deck) | חיזוי נטישת לקוחות · המטרה: לזהות מי עומד לעזוב, לפני שהוא עוזב |
+| 0–7.2 | 1. Background | Left: held-out customers as dots, 26.5% amber. Right: title, "פרויקט גמר · קורס אנליסט ביג דאטה · הטכניון", goal sentence, three numbers (7,043 לקוחות · 19 מאפיינים · 26.5% עזבו), tool chips Python · scikit-learn · pandas · MongoDB (notebooks, deck) | חיזוי נטישת לקוחות · המטרה: לזהות מי עומד לעזוב, לפני שהוא עוזב |
 | 6.4–13.2 | 2. Data insight | Paired bars from churn.csv: חוזה חודשי 42.7% / דו-שנתי 2.8%; ותק עד שנה 47.4% / מעל שנה 17.1%; צ'ק אלקטרוני 45.3% / אוטומטי 16.0% | מה מנבא נטישה? |
 | 12.4–21.2 | 3. Model | Prep chips (ניקוי · קידוד · נרמול, 19 ← 46 עמודות), then bars of best test accuracy per family (KNN 78.4, עץ החלטה 79.2, יער אקראי 80.2) with the 73.5% no-model line | הכנת הנתונים · 61 הגדרות · 3 משפחות מודלים · יער אקראי ניצח |
 | 20.4–27.2 | 4. Result | 80.2% accuracy on 1,409 unseen customers, 193 of 374 found, 98 false alarms, AUC 0.84, "מעל ניחוש ללא מודל: 73.5%" | התוצאה על לקוחות שלא נראו |
