@@ -56,3 +56,41 @@ export const Highlight: React.FC<{f: number; t0: number; to: [number, number]; s
     </div>
   );
 };
+
+/**
+ * Match-cut: a tilted perspective grid of tiles where ONE hero tile grows to fill the frame, so the
+ * grid becomes the next full-screen scene without a cut. Pure layout: the caller draws background,
+ * captions and the next scene (start the next scene's video with <Local from={q1}>).
+ *
+ * lf: scene-local frame. q0..q1: expansion window. fadeOthers: [a,b] window in which non-hero tiles fade out.
+ * Grid is `cols` wide, centred horizontally, top at y0; the hero tile's centre is the zoom origin.
+ * Tile entrance is staggered: tile i appears over [enter+i*step, enter+18+i*step].
+ */
+export const GridExpand: React.FC<{
+  lf: number; ids: string[]; heroId: string; renderTile: (id: string) => React.ReactNode;
+  pw: number; ph: number; gx: number; gy: number; y0: number; cols?: number;
+  q0: number; q1: number; fadeOthers: [number, number];
+  enter?: number; step?: number; width?: number; height?: number; accent?: string;
+}> = ({lf, ids, heroId, renderTile, pw, ph, gx, gy, y0, cols = 3, q0, q1, fadeOthers, enter = 4, step = 5, width = 1920, height = 1080, accent = '255,214,10'}) => {
+  const x0 = (width - (cols * pw + (cols - 1) * gx)) / 2;
+  const hi = ids.indexOf(heroId);
+  const cx = x0 + (hi % cols) * (pw + gx) + pw / 2, cy = y0 + Math.floor(hi / cols) * (ph + gy) + ph / 2;
+  const q = prog(lf, q0, q1);
+  const S = lerp(0.94, width / pw, q);
+  const flat = 1 - q;
+  return (
+    <div style={{position: 'absolute', inset: 0, transformOrigin: `${cx}px ${cy}px`, transform: `perspective(2600px) translate(${(width / 2 - cx) * q}px, ${(height / 2 - cy) * q}px) scale(${S}) rotateX(${10 * flat}deg) rotateY(${lerp(-9, -6, Math.min(1, lf / 70)) * flat}deg)`}}>
+      {ids.map((id, i) => {
+        const col = i % cols, row = Math.floor(i / cols);
+        const a = prog(lf, enter + i * step, enter + 18 + i * step);
+        const hero = id === heroId;
+        const others = hero ? 1 : 1 - prog(lf, fadeOthers[0], fadeOthers[1]);
+        return (
+          <div key={id} style={{position: 'absolute', left: x0 + col * (pw + gx), top: y0 + row * (ph + gy), width: pw, height: ph, borderRadius: hero ? lerp(16, 0, q) : 16, overflow: 'hidden', border: `${hero ? 1 + 2 * (1 - q) : 1}px solid ${hero ? `rgba(${accent},${0.9 * (1 - q)})` : '#2D3F55'}`, boxShadow: '0 16px 50px rgba(0,0,0,.5)', opacity: a * others, transform: `translateY(${(1 - a) * 26}px) scale(${lerp(0.96, 1, a)})`}}>
+            {renderTile(id)}
+          </div>
+        );
+      })}
+    </div>
+  );
+};
