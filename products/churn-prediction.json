@@ -1,0 +1,11 @@
+{
+  "slug": "churn-prediction",
+  "name": "Customer Churn Prediction",
+  "tagline_en": "Know who is about to leave, before they do",
+  "tagline_he": "לדעת מי עומד לעזוב, לפני שהוא עוזב",
+  "theme": "dark",
+  "must_appear_text": [],
+  "forbidden_text": ["production", "deployed", "real-time", "saved $", "Student Info", "ID:"],
+  "claims_verified_at": "2026-11-25",
+  "notes": "Used by scripts/qa-gate.py. Source of truth: products/churn-prediction.md. The student name and ID from the notebooks must never appear anywhere."
+}
