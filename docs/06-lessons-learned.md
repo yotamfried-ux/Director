@@ -34,7 +34,7 @@
 - **Track/sidecar time ≠ clip time.** Sidecar time = proxy time + window start (per clip: 0094 = 2.0 s, 0097 = 1.001 s). When boxes are not centred on the athlete, check this offset first, then smoothing.
 - **Smooth the featured athlete's box** (display smoothing) — raw tracker output jitters.
 - **Captions on busy footage:** bigger (56 px), double shadow, short; check contrast, do not trust the eye at full size (the card shows it at ~600 px).
-- **Site encodes:** CRF is wrong for noisy water footage (40 MB). Use target bitrate: demo 1080p `2300k/3200k/6400k`, preview 720p `850k/1300k/2600k`. Mid-fade blocking still shows at 850k.
+- **Site encodes:** CRF is wrong for noisy water footage (40 MB). Use target bitrate: demo 1080p `2300k/3200k/6400k`, preview 720p `1200k/1800k/3600k` (was 850k: blocking in mid-fade frames).
 - **UI-screenshot videos are single-locale:** the EN variant of Tori is English captions over the Hebrew UI; say so.
 - **Process:** use the repo skills (video-script → remotion-product-video → video-qa → site-video) every time; Yotam noticed when I didn't. Run one Remotion render at a time (two heavy jobs → "Compositor quit with signal SIGKILL"). Approve-then-merge per PR, never before his explicit go-ahead.
 - **Check the live site, not only the repo.** What a visitor sees (cache, deploy lag) can differ from `main`; verify the project page and tell him what you could not see.

@@ -29,4 +29,4 @@
 - `SportReel5-short-{en,he}`: 336 frames (11.2 s) — one idea (clip → follow → vertical reel), dissolves to the playing reel. **Rejected by Yotam (2026-11-25: "I don't like the short"); not on the site.** Redo as a new concept only if he asks.
 
 ## Site encodes
-Demo 1080p: `-b:v 2300k -maxrate 3200k -bufsize 6400k` (≈7.6 MB). Card preview 720p: `-b:v 850k -maxrate 1300k -bufsize 2600k` (≈2.8 MB; some blocking in mid-fade frames — raise to ~1200k if it bothers him).
+Demo 1080p: `-b:v 2300k -maxrate 3200k -bufsize 6400k` (≈7.6 MB). Card preview 720p: `-b:v 1200k -maxrate 1800k -bufsize 3600k` (≈4.1 MB; raised from 850k on 2026-11-25 because of blocking in mid-fade frames, SSIM 0.886 → 0.909).
