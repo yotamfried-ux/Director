@@ -10,6 +10,7 @@ import {SportReelSite3} from './SportReelSite3';
 import {SportReelSite4} from './SportReelSite4';
 import {SportReelSite5} from './SportReelSite5';
 import {ChurnJourney} from './ChurnJourney';
+import {ChurnOverview} from './ChurnOverview';
 
 const defaults: PromoProps = {
   name: 'TORI',
@@ -40,6 +41,8 @@ const showcaseHe: ShowcaseProps = {
 
 export const Root: React.FC = () => (
   <>
+    <Composition id="Churn-overview-he" component={ChurnOverview} durationInFrames={990} fps={30} width={1920} height={1080} defaultProps={{locale: 'he' as const}} />
+    <Composition id="Churn-overview-en" component={ChurnOverview} durationInFrames={990} fps={30} width={1920} height={1080} defaultProps={{locale: 'en' as const}} />
     <Composition id="Churn-journey-he" component={ChurnJourney} durationInFrames={888} fps={30} width={1920} height={1080} defaultProps={{locale: 'he' as const}} />
     <Composition id="Churn-journey-en" component={ChurnJourney} durationInFrames={888} fps={30} width={1920} height={1080} defaultProps={{locale: 'en' as const}} />
     <Composition id="Promo-16x9" component={Promo} durationInFrames={240} fps={24} width={1920} height={1080} defaultProps={defaults} />

@@ -8,19 +8,19 @@ import {Scene, clamp, lerp, prog} from './lib/motion';
 // reproduced 2026-11-25 (80.2% acc, AUC 0.84, 193/374 caught at threshold 0.5). Source of truth: products/churn-prediction.md.
 // Order of the 1,409 points is a fixed random shuffle; no identifiers are included.
 
-const BG = '#0B1020';
-const STAY = '#33405C';
-const CHURN = '#FFB020';
-const ALARM = '#FF6B81';
-const INK = '#EAF1FF';
-const MUTED = '#8FA0C4';
-const ACCENT = '#7DD3FC';
+export const BG = '#0B1020';
+export const STAY = '#33405C';
+export const CHURN = '#FFB020';
+export const ALARM = '#FF6B81';
+export const INK = '#EAF1FF';
+export const MUTED = '#8FA0C4';
+export const ACCENT = '#7DD3FC';
 const COLS = 49;
 const hex = (c: string) => [1, 3, 5].map((i) => parseInt(c.slice(i, i + 2), 16));
 const mix = (a: string, b: string, t: number) => { const x = hex(a), y = hex(b); return `rgb(${x.map((v, i) => Math.round(v + (y[i] - v) * t)).join(',')})`; };
 
-type Data = {p: number[]; y: number[]; ex: number};
-const useData = (): Data | null => {
+export type Data = {p: number[]; y: number[]; ex: number};
+export const useData = (): Data | null => {
   const [d, setD] = useState<Data | null>(null);
   const [h] = useState(() => delayRender('churn data'));
   useEffect(() => {
@@ -30,7 +30,7 @@ const useData = (): Data | null => {
   return d;
 };
 
-type Loc = 'he' | 'en';
+export type Loc = 'he' | 'en';
 const T = {
   he: {
     h1a: 'מודל שמנחש תמיד "אף אחד לא עוזב"', sub: 'חיזוי נטישת לקוחות', acc: 'דיוק', miss: 'נוטשים נתפסו', of: 'מתוך',
@@ -56,7 +56,7 @@ const T = {
   },
 };
 
-const Dots: React.FC<{d: Data; s: number; n: number | null; r: number; gap: number; cx: number; cy: number; lit?: number; missRing?: number; exP?: number}> = ({d, s, n, r, gap, cx, cy, lit = 0, missRing = 0, exP = 0}) => {
+export const Dots: React.FC<{d: Data; s: number; n: number | null; r: number; gap: number; cx: number; cy: number; lit?: number; missRing?: number; exP?: number}> = ({d, s, n, r, gap, cx, cy, lit = 0, missRing = 0, exP = 0}) => {
   const order = useMemo(() => d.p.map((p, i) => [p, i] as const).sort((a, b) => b[0] - a[0]).map((x) => x[1]), [d]);
   const rank = useMemo(() => { const m = new Array(d.p.length); order.forEach((idx, k) => { m[idx] = k; }); return m as number[]; }, [d, order]);
   const rows = Math.ceil(d.p.length / COLS);
@@ -82,11 +82,11 @@ const Dots: React.FC<{d: Data; s: number; n: number | null; r: number; gap: numb
   );
 };
 
-const Cap: React.FC<{text: string; y: number; size?: number; loc: Loc; color?: string; op?: number}> = ({text, y, size = 54, loc, color = INK, op = 1}) => (
+export const Cap: React.FC<{text: string; y: number; size?: number; loc: Loc; color?: string; op?: number}> = ({text, y, size = 54, loc, color = INK, op = 1}) => (
   <div style={{position: 'absolute', left: 0, right: 0, top: y, textAlign: 'center', direction: loc === 'he' ? 'rtl' : 'ltr', fontFamily, fontWeight: 700, fontSize: size, color, opacity: op, letterSpacing: loc === 'he' ? 0 : -0.5}}>{text}</div>
 );
 
-const Stat: React.FC<{v: string | number; label: string; color: string; loc: Loc; w?: number; sub?: string}> = ({v, label, color, loc, w = 400, sub}) => (
+export const Stat: React.FC<{v: string | number; label: string; color: string; loc: Loc; w?: number; sub?: string}> = ({v, label, color, loc, w = 400, sub}) => (
   <div style={{width: w, textAlign: 'center', direction: loc === 'he' ? 'rtl' : 'ltr', fontFamily}}>
     <div style={{fontSize: 96, fontWeight: 800, color, lineHeight: 1}}><span style={{direction: 'ltr', unicodeBidi: 'isolate'}}>{v}</span>{sub ? <span style={{fontSize: 44, color: MUTED, fontWeight: 600, direction: loc === 'he' ? 'rtl' : 'ltr', unicodeBidi: 'isolate'}}> {sub}</span> : null}</div>
     <div style={{fontSize: 34, fontWeight: 600, color: MUTED, marginTop: 10}}>{label}</div>
