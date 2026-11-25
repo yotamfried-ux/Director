@@ -22,6 +22,7 @@ description: Build or modify Remotion compositions in src/ for product promos (p
 - Remotion's `<Sequence from>` resets the frame: wrap hooks/intro that way (done in `Showcase`).
 
 ## Workflow
+0. Before any full render, run `scripts/render-draft.sh <CompositionId>` (25% scale, ~1 min) and review timing/flow; full renders take minutes and fail with SIGKILL if run alongside other heavy jobs.
 1. `npx tsc --noEmit`
 2. Stills: `npx remotion still Showcase-9x16 /tmp/x.png --frame=N --gl=swangle` for ~5–8 frames (key moments + mid-transition); build a contact sheet with PIL and view it.
 3. Full render in the background: `bash scripts/render-showcase.sh` (≈6 min for 27s on 2 cores; poll with a short loop, never one long sleep).
