@@ -121,7 +121,7 @@ const centerOf = (pts: BoxPt[], t: number): {x: number; y: number} => {
 type Lang = 'en' | 'he';
 const TXT = {
   en: {tag: 'Drone footage in. Personal reels out.', chaos: 'Lots of clips. Many athletes.', chaosSub: 'Who is who?', find: 'Finds every athlete', follow: '…and follows each one', same: 'Same athlete, across different clips', sameSub: 'No face recognition', frame: 'Picks the full ride, frames it for phones', frameSub: 'Vertical, ready to post', lineup: 'A personal reel for every athlete', end2: 'Drone footage to vertical video', athletes: 'ATHLETES', athlete: 'ATHLETE', tracking: 'TRACKING'},
-  he: {tag: 'צילומי רחפן נכנסים. ריל אישי יוצא.', chaos: 'המון קליפים. המון ספורטאים.', chaosSub: 'מי זה מי?', find: 'מזהה כל ספורטאי', follow: '…ועוקב אחרי כל אחד', same: 'אותו ספורטאי, בקליפים שונים', sameSub: 'בלי זיהוי פנים', frame: 'בוחר את הרכיבה המלאה וממסגר לטלפון', frameSub: 'אנכי, מוכן לפרסום', lineup: 'ריל אישי לכל ספורטאי', end2: 'מצילומי רחפן לווידאו אנכי', athletes: 'ספורטאים', athlete: 'ספורטאי', tracking: 'מעקב'},
+  he: {tag: 'מעלים צילומי רחפן. מקבלים ריל אישי.', chaos: 'המון קליפים. המון ספורטאים.', chaosSub: 'מי זה מי?', find: 'מאתר כל ספורטאי', follow: 'ועוקב אחרי כל אחד מהם', same: 'אותו ספורטאי, בין קליפים שונים', sameSub: 'בלי זיהוי פנים', frame: 'בוחר את הגלישה המלאה ומתאים אותה לטלפון', frameSub: 'בפורמט אנכי, מוכן לפרסום', lineup: 'ריל אישי לכל ספורטאי', end2: 'מצילומי רחפן לסרטון אנכי', athletes: 'ספורטאים', athlete: 'ספורטאי', tracking: 'מעקב'},
 };
 
 // ---------- building blocks ----------

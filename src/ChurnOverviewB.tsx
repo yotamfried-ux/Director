@@ -202,7 +202,7 @@ export const ChurnOverviewB: React.FC<{locale: Loc}> = ({locale}) => {
             <div style={{position: 'absolute', top: 220, [anchor]: 110, width: 600, direction: rtl, textAlign: he ? 'right' : 'left', fontFamily}}>
               <div style={{opacity: prog(lf, 16, 46)}}>
                 <div style={{fontSize: 220, fontWeight: 800, lineHeight: 1, color: INK, letterSpacing: -4}}><Num>{v.toFixed(1)}<span style={{color: VIO}}>%</span></Num></div>
-                <div style={{fontSize: 52, fontWeight: 700}}>{t.acc}</div>
+                <div style={{fontSize: 52, fontWeight: 700, color: INK}}>{t.acc}</div>
                 <div style={{fontSize: 32, color: MUTE, marginTop: 8, opacity: prog(lf, 98, 128), fontWeight: 500}}>{t.s4b}</div>
               </div>
               <div style={{marginTop: 38, display: 'flex', flexDirection: 'column', gap: 18}}>
