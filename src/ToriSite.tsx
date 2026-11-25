@@ -1,10 +1,9 @@
 import React from 'react';
-import {AbsoluteFill, Easing, Img, interpolate, interpolateColors, staticFile, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Img, interpolate, interpolateColors, staticFile, useCurrentFrame} from 'remotion';
+import {Fade, Highlight, prog} from './lib/motion';
 import {Background, Monitor, Phone, Sheen, Shot, SHOT_H, SHOT_W, ease, fontFamily, lerp} from './Promo';
 
 // Tori — site video, LONG (project page). 1920x1080 @30, silent, he/en captions. See products/tori-script-long-v1.md
-const soft = Easing.bezier(0.45, 0, 0.2, 1);
-const prog = (f: number, a: number, b: number) => interpolate(f, [a, b], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: soft});
 const BAD = '#ff7a8a', AMBER = '#ffc15e';
 
 export type ToriSiteProps = {lang: 'he' | 'en'; accent: string; bg: string};
@@ -35,25 +34,6 @@ const TXT = {
 };
 
 const card = (rtl: boolean): React.CSSProperties => ({direction: rtl ? 'rtl' : 'ltr', borderRadius: 32, padding: '30px 38px', background: 'linear-gradient(135deg, rgba(10,32,34,.94), rgba(5,16,18,.94))', boxShadow: '0 24px 60px rgba(0,0,0,.55)'});
-
-const Highlight: React.FC<{f: number; t0: number; to: [number, number]; size: number; accent: string}> = ({f, t0, to, size, accent}) => {
-  const grow = prog(f, t0 + 14, t0 + 30);
-  const fade = 1 - prog(f, t0 + 24, t0 + 44);
-  if (grow <= 0.001 || fade <= 0.001) return null;
-  const r = size * (1.2 + grow * 2.2);
-  return (
-    <div style={{position: 'absolute', left: to[0], top: to[1], pointerEvents: 'none', opacity: fade}}>
-      <div style={{position: 'absolute', left: -r, top: -r, width: r * 2, height: r * 2, borderRadius: 999, background: `radial-gradient(circle, ${accent}66, ${accent}22 55%, transparent 72%)`, filter: 'blur(2px)'}} />
-    </div>
-  );
-};
-
-// scene wrapper: soft blur+fade in/out with overlap (>=24f)
-const Fade: React.FC<{f: number; a: number; b: number; c: number; d: number; children: React.ReactNode}> = ({f, a, b, c, d, children}) => {
-  const i = prog(f, a, b), o = prog(f, c, d);
-  if (f < a || f > d) return null;
-  return <AbsoluteFill style={{opacity: i * (1 - o), filter: `blur(${(1 - i) * 10 + o * 10}px)`, transform: `scale(${lerp(1.03, 1, i) * lerp(1, 0.985, o)})`}}>{children}</AbsoluteFill>;
-};
 
 const AutoScene: React.FC<{f: number; accent: string; rtl: boolean; t: typeof TXT.he}> = ({f, accent, rtl, t}) => {
   const L = f - 590;

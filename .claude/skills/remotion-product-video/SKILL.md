@@ -7,6 +7,9 @@ description: Build or modify Remotion compositions in src/ for product promos (p
 ## Files
 `src/Promo.tsx` shared primitives (`Phone`, `Monitor`, `Shot`, `Sheen`, `Background`, `ease`, `lerp`, `fontFamily`) and the first 10s promo · `src/Site.tsx` 8s silent site cut (he/en) · `src/Showcase.tsx` 27s phone promo (`Hook` + `ShowcaseMain` + `AutoScene` + `InsightScene`) · `src/Root.tsx` compositions and caption data (`Showcase-9x16` = 820 frames @30fps, 1080×1920).
 
+## Shared motion library: `src/lib/motion.tsx` (use it, do not copy helpers into new files)
+`soft`/`prog`/`lerp`/`clamp` (house easing), `Scene` (Sequence + 24-frame blur/fade), `Fade` (absolute-frame scene wrapper), `Local` (start a clip or sub-scene at a chosen frame: the match-cut tool, with constant `startFrom`/`playbackRate`), `Highlight` (soft press glow, no cursor). New reusable pieces go there; verify a refactor by rendering stills before/after and diffing pixels (`PIL.ImageChops.difference(...).getbbox()` is `None` when identical).
+
 ## Rules that came from Yotam's feedback
 - Easing: `Easing.bezier(0.45,0,0.2,1)` ("soft") through `prog(f,a,b)`; never linear for UI motion.
 - Global time stretch: `const f = useCurrentFrame()/SPEED` (1.12). Changing SPEED changes total length: update `durationInFrames` in `Root.tsx` and re-cut music.
