@@ -17,14 +17,14 @@ export const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 export const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
 
 /** Scene in a Sequence with built-in 24-frame blur+fade in/out. `children` receives the scene-local frame. */
-export const Scene: React.FC<{from: number; dur: number; fadeIn?: boolean; fadeOut?: boolean; children: (local: number) => React.ReactNode}> = ({from, dur, fadeIn = true, fadeOut = true, children}) => (
+export const Scene: React.FC<{from: number; dur: number; fadeIn?: boolean; fadeOut?: boolean; fade?: number; children: (local: number) => React.ReactNode}> = ({from, dur, fadeIn = true, fadeOut = true, fade = 24, children}) => (
   <Sequence from={from} durationInFrames={dur}>
-    <SceneInner dur={dur} fadeIn={fadeIn} fadeOut={fadeOut}>{children}</SceneInner>
+    <SceneInner dur={dur} fadeIn={fadeIn} fadeOut={fadeOut} fade={fade}>{children}</SceneInner>
   </Sequence>
 );
-const SceneInner: React.FC<{dur: number; fadeIn: boolean; fadeOut: boolean; children: (local: number) => React.ReactNode}> = ({dur, fadeIn, fadeOut, children}) => {
+const SceneInner: React.FC<{dur: number; fadeIn: boolean; fadeOut: boolean; fade: number; children: (local: number) => React.ReactNode}> = ({dur, fadeIn, fadeOut, fade, children}) => {
   const lf = useCurrentFrame();
-  const o = (fadeIn ? prog(lf, 0, 24) : 1) * (fadeOut ? 1 - prog(lf, dur - 24, dur) : 1);
+  const o = (fadeIn ? prog(lf, 0, fade) : 1) * (fadeOut ? 1 - prog(lf, dur - fade, dur) : 1);
   return <AbsoluteFill style={{opacity: o, filter: o < 0.999 ? `blur(${(1 - o) * 12}px)` : undefined}}>{children(lf)}</AbsoluteFill>;
 };
 

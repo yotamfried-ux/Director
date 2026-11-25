@@ -52,3 +52,11 @@ Format: `experiments/template.md`. Qualitative entries are Yotam's feedback in c
 - **Hypothesis:** AI-generated plates can replace real-footage scenes.
 - **Evidence:** plates work as title/atmosphere backgrounds; real-footage scenes must stay real (the model cannot draw athletes/UI faithfully).
 - **Decision:** plates yes (titles), generated footage no. **Recorded:** `products/sportreel.md`.
+
+### EXP-008 — churn overview: reading budget and UI (2026-11-25)
+- **Product / asset:** Customer Churn Prediction project clip (`Churn-overview-he/en`, 16:9, silent)
+- **Hypothesis:** the clip fails because viewers cannot read it in time (too many words per second, 24-frame cross-fades), not because the content is wrong.
+- **Variants:** journey-of-one-customer v1 (60 s plan) · overview v1 30 s · v2 33 s with background + stepper · v3 39.5 s with a reading budget (≥0.4 s/word, ≥1.3 s full-visible hold, 30-frame cross-fades via `Scene fade`), bigger type, one-screen prep+models, labelled 70–82% axis, 374-dot "193 found" picture, cards that fit the frame.
+- **Evidence:** v1 journey "not good, text not good, can't understand"; 60 s "too long"; overview v1 "improved but unfinished, no background"; v2 "UI needs improvement, transitions too fast to read and understand". v3: awaiting verdict.
+- **Director notes (v3):** 5-second test passes (title, course project, goal by 3 s); honesty: all numbers from `products/churn-prediction.md`, truncated axis labelled; cut test: AUC kept only as small stat. Length 39.5 s is longer than Yotam's 30 s target: stated to him as a trade-off.
+- **Decision:** pending Yotam. **Recorded:** `products/churn-prediction-script-v3.md`.
