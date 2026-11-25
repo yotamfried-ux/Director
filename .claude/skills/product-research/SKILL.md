@@ -4,11 +4,11 @@ description: Use at the start of any promo/marketing video or post for a softwar
 ---
 # Product research (buyer lens)
 
-Do this before any script. Yotam explicitly requires: understand the system first, think like an independent business owner, go beyond basic features, think marketing.
+Do this after the creative brief goal is drafted (`video-brief`) and before any script. Yotam explicitly requires: understand the system first, think like an independent business owner, go beyond basic features, think marketing.
 
 ## Steps
 1. **Gather sources** (read, don't guess): the product's repo docs and UI strings (e.g. `messages/he.json` `home.*`), readiness/evidence docs, live site, existing screenshots/videos (Google Drive connector), portfolio entry (`Portfolio/src/lib/media.ts`). Reference: `products/tori.md`.
-2. **List what exists vs what is only planned/skeleton.** Mark skeleton features as forbidden (Tori: payments/invoicing).
+2. **Re-verify what exists vs what is only planned/skeleton, against the product's state today.** Products keep developing: a claim forbidden last month may now ship (and may be worth showing), and a shown feature may have changed or been removed. Check repo HEAD/recent commits, changelog, live site, UI strings, evidence docs. Write `Claims verified on <YYYY-MM-DD> against <commit/URL>` at the top of "Verified claims" in `products/<slug>.md`, and set `claims_verified_at` in `products/<slug>.json`. Mark skeleton features as forbidden *as of that date* (Tori: payments/invoicing were skeleton on 2026-11-24). If an existing video shows something that is no longer true, flag it to Yotam.
 3. **Buyer lens:** who pays, what hurts (time, money, stress), what they compare against, what makes them say "I want this". Map each pain to a verified feature (table like `docs/02-marketing-method.md`). Go past basics: automations, control, insight, trust.
 4. **Pick 4–6 advantages** forming a story: remove pain → show it working → show control → show numbers.
 5. **Asset inventory:** which advantages have real screenshots, which need capture, which need motion graphics built from real labels. Flag the gap honestly.

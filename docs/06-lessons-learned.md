@@ -38,3 +38,5 @@
 - **UI-screenshot videos are single-locale:** the EN variant of Tori is English captions over the Hebrew UI; say so.
 - **Process:** use the repo skills (video-script → remotion-product-video → video-qa → site-video) every time; Yotam noticed when I didn't. Run one Remotion render at a time (two heavy jobs → "Compositor quit with signal SIGKILL"). Approve-then-merge per PR, never before his explicit go-ahead.
 - **Check the live site, not only the repo.** What a visitor sees (cache, deploy lag) can differ from `main`; verify the project page and tell him what you could not see.
+- **Forbidden claims expire.** "Not shipped" is a dated fact, not a permanent rule (Yotam, 2026-11-25). Each video starts by re-verifying claims against the product's current state; `claims_verified_at` in the product json makes `qa-gate.py` warn after 14 days.
+- **Direction before craft.** Each video starts with a creative brief (goal, viewer and moment, one promise, sales angle, objections, form/length reason) and ends with a director's review (5-second, message, honesty, feel, cut). Skill: `video-brief`.

@@ -4,7 +4,7 @@
 - **Audience on the portfolio site:** freelance clients (what it does for a customer, not how). Engineering detail belongs in the project-page exploration views, not in the videos.
 - **Video look:** dark navy `#0A0E1A`, yellow `#FFD60A` brackets, cyan `#00E5FF` accent, Heebo font. 16:9, 30fps, silent. EN + HE captions (footage has no UI text, so both locales share the same picture).
 
-## Verified claims (safe to show or say)
+## Verified claims (safe to show or say) — verified 2026-11-25 against the pipeline as described by Yotam and the sidecar data; re-verify before the next video
 - Finds the athletes in each clip and follows each one (Ultralytics YOLO detection + BoT-SORT tracking).
 - Links the same athlete across different clips **without face recognition** (non-biometric athlete ids). Say "without face recognition" exactly this way.
 - Picks the full ride/run and crops a tracked, athlete-centred frame; output is **vertical** (reel proxies are 720x1280) and ready to post.

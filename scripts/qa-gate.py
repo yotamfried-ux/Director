@@ -9,7 +9,8 @@ Checks
   spec    ffprobe: codec, size, fps, duration vs expectation
   cuts    hard cuts: frame-to-frame change far above this clip's own norm (no hard cuts rule)
   frozen  static tail / long static runs (the "dead phone at the end" defect)
-  text    OCR once per second: forbidden claims (products/<slug>.json forbidden_text),
+  text    (forbidden_text = NOT shipped as of claims_verified_at; warns if older than 14 days)
+          OCR once per second: forbidden claims (products/<slug>.json forbidden_text),
           required text (must_appear_text), and caption contrast on OCR word boxes
 Not covered (say so when delivering): audio, beat sync, real-device/WhatsApp/live-site rendering,
 whether motion *feels* smooth, anything OCR cannot read.
@@ -87,6 +88,12 @@ text = ' '.join(words_all)
 for t, wd, r in low_contrast[:8]: warns.append(f'low contrast (heuristic) {r}:1 at ~{t}s "{wd}"')
 if a.product:
     cfg = json.load(open(f'products/{a.product}.json'))
+    import datetime
+    ver = cfg.get('claims_verified_at')
+    if not ver: warns.append('claims_verified_at missing in product json: re-verify claims against the product today')
+    else:
+        age = (datetime.date.today() - datetime.date.fromisoformat(ver)).days
+        if age > 14: warns.append(f'claims last verified {age} days ago ({ver}): the product may have changed; re-verify before trusting forbidden_text/must_appear_text')
     for bad in cfg.get('forbidden_text', []):
         if bad.lower() in text: fails.append(f'forbidden text on screen: "{bad}"')
     miss = [m for m in cfg.get('must_appear_text', []) if m.lower() not in text]

@@ -6,7 +6,15 @@
   "theme": "dark",
   "accent": "#00E5FF",
   "bg": "#0A0E1A",
-  "must_appear_text": ["SportReel"],
-  "forbidden_text": ["4K", "99%", "AI-powered", "face id"],
-  "notes": "Used by scripts/qa-gate.py. Source of truth for claims: products/sportreel.md."
+  "must_appear_text": [
+    "SportReel"
+  ],
+  "forbidden_text": [
+    "4K",
+    "99%",
+    "AI-powered",
+    "face id"
+  ],
+  "notes": "Used by scripts/qa-gate.py. Source of truth for claims: products/sportreel.md.",
+  "claims_verified_at": "2026-11-25"
 }
