@@ -33,3 +33,22 @@ Format: `experiments/template.md`. Qualitative entries are Yotam's feedback in c
 - **Variants:** A = threshold swaps at 50% (button, status chip, toggles) · B = continuous colour blend + crossfaded labels.
 - **Evidence:** A "button presses not smooth"; B accepted.
 - **Decision:** B. **Recorded:** `skills/remotion-product-video`.
+
+### EXP-005 — short vs long site videos (2026-11-24/25)
+- **Product / asset:** Tori and SportReel site clips (16:9, silent, he/en)
+- **Hypothesis:** a short card-preview cut derived from the long walkthrough gives visitors the same message faster.
+- **Variants:** A = long sped up/trimmed · B = independent one-idea short · C = long only in both card and project page.
+- **Evidence:** A "just a fast version of the long, doesn't work"; Tori long accepted and merged; SportReel long accepted and merged; SportReel short B (v6) "I don't like it" → use the long in card and page.
+- **Decision:** SportReel: long only (card preview 720p + project page 1080p). Tori: agreed 8 s card cut + long on project page. Shorts only when they carry their own idea.
+- **Where recorded:** `docs/06-lessons-learned.md`, `products/sportreel.md`, `products/tori-script-long-v1.md`.
+
+### EXP-006 — match-cut transitions in SportReel (2026-11-25)
+- **Hypothesis:** continuous match-cut transitions look more natural than separate scenes with fades.
+- **Variants:** v4 separate scenes with fades · v5 grid→hero clip and phone→lineup match-cuts.
+- **Evidence:** v4 "transitions unnatural, boxes not centred"; v5 "closer to what we want", then long approved.
+- **Decision:** keep match-cuts; keep sidecar-offset + display-smoothing fixes. **Recorded:** lessons, `products/sportreel.md`.
+
+### EXP-007 — Flow plates vs real footage (2026-11-24)
+- **Hypothesis:** AI-generated plates can replace real-footage scenes.
+- **Evidence:** plates work as title/atmosphere backgrounds; real-footage scenes must stay real (the model cannot draw athletes/UI faithfully).
+- **Decision:** plates yes (titles), generated footage no. **Recorded:** `products/sportreel.md`.
