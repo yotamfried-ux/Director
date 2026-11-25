@@ -1,7 +1,7 @@
 import React, {useEffect, useMemo, useState} from 'react';
 import {AbsoluteFill, Freeze, Img, OffthreadVideo, continueRender, delayRender, staticFile, useCurrentFrame} from 'remotion';
 import {fontFamily} from './Promo';
-import {Local, Scene, clamp, lerp, prog} from './lib/motion';
+import {GridExpand, Local, Scene, clamp, lerp, prog} from './lib/motion';
 
 // SportReel portfolio videos v4 (client-facing, silent, 1920x1080 @30).
 //  - short: ~12 s, for the project card.   - long: ~33 s, for the project page.
@@ -317,31 +317,15 @@ export const SportReelSite5: React.FC<SportReelSite5Props> = ({locale, variant})
 
   const chaosVision = (total: number) => (lf: number) => {
     const files = [{f: '0094', s: 0}, {f: '0097', s: 0}, {f: '0155', s: 0}, {f: '0146', s: 30}, {f: '0118', s: 30}, {f: '0162', s: 20}];
-    const pw = 590, ph = 332, gx = 36, gy = 36;
-    const x0 = (1920 - (3 * pw + 2 * gx)) / 2, y0 = 150;
-    const cx = x0 + 1 * (pw + gx) + pw / 2, cy = y0 + ph / 2;
-    const q = prog(lf, 70, 108);
-    const S = lerp(0.94, 1920 / pw, q);
-    const flat = 1 - q;
+    const pw = 590, ph = 332, gx = 36, gy = 36, y0 = 150;
     return (
       <>
         {lf < 110 && (
           <>
             <AbsoluteFill style={{background: BG}} />
             <Plate file="caustic" opacity={0.9 * (1 - prog(lf, 66, 100))} />
-            <div style={{position: 'absolute', inset: 0, transformOrigin: `${cx}px ${cy}px`, transform: `perspective(2600px) translate(${(960 - cx) * q}px, ${(540 - cy) * q}px) scale(${S}) rotateX(${10 * flat}deg) rotateY(${lerp(-9, -6, Math.min(1, lf / 70)) * flat}deg)`}}>
-              {files.map((c, i) => {
-                const col = i % 3, row = Math.floor(i / 3);
-                const a = prog(lf, 4 + i * 5, 22 + i * 5);
-                const hero = c.f === '0097';
-                const others = hero ? 1 : 1 - prog(lf, 66, 100);
-                return (
-                  <div key={c.f} style={{position: 'absolute', left: x0 + col * (pw + gx), top: y0 + row * (ph + gy), width: pw, height: ph, borderRadius: hero ? lerp(16, 0, q) : 16, overflow: 'hidden', border: `${hero ? 1 + 2 * (1 - q) : 1}px solid ${hero ? `rgba(255,214,10,${0.9 * (1 - q)})` : '#2D3F55'}`, boxShadow: '0 16px 50px rgba(0,0,0,.5)', opacity: a * others, transform: `translateY(${(1 - a) * 26}px) scale(${lerp(0.96, 1, a)})`}}>
-                    <Clip file={c.f} startFrom={c.s} w={pw} h={ph} />
-                  </div>
-                );
-              })}
-            </div>
+            <GridExpand lf={lf} ids={files.map((c) => c.f)} heroId="0097" pw={pw} ph={ph} gx={gx} gy={gy} y0={y0} q0={70} q1={108} fadeOthers={[66, 100]}
+              renderTile={(id) => <Clip file={id} startFrom={files.find((c) => c.f === id)!.s} w={pw} h={ph} />} />
             <Caption text={L.chaos} sub={L.chaosSub} opacity={prog(lf, 26, 44) * (1 - prog(lf, 56, 72))} he={he} />
           </>
         )}
