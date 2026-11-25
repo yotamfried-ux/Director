@@ -16,12 +16,15 @@
 - Top Random Forest feature importances: tenure, total charges, monthly charges, month-to-month contract, no online security, fiber optic, no tech support.
 - Part B: pulls from a MongoDB collection (25,000 documents in the Compass screenshot), found `PaperlessBilling` stored as a one-item array and fixed it, kept 24,218 complete rows, exported predictions in the original CSV schema with a duplicate check.
 
-## Open / not to claim until Yotam confirms
-- **Dataset provenance** (public dataset? course-provided?) and whether to call it a **course project** (the notebook is a student submission). No claim of "real customers" or any named company.
-- **Part B data:** 25,000 documents vs 7,043 original rows: real, synthetic or duplicated? Do not show the predicted churn share as a finding.
-- Any business value in money or % saved, "production", "deployed", "real-time": **not verified, never claim**.
-- The model is a classic Random Forest (no deep learning / "AI" language).
-- Role/individual contribution is stated by the portfolio as "needs verification".
+## Provenance (confirmed by Yotam 2026-11-25)
+- Final project of the **Technion data-analyst course**; the dataset is a **public dataset provided by the course**. No real customers, no real company. Say "project" / "Technion data-analyst course project"; never "real customers", "client" or "company data".
+- Part B: the MongoDB processing really happened (import, cleaning, scoring); the records are the same kind of public data, not real customers.
+- Course certificate is on the portfolio site; do not state a grade or score unless Yotam gives the exact wording.
+
+## Still not to claim
+- Any business value in money or % saved, "production", "deployed", "real-time".
+- Part B predicted churn share as a finding.
+- The model is a classic Random Forest (no deep-learning / "AI" language).
 
 ## Assets
 `figures/` (24 default-matplotlib charts: confusion matrix, ROC, feature importance, churn by contract/tenure/payment...), a MongoDB Compass screenshot (shows local hostname and database names: crop or redo before use), `churn.csv`, the saved pipeline (loads with scikit-learn 1.9.1 with a version warning; trained in 1.8.0: reproduce the test metrics before computing new numbers).
