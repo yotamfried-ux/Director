@@ -1,0 +1,242 @@
+[
+ {
+  "id": "demo-a0",
+  "source": "demo-il-a",
+  "url": "https://example.test/demo/a0",
+  "seen_on": "2026-11-20",
+  "region": "IL",
+  "category": "automation",
+  "title": "DEMO listing",
+  "summary": "DEMO synthetic listing, not real",
+  "tags": [
+   "n8n",
+   "whatsapp",
+   "google-sheets"
+  ],
+  "poster_ref": "p1",
+  "budget_min": 800,
+  "budget_max": 1500,
+  "currency": "ILS"
+ },
+ {
+  "id": "demo-a1",
+  "source": "demo-il-a",
+  "url": "https://example.test/demo/a1",
+  "seen_on": "2026-11-20",
+  "region": "IL",
+  "category": "automation",
+  "title": "DEMO listing",
+  "summary": "DEMO synthetic listing, not real",
+  "tags": [
+   "n8n",
+   "whatsapp",
+   "google-sheets"
+  ],
+  "poster_ref": "p2",
+  "budget_min": 1000,
+  "budget_max": 1800,
+  "currency": "ILS"
+ },
+ {
+  "id": "demo-a2",
+  "source": "demo-il-b",
+  "url": "https://example.test/demo/a2",
+  "seen_on": "2026-11-20",
+  "region": "IL",
+  "category": "automation",
+  "title": "DEMO listing",
+  "summary": "DEMO synthetic listing, not real",
+  "tags": [
+   "n8n",
+   "whatsapp",
+   "google-sheets"
+  ],
+  "poster_ref": "p3",
+  "budget_min": 900,
+  "budget_max": 1400,
+  "currency": "ILS"
+ },
+ {
+  "id": "demo-a3",
+  "source": "demo-il-b",
+  "url": "https://example.test/demo/a3",
+  "seen_on": "2026-11-20",
+  "region": "IL",
+  "category": "automation",
+  "title": "DEMO listing",
+  "summary": "DEMO synthetic listing, not real",
+  "tags": [
+   "n8n",
+   "whatsapp",
+   "google-sheets"
+  ],
+  "poster_ref": "p4"
+ },
+ {
+  "id": "demo-a4",
+  "source": "demo-il-a",
+  "url": "https://example.test/demo/a4",
+  "seen_on": "2026-11-20",
+  "region": "IL",
+  "category": "automation",
+  "title": "DEMO listing",
+  "summary": "DEMO synthetic listing, not real",
+  "tags": [
+   "n8n",
+   "whatsapp",
+   "google-sheets"
+  ],
+  "poster_ref": "p5",
+  "budget_min": 1200,
+  "budget_max": 2000,
+  "currency": "ILS"
+ },
+ {
+  "id": "demo-b0",
+  "source": "demo-intl",
+  "url": "https://example.test/demo/b0",
+  "seen_on": "2026-11-20",
+  "region": "abroad",
+  "category": "etl",
+  "title": "DEMO listing",
+  "summary": "DEMO synthetic listing, not real",
+  "tags": [
+   "postgres",
+   "airflow",
+   "python"
+  ],
+  "poster_ref": "q1",
+  "budget_min": 900,
+  "budget_max": 1500,
+  "currency": "USD"
+ },
+ {
+  "id": "demo-b1",
+  "source": "demo-intl",
+  "url": "https://example.test/demo/b1",
+  "seen_on": "2026-11-20",
+  "region": "abroad",
+  "category": "etl",
+  "title": "DEMO listing",
+  "summary": "DEMO synthetic listing, not real",
+  "tags": [
+   "postgres",
+   "airflow",
+   "python"
+  ],
+  "poster_ref": "q2",
+  "budget_min": 1500,
+  "budget_max": 2500,
+  "currency": "USD"
+ },
+ {
+  "id": "demo-b2",
+  "source": "demo-intl-2",
+  "url": "https://example.test/demo/b2",
+  "seen_on": "2026-11-20",
+  "region": "abroad",
+  "category": "etl",
+  "title": "DEMO listing",
+  "summary": "DEMO synthetic listing, not real",
+  "tags": [
+   "postgres",
+   "airflow",
+   "python"
+  ],
+  "poster_ref": "q3",
+  "budget_min": 700,
+  "budget_max": 1200,
+  "currency": "USD"
+ },
+ {
+  "id": "demo-c0",
+  "source": "demo-il-a",
+  "url": "https://example.test/demo/c0",
+  "seen_on": "2026-11-20",
+  "region": "IL",
+  "category": "fullstack",
+  "title": "DEMO listing",
+  "summary": "DEMO synthetic listing, not real",
+  "tags": [
+   "react",
+   "booking",
+   "stripe"
+  ],
+  "poster_ref": "p9",
+  "budget_min": 4000,
+  "budget_max": 6000,
+  "currency": "ILS"
+ },
+ {
+  "id": "demo-c1",
+  "source": "demo-il-b",
+  "url": "https://example.test/demo/c1",
+  "seen_on": "2026-11-20",
+  "region": "IL",
+  "category": "fullstack",
+  "title": "DEMO listing",
+  "summary": "DEMO synthetic listing, not real",
+  "tags": [
+   "react",
+   "booking",
+   "stripe"
+  ],
+  "poster_ref": "p9",
+  "budget_min": 5000,
+  "budget_max": 7000,
+  "currency": "ILS"
+ },
+ {
+  "id": "demo-c2",
+  "source": "demo-il-b",
+  "url": "https://example.test/demo/c2",
+  "seen_on": "2026-11-20",
+  "region": "IL",
+  "category": "fullstack",
+  "title": "DEMO listing",
+  "summary": "DEMO synthetic listing, not real",
+  "tags": [
+   "react",
+   "booking",
+   "calendar"
+  ],
+  "poster_ref": "p10"
+ },
+ {
+  "id": "demo-d0",
+  "source": "demo-intl",
+  "url": "https://example.test/demo/d0",
+  "seen_on": "2026-11-20",
+  "region": "abroad",
+  "category": "fullstack",
+  "title": "DEMO listing",
+  "summary": "DEMO synthetic listing, not real",
+  "tags": [
+   "rust",
+   "game-engine"
+  ],
+  "poster_ref": "q9",
+  "budget_min": 9000,
+  "budget_max": 12000,
+  "currency": "USD"
+ },
+ {
+  "id": "demo-a0",
+  "source": "demo-il-a",
+  "url": "https://example.test/demo/a0",
+  "seen_on": "2026-11-20",
+  "region": "IL",
+  "category": "automation",
+  "title": "DEMO listing",
+  "summary": "DEMO synthetic listing, not real",
+  "tags": [
+   "n8n",
+   "whatsapp",
+   "google-sheets"
+  ],
+  "poster_ref": "p1",
+  "budget_min": 800,
+  "budget_max": 1500,
+  "currency": "ILS"
+ }
+]

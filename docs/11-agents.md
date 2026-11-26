@@ -8,6 +8,7 @@ The roster lives in `agents/registry.json`; each agent's instructions are in `ro
 | content-planner | Sunday 08:17 | next week's calendar and drafts |
 | analyst | Thursday 08:23 | results, experiment log, next experiment |
 | customer-finder | Tuesday 09:34 | candidate customers, draft outreach (do not send) |
+| demand-scanner | Wednesday 09:12 | recurring freelance project types ranked by demand and ROI (allowed sources only) |
 | lead-followup | event | triage a new lead, draft the reply |
 | quote-pricing | event | quote or pricing proposal on request |
 | product-intake | event | research a newly activated product |
@@ -30,3 +31,6 @@ An event agent is a scheduled task with no cron of its own (a poke-only task). I
 
 ## Not verified
 No scheduled task has been created yet. No agent has run unattended. Connections still needed: Meta insights in n8n (analyst), D2R deployed (lead-followup, lead data in intake), a legal check before any cold outreach (customer-finder).
+
+## demand-scanner
+Finds automation, ETL and full-stack project types that recur, mainly in Israel, so one build can be sold to several owners. Collects listings, not people; allowed sources only (`business/demand/sources.json`); ranking by `scripts/demand-analyze.mjs`. ROI per build hour is computed only from Yotam's own hour estimates (`business/demand/effort.template.json`); without them it reports demand only. Tests: `node --test tests/demand.test.mjs` (demo fixture, synthetic data).

@@ -1,0 +1,7 @@
+{
+  "_about": "Copy to business/demand/effort.json (ignored by git). Hours are Yotam's own estimates per project type, not data. Without them the analysis reports demand only, no ROI.",
+  "hourly_value": null,
+  "clusters": {
+    "example-cluster-key": {"first_build_hours": null, "repeat_build_hours": null}
+  }
+}

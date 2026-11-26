@@ -1,0 +1,8 @@
+{
+  "_about": "Allowed ways to collect listings. Add a source only after checking its robots.txt and current terms; fill checked_on and the decision. status: unchecked | allowed | forbidden.",
+  "sources": [
+    {"id": "manual-export", "kind": "files Yotam exports or pastes", "status": "allowed", "checked_on": null, "note": "always allowed; Yotam supplies the file"},
+    {"id": "candidate-il-boards", "kind": "Israeli job and freelance boards (to be named by Yotam)", "status": "unchecked", "checked_on": null, "note": "agent checks robots.txt and terms first"},
+    {"id": "candidate-intl-boards", "kind": "international freelance marketplaces and remote job boards (to be named)", "status": "unchecked", "checked_on": null, "note": "many forbid scraping; prefer official APIs or public feeds"}
+  ]
+}

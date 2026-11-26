@@ -1,0 +1,8 @@
+# demand-scanner (cron, Wednesday)
+Follow `routines/agents/_common.md`. Schema and rules: `business/demand/SCHEMA.md`.
+Goal: find automation, ETL and full-stack project types that recur (mainly in Israel, also abroad), so Yotam can sell one build to several owners or reuse its code, and rank them by demand and ROI.
+1. Sources: use only sources with `status: allowed` in `business/demand/sources.json`, plus any files Yotam put in `business/demand/`. For a source with `status: unchecked`, read its robots.txt and current terms first, record the decision and date in sources.json, and skip it if automated reading is not allowed. Never log in, bypass blocks or buy lists. If there is no allowed data, write that in the report and stop: do not invent listings.
+2. Collect listing records per the schema (your own one-line summaries, public budgets only, `poster_ref` instead of names). Append to `business/demand/listings.json` (git-ignored); skip ids already present.
+3. Run `node scripts/demand-analyze.mjs business/demand/listings.json business/demand/effort.json`. If `effort.json` is missing, report demand only and list the clusters that need Yotam's hour estimates.
+4. Report: top 3 recurring types, each with listings, distinct posters, sources, Israel share, budgets per currency, and ROI per build hour when estimates exist. Say what would change the ranking. A type with fewer than 3 distinct posters or 2 sources is "watch", not "build".
+5. Owners: collect nothing personal. If Yotam asks to follow up with an owner, use `customer-finder` rules (public business name only, D2R private store, consent `none`, draft only, legal check first).

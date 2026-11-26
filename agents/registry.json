@@ -2,12 +2,222 @@
   "_about": "Roster of scheduled Claude agents for Yotam's business. `status` is proposed until Yotam approves the cadence; only then is a scheduled task created (scripts/agents.mjs prints the exact payload). Every agent is draft-only: it never posts, sends, spends or changes prices. Trigger kinds: cron (time) or event (poke-only task, fired by a person, a session, or a webhook caller; see docs/11-agents.md).",
   "timezone": "Asia/Jerusalem",
   "agents": [
-    {"id": "intake", "role": "Daily watch: active repos, new leads, approval queue", "trigger": {"kind": "cron", "cron": "41 7 * * 0-4"}, "prompt": "routines/agents/intake.md", "uses": ["business-os", "github-product-intake", "lead-manager", "ext-sales-pipeline-analyst"], "reads": ["products/registry.json", "GitHub REST (active repos)", "D2R leads (when connected)"], "writes": ["business/reports/<date>-intake.md"], "needs": [], "status": "proposed"},
-    {"id": "content-planner", "role": "Weekly content calendar and drafts for active products", "trigger": {"kind": "cron", "cron": "17 8 * * 0"}, "prompt": "routines/agents/content-planner.md", "uses": ["social-manager", "ig-plan", "ig-reel", "ig-caption", "ext-marketing-social-media-strategist", "ext-marketing-instagram-curator", "ext-marketing-content-creator"], "reads": ["products/<slug>.md", "experiments/log.md", "last weekly review"], "writes": ["business/social/drafts/<date>/", "business/reports/<date>-content-planner.md"], "needs": [], "status": "proposed"},
-    {"id": "analyst", "role": "Weekly results review and next experiment", "trigger": {"kind": "cron", "cron": "23 8 * * 4"}, "prompt": "routines/agents/analyst.md", "uses": ["mkt-analytics", "mkt-ab-testing", "marketing-experiments", "ext-support-analytics-reporter", "ext-project-management-experiment-tracker", "ext-support-executive-summary-generator"], "reads": ["Instagram/Facebook insights via n8n (when connected)", "D2R marketing metrics", "experiments/log.md"], "writes": ["experiments/log.md", "business/reports/<date>-analyst.md"], "needs": ["meta-insights"], "status": "proposed"},
-    {"id": "customer-finder", "role": "Weekly list of candidate customers from public information, with draft outreach", "trigger": {"kind": "cron", "cron": "34 9 * * 2"}, "prompt": "routines/agents/customer-finder.md", "uses": ["customer-finder", "mkt-prospecting", "ext-sales-outbound-strategist", "ext-sales-offer-lead-gen-strategist", "ext-support-legal-compliance-checker"], "reads": ["products/<slug>.md", "public web sources"], "writes": ["business/prospects/<date>.md (git-ignored)"], "needs": ["lawyer-check-before-cold-outreach"], "status": "proposed"},
-    {"id": "lead-followup", "role": "Triage a new lead and draft the reply", "trigger": {"kind": "event", "event": "new lead ingested in D2R, or Yotam pokes it"}, "prompt": "routines/agents/lead-followup.md", "uses": ["lead-manager", "ext-sales-discovery-coach", "ext-sales-proposal-strategist"], "reads": ["D2R lead record"], "writes": ["business/reports/<date>-lead-<key>.md (no personal data)"], "needs": ["d2r-deployed", "event-caller"], "status": "proposed"},
-    {"id": "quote-pricing", "role": "Draft a quote or a pricing proposal on request", "trigger": {"kind": "event", "event": "Yotam asks for a quote or a price check"}, "prompt": "routines/agents/quote-pricing.md", "uses": ["pricing-manager", "mkt-pricing", "founder-pricing", "founder-offer", "founder-cfo"], "reads": ["products/<slug>.md", "business/pricing/"], "writes": ["business/pricing/<date>-<slug>.md"], "needs": [], "status": "proposed"},
-    {"id": "product-intake", "role": "Research a newly activated product and plan its first content", "trigger": {"kind": "event", "event": "a product flips to active in products/registry.json, or a repo ships a release"}, "prompt": "routines/agents/product-intake.md", "uses": ["github-product-intake", "product-research", "video-brief", "mkt-product-marketing"], "reads": ["the product's GitHub repo"], "writes": ["products/<slug>.md", "business/reports/<date>-product-intake-<slug>.md"], "needs": ["event-caller"], "status": "proposed"}
+    {
+      "id": "intake",
+      "role": "Daily watch: active repos, new leads, approval queue",
+      "trigger": {
+        "kind": "cron",
+        "cron": "41 7 * * 0-4"
+      },
+      "prompt": "routines/agents/intake.md",
+      "uses": [
+        "business-os",
+        "github-product-intake",
+        "lead-manager",
+        "ext-sales-pipeline-analyst"
+      ],
+      "reads": [
+        "products/registry.json",
+        "GitHub REST (active repos)",
+        "D2R leads (when connected)"
+      ],
+      "writes": [
+        "business/reports/<date>-intake.md"
+      ],
+      "needs": [],
+      "status": "proposed"
+    },
+    {
+      "id": "content-planner",
+      "role": "Weekly content calendar and drafts for active products",
+      "trigger": {
+        "kind": "cron",
+        "cron": "17 8 * * 0"
+      },
+      "prompt": "routines/agents/content-planner.md",
+      "uses": [
+        "social-manager",
+        "ig-plan",
+        "ig-reel",
+        "ig-caption",
+        "ext-marketing-social-media-strategist",
+        "ext-marketing-instagram-curator",
+        "ext-marketing-content-creator"
+      ],
+      "reads": [
+        "products/<slug>.md",
+        "experiments/log.md",
+        "last weekly review"
+      ],
+      "writes": [
+        "business/social/drafts/<date>/",
+        "business/reports/<date>-content-planner.md"
+      ],
+      "needs": [],
+      "status": "proposed"
+    },
+    {
+      "id": "analyst",
+      "role": "Weekly results review and next experiment",
+      "trigger": {
+        "kind": "cron",
+        "cron": "23 8 * * 4"
+      },
+      "prompt": "routines/agents/analyst.md",
+      "uses": [
+        "mkt-analytics",
+        "mkt-ab-testing",
+        "marketing-experiments",
+        "ext-support-analytics-reporter",
+        "ext-project-management-experiment-tracker",
+        "ext-support-executive-summary-generator"
+      ],
+      "reads": [
+        "Instagram/Facebook insights via n8n (when connected)",
+        "D2R marketing metrics",
+        "experiments/log.md"
+      ],
+      "writes": [
+        "experiments/log.md",
+        "business/reports/<date>-analyst.md"
+      ],
+      "needs": [
+        "meta-insights"
+      ],
+      "status": "proposed"
+    },
+    {
+      "id": "customer-finder",
+      "role": "Weekly list of candidate customers from public information, with draft outreach",
+      "trigger": {
+        "kind": "cron",
+        "cron": "34 9 * * 2"
+      },
+      "prompt": "routines/agents/customer-finder.md",
+      "uses": [
+        "customer-finder",
+        "mkt-prospecting",
+        "ext-sales-outbound-strategist",
+        "ext-sales-offer-lead-gen-strategist",
+        "ext-support-legal-compliance-checker"
+      ],
+      "reads": [
+        "products/<slug>.md",
+        "public web sources"
+      ],
+      "writes": [
+        "business/prospects/<date>.md (git-ignored)"
+      ],
+      "needs": [
+        "lawyer-check-before-cold-outreach"
+      ],
+      "status": "proposed"
+    },
+    {
+      "id": "lead-followup",
+      "role": "Triage a new lead and draft the reply",
+      "trigger": {
+        "kind": "event",
+        "event": "new lead ingested in D2R, or Yotam pokes it"
+      },
+      "prompt": "routines/agents/lead-followup.md",
+      "uses": [
+        "lead-manager",
+        "ext-sales-discovery-coach",
+        "ext-sales-proposal-strategist"
+      ],
+      "reads": [
+        "D2R lead record"
+      ],
+      "writes": [
+        "business/reports/<date>-lead-<key>.md (no personal data)"
+      ],
+      "needs": [
+        "d2r-deployed",
+        "event-caller"
+      ],
+      "status": "proposed"
+    },
+    {
+      "id": "quote-pricing",
+      "role": "Draft a quote or a pricing proposal on request",
+      "trigger": {
+        "kind": "event",
+        "event": "Yotam asks for a quote or a price check"
+      },
+      "prompt": "routines/agents/quote-pricing.md",
+      "uses": [
+        "pricing-manager",
+        "mkt-pricing",
+        "founder-pricing",
+        "founder-offer",
+        "founder-cfo"
+      ],
+      "reads": [
+        "products/<slug>.md",
+        "business/pricing/"
+      ],
+      "writes": [
+        "business/pricing/<date>-<slug>.md"
+      ],
+      "needs": [],
+      "status": "proposed"
+    },
+    {
+      "id": "product-intake",
+      "role": "Research a newly activated product and plan its first content",
+      "trigger": {
+        "kind": "event",
+        "event": "a product flips to active in products/registry.json, or a repo ships a release"
+      },
+      "prompt": "routines/agents/product-intake.md",
+      "uses": [
+        "github-product-intake",
+        "product-research",
+        "video-brief",
+        "mkt-product-marketing"
+      ],
+      "reads": [
+        "the product's GitHub repo"
+      ],
+      "writes": [
+        "products/<slug>.md",
+        "business/reports/<date>-product-intake-<slug>.md"
+      ],
+      "needs": [
+        "event-caller"
+      ],
+      "status": "proposed"
+    },
+    {
+      "id": "demand-scanner",
+      "role": "Weekly scan of freelance and job listings for recurring project types, ranked by demand and ROI",
+      "trigger": {
+        "kind": "cron",
+        "cron": "12 9 * * 3"
+      },
+      "prompt": "routines/agents/demand-scanner.md",
+      "uses": [
+        "mkt-customer-research",
+        "mkt-competitor-profiling",
+        "founder-competitors",
+        "founder-cfo",
+        "ext-sales-pipeline-analyst"
+      ],
+      "reads": [
+        "business/demand/sources.json (allowed sources only)",
+        "files Yotam exports to business/demand/",
+        "business/demand/effort.json"
+      ],
+      "writes": [
+        "business/demand/listings.json (git-ignored)",
+        "business/reports/<date>-demand-scanner.md"
+      ],
+      "needs": [
+        "named-sources-checked",
+        "effort-estimates"
+      ],
+      "status": "proposed"
+    }
   ]
 }
