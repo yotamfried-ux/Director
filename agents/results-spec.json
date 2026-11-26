@@ -1,16 +1,223 @@
 {
   "_about": "Real-world results per agent, by the metric that decides whether the agent's work succeeded in the world, not only whether it ran well. Values are AGGREGATES only (counts, rates, medians): no names, contacts or content. Every value is recorded with its source (`agent-metrics.mjs result`) so the auditor can check where it came from. Under min_n the auditor says 'too little data', never pass or fail. Written by Claude from Yotam's rule (Nov 2026); Yotam confirms the thresholds.",
   "agents": {
-    "content-planner": {"judged_by": "Instagram/Facebook account data (insights via n8n), per post, against the account's own previous median", "source_hint": "Meta insights via n8n, or a manual export of insights after publishing", "min_n": 5, "metrics": [
-      {"id": "posts_published", "unit": "count"}, {"id": "reach_median", "unit": "accounts", "compare": "baseline"}, {"id": "three_sec_view_rate", "unit": "ratio", "compare": "baseline"}, {"id": "saves_shares_per_reach", "unit": "ratio", "compare": "baseline"}, {"id": "follows_gained", "unit": "count"}, {"id": "link_clicks", "unit": "count"}]},
-    "analyst": {"judged_by": "whether the experiments it proposed were run and produced a measured, decided result", "source_hint": "experiments/log.md", "min_n": 3, "metrics": [{"id": "experiments_proposed", "unit": "count"}, {"id": "experiments_decided_with_data", "unit": "count"}]},
-    "customer-finder": {"judged_by": "whether the prospects it found became regular paying customers", "source_hint": "D2R lead/customer records (aggregated by Yotam or an ingest read-back)", "min_n": 10, "metrics": [
-      {"id": "approved_and_contacted", "unit": "count"}, {"id": "replied", "unit": "count"}, {"id": "trials_started", "unit": "count"}, {"id": "paying_customers", "unit": "count"}, {"id": "paying_after_2_periods", "unit": "count", "note": "recurring = still paying after at least two consecutive billing periods"}]},
-    "lead-followup": {"judged_by": "speed of answering and whether leads became paying", "source_hint": "D2R lead records", "min_n": 5, "metrics": [{"id": "median_first_response_hours", "unit": "hours"}, {"id": "leads_to_paying", "unit": "count"}, {"id": "leads_total", "unit": "count"}]},
-    "quote-pricing": {"judged_by": "whether quotes were accepted and at what price versus the proposal", "source_hint": "Yotam's records of quotes sent and answers", "min_n": 5, "metrics": [{"id": "quotes_sent", "unit": "count"}, {"id": "quotes_accepted", "unit": "count"}, {"id": "price_realized_vs_proposed", "unit": "ratio"}]},
-    "demand-scanner": {"judged_by": "whether spotted needs turned into offers, replies and sold projects", "source_hint": "business/demand/outreach.json states, summarised", "min_n": 5, "metrics": [{"id": "offers_sent", "unit": "count"}, {"id": "offers_replied", "unit": "count"}, {"id": "projects_won", "unit": "count"}, {"id": "builds_sold_to_2_or_more_owners", "unit": "count"}]},
-    "product-intake": {"judged_by": "whether verified product files led to content that was approved", "source_hint": "outcomes.jsonl for content-planner items of that product", "min_n": 3, "metrics": [{"id": "products_with_verified_file", "unit": "count"}, {"id": "claims_later_found_wrong", "unit": "count"}]},
-    "intake": {"judged_by": "operational only: did the daily watch catch what mattered", "source_hint": "Yotam's verdicts on missed or false alerts", "min_n": 5, "metrics": [{"id": "alerts_acted_on", "unit": "count"}, {"id": "alerts_noise", "unit": "count"}, {"id": "missed_items_found_later", "unit": "count"}]},
-    "auditor": {"judged_by": "whether its verdicts agree with Yotam's own verdicts on the same items", "source_hint": "audits.jsonl vs outcomes.jsonl", "min_n": 5, "metrics": [{"id": "agreement_with_yotam", "unit": "ratio"}]}
+    "content-planner": {
+      "judged_by": "Instagram/Facebook account data (insights via n8n), per post, against the account's own previous median",
+      "source_hint": "Meta insights via n8n, or a manual export of insights after publishing",
+      "min_n": 5,
+      "metrics": [
+        {
+          "id": "posts_published",
+          "unit": "count"
+        },
+        {
+          "id": "reach_median",
+          "unit": "accounts",
+          "compare": "baseline"
+        },
+        {
+          "id": "three_sec_view_rate",
+          "unit": "ratio",
+          "compare": "baseline"
+        },
+        {
+          "id": "saves_shares_per_reach",
+          "unit": "ratio",
+          "compare": "baseline"
+        },
+        {
+          "id": "follows_gained",
+          "unit": "count"
+        },
+        {
+          "id": "link_clicks",
+          "unit": "count"
+        }
+      ]
+    },
+    "analyst": {
+      "judged_by": "whether the experiments it proposed were run and produced a measured, decided result",
+      "source_hint": "experiments/log.md",
+      "min_n": 3,
+      "metrics": [
+        {
+          "id": "experiments_proposed",
+          "unit": "count"
+        },
+        {
+          "id": "experiments_decided_with_data",
+          "unit": "count"
+        }
+      ]
+    },
+    "customer-finder": {
+      "judged_by": "whether the prospects it found became regular paying customers",
+      "source_hint": "D2R lead/customer records (aggregated by Yotam or an ingest read-back)",
+      "min_n": 10,
+      "metrics": [
+        {
+          "id": "approved_and_contacted",
+          "unit": "count"
+        },
+        {
+          "id": "replied",
+          "unit": "count"
+        },
+        {
+          "id": "trials_started",
+          "unit": "count"
+        },
+        {
+          "id": "paying_customers",
+          "unit": "count"
+        },
+        {
+          "id": "paying_after_2_periods",
+          "unit": "count",
+          "note": "recurring = still paying after at least two consecutive billing periods"
+        }
+      ]
+    },
+    "lead-followup": {
+      "judged_by": "speed of answering and whether leads became paying",
+      "source_hint": "D2R lead records",
+      "min_n": 5,
+      "metrics": [
+        {
+          "id": "median_first_response_hours",
+          "unit": "hours"
+        },
+        {
+          "id": "leads_to_paying",
+          "unit": "count"
+        },
+        {
+          "id": "leads_total",
+          "unit": "count"
+        }
+      ]
+    },
+    "quote-pricing": {
+      "judged_by": "whether quotes were accepted and at what price versus the proposal",
+      "source_hint": "Yotam's records of quotes sent and answers",
+      "min_n": 5,
+      "metrics": [
+        {
+          "id": "quotes_sent",
+          "unit": "count"
+        },
+        {
+          "id": "quotes_accepted",
+          "unit": "count"
+        },
+        {
+          "id": "price_realized_vs_proposed",
+          "unit": "ratio"
+        }
+      ]
+    },
+    "demand-scanner": {
+      "judged_by": "quality and conversion of verified opportunities, not volume of data collected (spec 8.8)",
+      "source_hint": "opportunity-audit.mjs stats, sources.json, outreach.json, Yotam's own records",
+      "min_n": 5,
+      "metrics": [
+        {
+          "id": "active_allowed_sources",
+          "unit": "count"
+        },
+        {
+          "id": "sources_without_manual_step_rate",
+          "unit": "ratio"
+        },
+        {
+          "id": "verified_opportunities",
+          "unit": "count"
+        },
+        {
+          "id": "rejected_by_audit_rate",
+          "unit": "ratio"
+        },
+        {
+          "id": "inferred_opportunity_share",
+          "unit": "ratio",
+          "note": "opportunities not yet published as projects"
+        },
+        {
+          "id": "missed_found_by_audit",
+          "unit": "count"
+        },
+        {
+          "id": "manual_hours_saved",
+          "unit": "hours",
+          "note": "Yotam's estimate"
+        },
+        {
+          "id": "offers_sent",
+          "unit": "count"
+        },
+        {
+          "id": "offers_replied",
+          "unit": "count"
+        },
+        {
+          "id": "converted_to_paying",
+          "unit": "count"
+        },
+        {
+          "id": "revenue_attributed",
+          "unit": "currency per period, Yotam's records"
+        },
+        {
+          "id": "policy_violations",
+          "unit": "count",
+          "note": "must be 0"
+        }
+      ]
+    },
+    "product-intake": {
+      "judged_by": "whether verified product files led to content that was approved",
+      "source_hint": "outcomes.jsonl for content-planner items of that product",
+      "min_n": 3,
+      "metrics": [
+        {
+          "id": "products_with_verified_file",
+          "unit": "count"
+        },
+        {
+          "id": "claims_later_found_wrong",
+          "unit": "count"
+        }
+      ]
+    },
+    "intake": {
+      "judged_by": "operational only: did the daily watch catch what mattered",
+      "source_hint": "Yotam's verdicts on missed or false alerts",
+      "min_n": 5,
+      "metrics": [
+        {
+          "id": "alerts_acted_on",
+          "unit": "count"
+        },
+        {
+          "id": "alerts_noise",
+          "unit": "count"
+        },
+        {
+          "id": "missed_items_found_later",
+          "unit": "count"
+        }
+      ]
+    },
+    "auditor": {
+      "judged_by": "whether its verdicts agree with Yotam's own verdicts on the same items",
+      "source_hint": "audits.jsonl vs outcomes.jsonl",
+      "min_n": 5,
+      "metrics": [
+        {
+          "id": "agreement_with_yotam",
+          "unit": "ratio"
+        }
+      ]
+    }
   }
 }

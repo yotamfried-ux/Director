@@ -20,7 +20,7 @@ test("evidence and recurrence set the priority; the best base and action follow"
   assert.equal(n.distinct_posters, 3); assert.equal(n.recurring, true);
   assert.equal(n.score, 3 + 2 + 3); assert.equal(n.priority, "high");
   assert.equal(n.best_base.asset, "tori"); assert.deepEqual(n.best_base.missing, ["whatsapp"]);
-  assert.equal(n.action, "prepare-offer-draft");
+  assert.equal(n.action, "prepare-offer-draft"); assert.equal(n.evidence_level, 3); assert.equal(n.request_kind, "explicit");
 });
 test("no evidence stays low and is only watched; unknown ids and unused phrases are reported", () => {
   const r = run(); const m = r.needs.find(x => x.need === "manual-reporting");

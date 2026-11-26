@@ -201,5 +201,29 @@
   "not_checked_yet": [
     "Toptal, Braintrust, Codeable, Arc, Gun.io (vetted networks: a beginner usually cannot enter)",
     "Contra, Workana, Useme, Malt (not researched in this pass)"
-  ]
+  ],
+  "access_ladder": {
+    "_about": "Order in which the agent looks for a permitted way to read a source (spec 8.3). Never use a lower rung to get around a restriction a higher rung or the source's terms impose. One blocked source never stops the others. Sign-up, identity checks, payment or binding terms are collected for Yotam, never done by the agent.",
+    "rungs": [
+      "public API without authentication",
+      "official MCP server",
+      "RSS or permitted public feed",
+      "open datasets",
+      "permitted search engines and indexes",
+      "licensed data providers",
+      "existing accounts and connections",
+      "API that needs registration or a key (collect the steps for Yotam)",
+      "individual permission request to the platform owner (draft for Yotam)"
+    ]
+  },
+  "discovery": {
+    "rule": "The agent may research new sources in Israel and abroad, read their terms and privacy policy, and add them here as `unchecked` or `allowed`/`forbidden` WITH evidence and date. A new source is only read automatically once its entry says allowed. Entries are proposals: the auditor re-checks the terms.",
+    "fields_to_record": [
+      "access.automated_reading",
+      "access.ladder_rung",
+      "evidence (quote under 15 words or a pointer to the terms page)",
+      "checked_on",
+      "needs_user_action (sign-up, identity, payment, terms) or null"
+    ]
+  }
 }

@@ -23,3 +23,6 @@ Yotam's existing projects with `capabilities` tags in the same vocabulary as lis
 ## Phrase bank (`phrases.json`)
 Hebrew and English search phrases by need type, need patterns with the tags a product must cover, and the priority rule (evidence of spend, lost time or recurring demand ranks first). The agent expands it from real findings only and logs each addition. `scripts/demand-signals.mjs` ranks needs and matches each to the best existing base. Priority ranks attention; it is never a revenue claim.
 
+## Opportunity ledger (`opportunities.json`, git-ignored) and audit statuses
+One object per opportunity (no personal data): `id`, `title`, `kind` (explicit | inferred), `evidence_level` (1 hypothesis, 2 real evidence of the problem, 3 costs money or time, 4 existing willingness to pay), `evidence` [{source, url, seen_on}], `solution`, `found_by` (scanner | auditor), `status`, `audit`, `rounds`, `findings`. Statuses: UNVERIFIED (default) > VERIFIED | NEEDS_RESEARCH | NEEDS_CORRECTION | REJECTED | POLICY_BLOCKED. Only VERIFIED is shown as an opportunity; the rest is marked unverified. VERIFIED (draft policy, Yotam to confirm) needs level 2 or more and two independent sources. Everything outward stays a draft: even VERIFIED is not approval to send. Tool: `scripts/opportunity-audit.mjs`.
+
