@@ -18,6 +18,13 @@ function check() {
     for (const u of a.uses ?? []) if (!skills.has(u) && !agents.has(u) && !agents.has(u.startsWith("ext-") ? u : "")) errors.push(`${a.id}: unknown skill/agent ${u}`);
     if (!["proposed", "approved", "active"].includes(a.status)) errors.push(`${a.id}: bad status`);
   }
+  const spec = existsSync("agents/results-spec.json") ? JSON.parse(readFileSync("agents/results-spec.json", "utf8")).agents : {};
+  for (const a of reg.agents) {
+    const sp = spec[a.id];
+    if (!sp) { errors.push(`${a.id}: no entry in agents/results-spec.json`); continue; }
+    if (!sp.judged_by || !(sp.min_n > 0) || !sp.metrics?.length) errors.push(`${a.id}: results-spec needs judged_by, min_n and metrics`);
+    const ids = (sp.metrics ?? []).map(m => m.id); if (new Set(ids).size !== ids.length) errors.push(`${a.id}: duplicate result metric`);
+  }
   return errors;
 }
 const [cmd, id] = process.argv.slice(2);

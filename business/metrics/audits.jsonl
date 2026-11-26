@@ -1,0 +1,7 @@
+{"agent":"intake","score":80,"verdict":"pass","findings":2,"overclaim":"no","note":"partial fits; D2R and sportreel unchecked; GitHub facts not independently verified","at":"2026-11-26T16:37:40.590Z"}
+{"agent":"content-planner","score":85,"verdict":"pass","findings":3,"overclaim":"no","note":"claims trace to product files; run1 status ok with 1 failed check; run1 report file missing; 9 drafts over cadence","at":"2026-11-26T16:37:40.618Z"}
+{"agent":"analyst","score":75,"verdict":"pass","findings":3,"overclaim":"no","note":"honest partial; says metrics dir empty but runs.jsonl exists; proposals 'not applied' yet EXP-009 is in log","at":"2026-11-26T16:37:40.645Z"}
+{"agent":"customer-finder","score":70,"verdict":"concerns","findings":2,"overclaim":"no","note":"honest but only 2 weak candidates; legal check manual; outputs count 2 vs 1 file","at":"2026-11-26T16:37:40.675Z"}
+{"agent":"quote-pricing","score":85,"verdict":"pass","findings":3,"overclaim":"no","note":"arithmetic recomputed ok; run note says simulated but report cites fetched prices, provenance unverified","at":"2026-11-26T16:37:40.705Z"}
+{"agent":"product-intake","score":85,"verdict":"pass","findings":2,"overclaim":"no","note":"report says Status ok, run record partial; numbers not recomputed; sportreel blocked honestly","at":"2026-11-26T16:37:40.732Z"}
+{"agent":"demand-scanner","score":80,"verdict":"pass","findings":1,"overclaim":"no","note":"correct no-data report, fixtures labelled demo; delivers no real demand ranking","at":"2026-11-26T16:37:40.758Z"}

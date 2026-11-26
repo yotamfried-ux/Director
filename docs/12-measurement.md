@@ -35,3 +35,10 @@ See the section appended below after the independent grading.
 - Layer 4: independent grader (a different agent) scored the drafts on 6 criteria, 0-5. Mean 71/100 before fixes (drafts 21-22 of 30; weakest: hooks 2-3, Hebrew of draft C). Its concrete findings were valid and applied: ungrammatical Hebrew in C, an unverified claim in A ("see who is coming"), an outcome promise in B, a label-style hook in E. Open items it raised that need the app, not me: whether the owner sees who confirmed, and whether the KPIs sit on one screen.
 - Layer 5: no verdicts yet. The score above is a proxy until Yotam approves, edits or rejects these.
 - Duration is wall time of this one session, not a scheduled run. No scheduled agent has run unattended.
+
+## Independent audit (auditor agent)
+Layer between the agent's own numbers and Yotam's verdicts. `scripts/audit-checks.mjs` gives deterministic facts (record sanity, report present, personal data, claims of sending, draft status and lint). The `auditor` agent (`routines/agents/auditor.md`) then grades outputs blind against a fixed 5-part rubric, calibrates on a known-bad draft first, and records `audit` entries (`agent-metrics.mjs audit`, `business/metrics/audits.jsonl`). It reports overclaims (an agent claiming more than its files show). It never edits other agents' work. An audit score is a grader's opinion: Yotam's approve/edit/reject verdicts stay the ground truth, and with fewer than 5 audits per agent it is "too little data".
+
+## Real-world results (what the audit is ultimately about)
+`agents/results-spec.json` defines, per agent, the result that decides success in the world: the media agent by the Instagram/Facebook account data against the account's own median; the customer finder by whether prospects became regular paying customers; and so on. Values are aggregates recorded with `agent-metrics.mjs result` and a mandatory `source`, so they can be checked. The auditor judges results separately from outputs, never from an agent's own claims, and says "cannot judge" below `min_n` or with no data. Today there are no result data: nothing is published and no customer exists yet, and the report says so.
+

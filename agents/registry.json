@@ -223,6 +223,31 @@
       ],
       "status": "proposed",
       "heartbeat_hours": 192
+    },
+    {
+      "id": "auditor",
+      "role": "Independent weekly audit of every other agent: outputs and results, not only numbers",
+      "trigger": {
+        "kind": "cron",
+        "cron": "47 9 * * 4"
+      },
+      "prompt": "routines/agents/auditor.md",
+      "uses": [
+        "business-os"
+      ],
+      "reads": [
+        "business/reports/*",
+        "business/social/drafts/*",
+        "business/metrics/*",
+        "experiments/log.md",
+        "routines/agents/*.md"
+      ],
+      "writes": [
+        "business/reports/<date>-audit.md"
+      ],
+      "needs": [],
+      "status": "proposed",
+      "heartbeat_hours": 192
     }
   ]
 }

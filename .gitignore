@@ -18,3 +18,4 @@ business/demand/*
 !business/demand/assets.json
 business/reports/*
 business/pricing/*
+!business/demand/phrases.json
