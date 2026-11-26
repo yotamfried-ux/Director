@@ -4,3 +4,9 @@ tmp/
 *.wav
 .DS_Store
 public/sportreel/
+
+# business state: real records never committed
+business/leads/*
+!business/leads/SCHEMA.md
+business/prospects/*
+!business/prospects/SCHEMA.md

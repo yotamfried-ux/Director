@@ -36,6 +36,8 @@ Owner: Yotam (independent builder, Israel). **Talk to him in Hebrew.** Docs and 
 | `marketing-experiments` | Logging hypotheses and results; improving this repo |
 | `social-content` | Posts/captions/carousels and the publishing approval gate |
 
+Business OS (Nov 2026): the agent also runs as Yotam's business manager on a schedule. Read `docs/10-business-os.md` (domains, data rules, Engineering-OS map, routines in `routines/`). New skills: `business-os` (router), `social-manager`, `pricing-manager`, `lead-manager`, `customer-finder`, `github-product-intake`; vendored method skills `mkt-*` and `ig-*` (see `third_party/NOTICE.md`; Director rules override them). **This repo is public: never commit personal data (leads, prospects, customers).** Active products are listed in `products/registry.json`.
+
 Commands: `/new-video <product>` runs the whole flow; `/log-experiment` adds a log entry.
 
 ## Repo map
