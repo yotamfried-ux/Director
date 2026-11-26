@@ -57,3 +57,23 @@ Unattended runs prepare and propose; they never publish, send, spend or change p
 
 ## Connections still needed
 Meta (Instagram Business + Facebook Page + developer app/token) in n8n; private lead store; official analytics access. Until then the agent drafts and Yotam posts by hand.
+
+
+## Imported specialists (from Engineering-OS catalogue)
+
+Agents in `.claude/agents/ext-*` (17) and skills `founder-*` (10) are vendored, MIT-licensed, reviewed (see `third_party/NOTICE.md`). Use them as advisors per domain:
+| Domain | Use |
+|---|---|
+| Social / content | `ext-marketing-social-media-strategist`, `ext-marketing-instagram-curator`, `ext-marketing-content-creator`, `ext-marketing-growth-hacker`, `ext-marketing-short-video-editing-coach`, `ext-marketing-video-optimization-specialist` |
+| Pricing / quotes | `founder-pricing`, `founder-offer`, `founder-cfo`, `ext-sales-proposal-strategist` |
+| Leads / pipeline | `ext-sales-pipeline-analyst`, `ext-sales-discovery-coach`, `ext-sales-offer-lead-gen-strategist` |
+| Finding customers | `ext-sales-outbound-strategist` (drafts only, see outreach rules), `founder-competitors` |
+| Analytics / reporting | `ext-support-analytics-reporter`, `ext-support-executive-summary-generator`, `ext-project-management-experiment-tracker`, `ext-finance-financial-analyst`, `ext-finance-fpa-analyst` |
+| Planning / launch | `founder-plan`, `founder-launch`, `founder-ops`, `founder-marketing`, `founder-brand`, `founder-board` |
+| Compliance check | `ext-support-legal-compliance-checker` before any outreach or claim (not legal advice; confirm with a lawyer) |
+
+Director rules override every imported agent: drafts only, per-action approval, no scraping of restricted platforms, no invented numbers.
+
+## n8n social workflow
+
+`routines/n8n-social-workflow.md` describes the workflow (draft -> your approval -> publish -> metrics -> D2R). It ships in simulation mode: no Meta or D2R call is made until the live credentials are connected.
