@@ -1,8 +1,205 @@
 {
-  "_about": "Allowed ways to collect listings. Add a source only after checking its robots.txt and current terms; fill checked_on and the decision. status: unchecked | allowed | forbidden.",
+  "_about": "Where demand data may come from. `access.automated_reading`: allowed | forbidden | unchecked. The scanner agent reads ONLY sources marked allowed (or files Yotam supplies). `checked_on` is the date the terms/robots were read; `evidence` says what was actually read. Anything marked secondary came from search snippets or third-party pages and must be re-read at the source before use. `fit` is Claude's judgment for a beginner freelancer in Israel (automation, ETL, full-stack), not measured data. `outreach` (optional): forbidden | manual-by-yotam (default). Outreach is always a message Yotam sends himself after approving a draft.",
+  "reviewed_on": "2026-11-26",
   "sources": [
-    {"id": "manual-export", "kind": "files Yotam exports or pastes", "status": "allowed", "checked_on": null, "note": "always allowed; Yotam supplies the file"},
-    {"id": "candidate-il-boards", "kind": "Israeli job and freelance boards (to be named by Yotam)", "status": "unchecked", "checked_on": null, "note": "agent checks robots.txt and terms first"},
-    {"id": "candidate-intl-boards", "kind": "international freelance marketplaces and remote job boards (to be named)", "status": "unchecked", "checked_on": null, "note": "many forbid scraping; prefer official APIs or public feeds"}
+    {
+      "id": "manual-export",
+      "name": "Files Yotam exports or pastes",
+      "region": "any",
+      "access": {
+        "automated_reading": "allowed",
+        "via": "files in business/demand/"
+      },
+      "checked_on": null,
+      "evidence": "always allowed; Yotam supplies the file",
+      "fit": "Works for every platform below, including the forbidden ones, because a person reads the page and pastes what they see."
+    },
+    {
+      "id": "email-alerts",
+      "name": "Yotam's own saved-search email alerts (Upwork, Freelancer, PeoplePerHour, Guru, Xplace)",
+      "region": "any",
+      "access": {
+        "automated_reading": "unchecked",
+        "via": "Gmail connector reading alert emails Yotam receives"
+      },
+      "checked_on": null,
+      "evidence": "proposal only. Not tested: needs the alerts created by Yotam and the Gmail connector available inside scheduled runs.",
+      "fit": "Best route to cover the marketplaces that forbid scraping: the platform itself pushes the listing to his inbox. Check each platform's terms on reusing alert content."
+    },
+    {
+      "id": "upwork",
+      "name": "Upwork",
+      "url": "https://www.upwork.com",
+      "region": "abroad",
+      "access": {
+        "automated_reading": "forbidden",
+        "via": "manual only; official MCP/API for Yotam's own interactive use"
+      },
+      "checked_on": "2026-11-26",
+      "evidence": "secondary: Upwork support article on bots says scraping public or private data is off-limits even with an API key; Upwork's API & MCP terms, as quoted by a third party, limit search to interactive use and bar building a job feed. Primary terms not read directly.",
+      "fees": "variable 0-15% per contract (secondary: useme.com, colorlib)",
+      "fit": "Largest demand for automation (n8n/Make/Zapier/Python); also the most crowded, and new accounts pay for Connects. Upwork's own guide lists beginner rates of $10-25/hr; automation rate cards on blogs are higher but unverified. Use for selling, not for scanning."
+    },
+    {
+      "id": "freelancer-com",
+      "name": "Freelancer.com",
+      "url": "https://www.freelancer.com",
+      "region": "abroad",
+      "access": {
+        "automated_reading": "forbidden",
+        "via": "manual; API only with written permission"
+      },
+      "checked_on": "2026-11-26",
+      "evidence": "robots.txt read: /projects and /jobs are not disallowed and rss.xml is not mentioned. User agreement read: section 33 bans robots, spiders or scrapers without written permission, and section 4 bars aggregating listings for display elsewhere. The terms win over robots.txt.",
+      "fit": "Lower entry barrier than Upwork and many small automation/scraping jobs, but low budgets and heavy bidding. Developer API terms (developers.freelancer.com) not read."
+    },
+    {
+      "id": "peopleperhour",
+      "name": "PeoplePerHour",
+      "url": "https://www.peopleperhour.com",
+      "region": "abroad",
+      "access": {
+        "automated_reading": "unchecked",
+        "via": "pending terms of website use"
+      },
+      "checked_on": "2026-11-26",
+      "evidence": "robots.txt read: /freelance-jobs is not disallowed, no AI-bot rules, no crawl-delay. User agreement read: no scraping clause in it, but it points to separate 'terms of website use' that I could not read. Fees from section 8.2: 20% under 250 GBP lifetime per buyer, 7.5% to 5,000, 3.5% above.",
+      "fit": "UK-centred, fewer bidders than Upwork on small fixed-price projects. Read the website-use terms before enabling."
+    },
+    {
+      "id": "guru",
+      "name": "Guru",
+      "url": "https://www.guru.com",
+      "region": "abroad",
+      "access": {
+        "automated_reading": "unchecked",
+        "via": "pending"
+      },
+      "checked_on": null,
+      "evidence": "terms page could not be fetched (approval request unanswered). Secondary sources (dev.to, colorlib) say lower competition and 5-9% fees: unverified.",
+      "fit": "Possibly easier for a first project; smaller volume."
+    },
+    {
+      "id": "fiverr",
+      "name": "Fiverr",
+      "url": "https://www.fiverr.com",
+      "region": "any",
+      "access": {
+        "automated_reading": "forbidden",
+        "via": "manual only"
+      },
+      "checked_on": null,
+      "evidence": "no public project board to read: clients buy listed gigs. Terms not read; treat as manual only.",
+      "fit": "Israeli company with Hebrew-speaking buyers. Not a demand feed, but the right place to sell a productized build (fixed scope, fixed price) once a demand cluster is chosen. Commission reported around 20% (secondary)."
+    },
+    {
+      "id": "xplace",
+      "name": "Xplace (IL)",
+      "url": "https://www.xplace.com/il",
+      "region": "IL",
+      "access": {
+        "automated_reading": "unchecked",
+        "via": "pending robots.txt and terms"
+      },
+      "checked_on": "2026-11-26",
+      "evidence": "site page read: Israeli platform, part of AllJobs group, categories include programming and software development, posting a project is free, freelancers need a paid subscription to send quotes. robots.txt fetch failed (server error); whether listings are public without login is not stated.",
+      "fit": "Probably the most relevant Israeli board for Hebrew-speaking small businesses. Verify listing visibility, subscription price and terms first."
+    },
+    {
+      "id": "freelance-place",
+      "name": "Freelance Place (IL)",
+      "url": "https://freelance-place.com",
+      "region": "IL",
+      "access": {
+        "automated_reading": "unchecked",
+        "via": "pending robots.txt and terms"
+      },
+      "checked_on": "2026-11-26",
+      "evidence": "site page read via search: Hebrew workspace for freelancers, free project posting, showed 22 open projects. robots/terms not read.",
+      "fit": "New and small, so little competition and little volume; worth watching."
+    },
+    {
+      "id": "freelancer-org-il",
+      "name": "freelancer.org.il (IL)",
+      "url": "https://freelancer.org.il",
+      "region": "IL",
+      "access": {
+        "automated_reading": "unchecked",
+        "via": "pending"
+      },
+      "checked_on": null,
+      "evidence": "seen in search results only; lists small jobs (SQL, WordPress, PHP) and hourly offers around 150 NIS.",
+      "fit": "Small jobs, low budgets."
+    },
+    {
+      "id": "vlancer",
+      "name": "Vlancer (IL)",
+      "url": "https://www.vlancer.co.il",
+      "region": "IL",
+      "access": {
+        "automated_reading": "unchecked",
+        "via": "pending"
+      },
+      "checked_on": null,
+      "evidence": "only a 2020 news article (monthly subscription 59 NIS + VAT). Not confirmed that the site still operates.",
+      "fit": "Unknown until confirmed."
+    },
+    {
+      "id": "weworkremotely",
+      "name": "We Work Remotely",
+      "url": "https://weworkremotely.com",
+      "region": "abroad",
+      "access": {
+        "automated_reading": "allowed",
+        "via": "official API/feed only, no scraping or storing outside it"
+      },
+      "checked_on": "2026-11-26",
+      "evidence": "API terms read: use API data only; scraping/copying/storing outside the API is prohibited; tools for searching for remote workers, hiring them or contacting them are not allowed; applications must go through their site.",
+      "fit": "Employment listings, not freelance projects. Allowed for trend counting only (what skills appear). Never for outreach.",
+      "outreach": "forbidden"
+    },
+    {
+      "id": "remoteok",
+      "name": "Remote OK",
+      "url": "https://remoteok.com",
+      "region": "abroad",
+      "access": {
+        "automated_reading": "allowed",
+        "via": "documented public JSON/RSS feed only, with attribution and link back"
+      },
+      "checked_on": "2026-11-26",
+      "evidence": "help article: free public feeds, no auth, credit the site and link each job. robots.txt read: the /api path has no rule, but named AI crawlers (including ClaudeBot) are disallowed for the whole site, so use the feed and never crawl pages. Shell cannot reach the host from this sandbox.",
+      "fit": "Employment listings. Trend counting only.",
+      "outreach": "forbidden"
+    },
+    {
+      "id": "hn-freelancer-thread",
+      "name": "Hacker News monthly 'Freelancer? Seeking freelancer?' thread",
+      "url": "https://news.ycombinator.com",
+      "region": "abroad",
+      "access": {
+        "automated_reading": "unchecked",
+        "via": "official Firebase API"
+      },
+      "checked_on": null,
+      "evidence": "API terms could not be fetched (approval request unanswered). Host not reachable from the sandbox shell.",
+      "fit": "Small but direct: posters are founders looking for contractors; replying is a normal use of the thread."
+    },
+    {
+      "id": "social-groups",
+      "name": "Facebook groups, LinkedIn, Reddit (r/forhire and similar)",
+      "region": "any",
+      "access": {
+        "automated_reading": "forbidden",
+        "via": "manual by Yotam only"
+      },
+      "checked_on": null,
+      "evidence": "platform rules and project rules: no scraping of social platforms or private groups. Israeli freelance Facebook groups carry real demand, but only Yotam can read them.",
+      "fit": "Often the best place for Hebrew-speaking small businesses. Yotam pastes what he sees into business/demand/ and the agent does the analysis."
+    }
+  ],
+  "not_checked_yet": [
+    "Toptal, Braintrust, Codeable, Arc, Gun.io (vetted networks: a beginner usually cannot enter)",
+    "Contra, Workana, Useme, Malt (not researched in this pass)"
   ]
 }

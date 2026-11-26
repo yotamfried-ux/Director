@@ -7,6 +7,13 @@ Purpose: find project types that recur, so Yotam can build once and sell to seve
 
 ## Rules
 - Sources must be allowed (see sources.json): public pages whose robots.txt and current terms permit automated reading, official APIs, public feeds, or files Yotam exports or pastes. No login-wall scraping, no bypassing blocks, no purchased lists. Large marketplaces often forbid automated collection in their terms: check each source's current terms before reading it, and record the check date.
-- Store listings, not people. Do not collect names, phones, emails or profiles of the people posting. If a business name is shown publicly and Yotam wants to follow up, record it in the D2R lead store (consent `none`, private, never git) and treat outreach under `customer-finder` rules (drafts only, legal check first).
+- Store listings, not people. Do not collect names, phones, emails or profiles of the people posting: the listing URL is the way back to them. Outreach is always a message Yotam sends himself, after approving the exact text.
 - Summaries in your own words; do not copy listing text.
 - Budgets are compared only within one currency; no conversion is invented.
+
+## Outreach ledger (`business/demand/outreach.json`, git-ignored)
+One object per offer: `poster_ref`, `delivered_slug`, `state` (`candidate` > `drafted` > `approved` > `sent` > `replied` > `won` | `lost` | `opted_out`), `on` (YYYY-MM-DD). `opted_out` is permanent: the matcher never offers anything to that poster again. A project is offered to the same poster once.
+
+## Persistence (open)
+Each scheduled run starts in a clean checkout, so git-ignored files do not survive between runs. Until a private place for listings exists (a D2R record type, or a private data branch), the scanner can only analyse what Yotam supplies in the same run.
+

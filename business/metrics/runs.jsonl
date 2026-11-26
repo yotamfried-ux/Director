@@ -1,0 +1,1 @@
+{"agent":"content-planner","status":"ok","started":"2026-11-26T15:10:34Z","finished":"2026-11-26T15:12:31Z","seconds":117,"outputs":5,"checks_pass":50,"checks_fail":1,"quality":71,"note":"first real test on tori; grader mean before fixes, 5 drafts; one lint fail fixed in lint itself"}

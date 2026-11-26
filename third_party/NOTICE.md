@@ -19,3 +19,7 @@ Not vendored: `slavingia/skills` (Minimalist Entrepreneur): no licence file foun
 | `.claude/skills/founder-*` (10 skills) | https://github.com/Jakeschincariol/founder-skill (MIT) | fd9385b | board, brand, cfo, competitors, launch, marketing, offer, ops, plan, pricing. The bundled Python helpers are stdlib-only, local file I/O, no network. NOT imported: `founder-consumer` (100 simulated-buyer sub-agent calls, not real research). |
 
 Agents and `founder-*` skills write plans under the working directory only. Their output is a draft: figures from `founder-*` are modelling, not facts, and simulated buyers are never reported as customers.
+
+## mcp-video-analyzer (referenced, not vendored)
+`guimatheus92/mcp-video-analyzer`, MIT license, run through `npx` at the pinned version 0.12.0 (see `.mcp.json`). Review the version before bumping it.
+

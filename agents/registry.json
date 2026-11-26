@@ -1,5 +1,5 @@
 {
-  "_about": "Roster of scheduled Claude agents for Yotam's business. `status` is proposed until Yotam approves the cadence; only then is a scheduled task created (scripts/agents.mjs prints the exact payload). Every agent is draft-only: it never posts, sends, spends or changes prices. Trigger kinds: cron (time) or event (poke-only task, fired by a person, a session, or a webhook caller; see docs/11-agents.md).",
+  "_about": "Roster of scheduled Claude agents for Yotam's business. `status` is proposed until Yotam approves the cadence; only then is a scheduled task created (scripts/agents.mjs prints the exact payload). Every agent is draft-only: it never posts, sends, spends or changes prices. Trigger kinds: cron (time) or event (poke-only task, fired by a person, a session, or a webhook caller; see docs/11-agents.md). `heartbeat_hours` (cron agents): if no run is recorded in scripts/agent-metrics.mjs within this many hours after the previous one, the report flags the agent SILENT. Set to cadence plus slack (intake skips Fri/Sat).",
   "timezone": "Asia/Jerusalem",
   "agents": [
     {
@@ -25,7 +25,8 @@
         "business/reports/<date>-intake.md"
       ],
       "needs": [],
-      "status": "proposed"
+      "status": "proposed",
+      "heartbeat_hours": 80
     },
     {
       "id": "content-planner",
@@ -54,7 +55,8 @@
         "business/reports/<date>-content-planner.md"
       ],
       "needs": [],
-      "status": "proposed"
+      "status": "proposed",
+      "heartbeat_hours": 192
     },
     {
       "id": "analyst",
@@ -84,7 +86,8 @@
       "needs": [
         "meta-insights"
       ],
-      "status": "proposed"
+      "status": "proposed",
+      "heartbeat_hours": 192
     },
     {
       "id": "customer-finder",
@@ -111,7 +114,8 @@
       "needs": [
         "lawyer-check-before-cold-outreach"
       ],
-      "status": "proposed"
+      "status": "proposed",
+      "heartbeat_hours": 192
     },
     {
       "id": "lead-followup",
@@ -217,7 +221,8 @@
         "named-sources-checked",
         "effort-estimates"
       ],
-      "status": "proposed"
+      "status": "proposed",
+      "heartbeat_hours": 192
     }
   ]
 }

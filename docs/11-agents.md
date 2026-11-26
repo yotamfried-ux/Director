@@ -34,3 +34,6 @@ No scheduled task has been created yet. No agent has run unattended. Connections
 
 ## demand-scanner
 Finds automation, ETL and full-stack project types that recur, mainly in Israel, so one build can be sold to several owners. Collects listings, not people; allowed sources only (`business/demand/sources.json`); ranking by `scripts/demand-analyze.mjs`. ROI per build hour is computed only from Yotam's own hour estimates (`business/demand/effort.template.json`); without them it reports demand only. Tests: `node --test tests/demand.test.mjs` (demo fixture, synthetic data).
+
+## Measurement and the delivery-to-offer path
+Every run records itself and content drafts pass `scripts/content-lint.mjs`: see `docs/12-measurement.md`. The demand agent's path from a finished project to offers for the owners who asked for it: `scripts/demand-match.mjs` (candidates only; Yotam approves and sends each message). Sources reviewed 2026-11-26 in `business/demand/sources.json`.
