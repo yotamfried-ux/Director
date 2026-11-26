@@ -45,4 +45,4 @@ if (cmd === "record") {
   if (a.json) { console.log(JSON.stringify({ window_days: days, rows }, null, 2)); process.exit(0); }
   console.log(`window ${days}d, now ${new Date(now).toISOString()}`);
   for (const x of rows) console.log(`${x.agent.padEnd(16)} ${String(x.status).padEnd(9)} ${x.health.padEnd(28)} runs=${x.runs} ok=${x.ok_rate ?? "-"}% checks=${x.check_pass_rate ?? "-"}% quality=${x.quality_mean ?? "-"}(n=${x.quality_n}) approved=${x.approval_rate ?? "-"}%(n=${x.verdicts}) ${x.enough_data ? "" : "[too little data to judge]"}`);
-} else fail("usage: agent-metrics.mjs record|outcome|report");
+} else fail("usage: agent-metrics.mjs record --agent ID --status ok|partial|failed --started ISO --finished ISO [--outputs N --checks-pass N --checks-fail N --quality N --note TEXT] | outcome --agent ID --item KEY --result approved|edited|rejected|published [--edit-ratio 0-1] | report [--days 28] [--json]");

@@ -16,3 +16,5 @@ business/demand/*
 !business/demand/effort.template.json
 !business/demand/fixtures/
 !business/demand/assets.json
+business/reports/*
+business/pricing/*

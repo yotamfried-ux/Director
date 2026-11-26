@@ -60,3 +60,9 @@ Format: `experiments/template.md`. Qualitative entries are Yotam's feedback in c
 - **Evidence:** v1 journey "not good, text not good, can't understand"; 60 s "too long"; overview v1 "improved but unfinished, no background"; v2 "UI needs improvement, transitions too fast to read and understand". v3: awaiting verdict.
 - **Director notes (v3):** 5-second test passes (title, course project, goal by 3 s); honesty: all numbers from `products/churn-prediction.md`, truncated axis labelled; cut test: AUC kept only as small stat. Length 39.5 s is longer than Yotam's 30 s target: stated to him as a trade-off.
 - **Decision:** pending Yotam. **Recorded:** `products/churn-prediction-script-v3.md`.
+
+### EXP-009 — first Reel hook for Tori (proposed 2026-11-26, not run)
+- **Hypothesis:** a pain-first hook holds viewers longer than a product-first hook.
+- **Variants:** A = pain-first · B = product-first · C = result-first (demo data labelled "נתוני דמו").
+- **Metric:** 3-second view rate (3s views / reach). **Evidence:** none yet; nothing published, no insights connected.
+- **Decision:** pending Yotam's approval to publish; small sample = directional only.
