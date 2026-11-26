@@ -17,7 +17,7 @@ Director is the working memory of a Claude agent that runs on a schedule and man
 Product registry: `products/registry.json` (`active` decides which repos the agent works on). New repos: `github-product-intake`.
 
 ## Data rules (the repo is PUBLIC)
-- No personal data in git: no names, phones, emails, chat excerpts of leads or customers. `business/leads/` and `business/prospects/` hold only schema/README; real records live in a private store (proposal: an n8n Data Table, or a private sheet; Yotam to choose).
+- No personal data in git: no names, phones, emails, chat excerpts of leads or customers. `business/leads/` and `business/prospects/` hold only schema/README; real records live in the private store: **D2R Management** (`yotamfried-ux/Cost_Managment`, encrypted ledger, screens Leads / Customers / Marketing). Send them with `node scripts/d2r-ingest.mjs <records.json> --send` (HMAC-signed `POST /api/agent/ingest`; dry run by default; env `D2R_BASE_URL`, `D2R_AGENT_SECRET`). Record types: lead, customer, post, metric, run, each with a stable `key`; batches are idempotent by `batchId`. The agent never holds the data key. Scheduled Claude sessions may not reach the app (network allowlist): the n8n workflow that runs the script/HTTP call is the intended caller. Requires the D2R PR #6 merged and deployed, and the repo made private before real data.
 - Demo numbers are labelled "נתוני דמו". Metrics come only from official analytics or Yotam's exports. No invented numbers, reviews, customers.
 - Prices and quotes are proposals with stated assumptions; Yotam decides and signs.
 
