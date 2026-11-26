@@ -37,3 +37,4 @@ Finds automation, ETL and full-stack project types that recur, mainly in Israel,
 
 ## Measurement and the delivery-to-offer path
 Every run records itself and content drafts pass `scripts/content-lint.mjs`: see `docs/12-measurement.md`. The demand agent's path from a finished project to offers for the owners who asked for it: `scripts/demand-match.mjs` (candidates only; Yotam approves and sends each message). Sources reviewed 2026-11-26 in `business/demand/sources.json`.
+The demand agent also checks each recurring type against Yotam's existing projects (`business/demand/assets.json`, `scripts/demand-reuse.mjs`) so a project with a similar base is built faster.

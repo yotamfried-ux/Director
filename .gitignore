@@ -15,3 +15,4 @@ business/demand/*
 !business/demand/sources.json
 !business/demand/effort.template.json
 !business/demand/fixtures/
+!business/demand/assets.json

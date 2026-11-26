@@ -17,3 +17,6 @@ One object per offer: `poster_ref`, `delivered_slug`, `state` (`candidate` > `dr
 ## Persistence (open)
 Each scheduled run starts in a clean checkout, so git-ignored files do not survive between runs. Until a private place for listings exists (a D2R record type, or a private data branch), the scanner can only analyse what Yotam supplies in the same run.
 
+## Reuse (`assets.json`)
+Yotam's existing projects with `capabilities` tags in the same vocabulary as listing tags. `scripts/demand-reuse.mjs` compares each recurring demand type with them: coverage = share of the type's tags already covered; the rest is the adaptation work. Tags are the weak point (different words for the same thing), so the agent proposes tag fixes. `reuse_hours_saved` is Yotam's number only.
+

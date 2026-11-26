@@ -35,7 +35,7 @@ const rows = clusters.map(c => {
     const hours = e.first_build_hours + (posters - 1) * e.repeat_build_hours;
     roi = Object.fromEntries(Object.entries(budgets).map(([cur, b]) => [cur, { budget_total: b.total, build_hours: hours, per_hour: Math.round(b.total / hours) , budgeted_listings: b.n, of: c.items.length }]));
   }
-  return { key, category: c.category, listings: c.items.length, distinct_posters: posters, sources, israel_listings: il, israel_share: Math.round(100 * il / c.items.length) / 100, first_seen: c.items.map(i => i.posted_on ?? i.seen_on).filter(Boolean).sort()[0] ?? null, last_seen: c.items.map(i => i.posted_on ?? i.seen_on).filter(Boolean).sort().at(-1) ?? null, budgets, effort_estimate: e ? "provided" : "needs estimate", roi_per_build_hour: roi, example_urls: c.items.slice(0, 3).map(i => i.url) };
+  return { key, category: c.category, tags: [...c.tags].sort(), listings: c.items.length, distinct_posters: posters, sources, israel_listings: il, israel_share: Math.round(100 * il / c.items.length) / 100, first_seen: c.items.map(i => i.posted_on ?? i.seen_on).filter(Boolean).sort()[0] ?? null, last_seen: c.items.map(i => i.posted_on ?? i.seen_on).filter(Boolean).sort().at(-1) ?? null, budgets, effort_estimate: e ? "provided" : "needs estimate", roi_per_build_hour: roi, example_urls: c.items.slice(0, 3).map(i => i.url) };
 }).sort((a, b) => (b.distinct_posters - a.distinct_posters) || (b.listings - a.listings));
 if (asJson) { console.log(JSON.stringify({ listings: unique.length, duplicates_dropped: listings.length - unique.length, clusters: rows }, null, 2)); process.exit(0); }
 console.log(`# Recurring demand (${unique.length} listings, ${listings.length - unique.length} duplicates dropped)\n`);
