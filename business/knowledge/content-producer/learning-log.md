@@ -12,3 +12,7 @@
 - Marketable core from the n8n spec: evidence over agent claims, one request = one run, separate investigator/verifier roles, failure loop, runs only on request and stops for approval; no outcome numbers exist.
 - qa-gate: end every scene drift with continuous linear motion, not an eased stop (frozen tail fail); keep dimmed text at opacity >= 0.5.
 - Lint gate lints all drafts of the day against the product slug: product video runs fail it when other drafts exist; scope it per run.
+
+## 2026-11-27 (marketing-20261127171035, daily batch for 2026-11-29)
+- Three still posts (customer pain, owner calendar, personal cancel link) built from public/shots with Chromium; each lints 10/10 with claim_ref copied without colons; sent as D2R publications + digest, HTTP 200.
+- Stills-only batch cannot pass the video gates; finish partial with skip.
