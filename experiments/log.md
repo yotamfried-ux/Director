@@ -66,3 +66,40 @@ Format: `experiments/template.md`. Qualitative entries are Yotam's feedback in c
 - **Variants:** A = pain-first · B = product-first · C = result-first (demo data labelled "נתוני דמו").
 - **Metric:** 3-second view rate (3s views / reach). **Evidence:** none yet; nothing published, no insights connected.
 - **Decision:** pending Yotam's approval to publish; small sample = directional only.
+
+## 2026-11-26 — AI Agent System (Director) site video v1 (angle A, trust)
+- Hypothesis: a trust angle (independent audit + approval gate) answers the viewer's fear that agents act unchecked better than an outcome angle, which we cannot back with verified numbers.
+- Built: 30 s, 1920x1080@30, silent, HE; composition `AgentSystem-site-he`; real dashboard screenshot (test run 26.11.2026) + motion graphics with real agent ids/status names; example items labelled demo.
+- Director's review: draft showed long static holds (QA warned 3-6 s) -> added slow per-scene drift and raised caption contrast; one 5 s hold remains (audit scene end).
+- Not verified: motion feel on a phone, card-size readability at 600 px, EN variant, Yotam's reading of "my agent system".
+- Result: pending Yotam's verdict.
+
+## 2026-11-26 — AI Agent System site video v3 (correction of v1/v2)
+- Lesson: "my agent system" was read twice wrongly (Director, then Engineering-OS). The real project lives in Yotam's own n8n (spec workflow "PROJECT SPEC — n8n On-Demand Engineering Run System"); name on screen must match the portfolio card ("AI Agent System"). When a product has no GitHub repo, ask or search the n8n/portfolio sources before researching.
+- Built from the n8n spec: roles, one request = one RUN, failure loop, trust order of evidence, sandbox limits. Honest framing: spec says NOT production ready; self-improvement not proven (REJECTED_BY_HOLDOUT), so outro says "ניסויים בתהליכי עבודה עם בינה מלאכותית".
+- Director's review/QA: gate caught a hard cut at 3.2 s caused by a per-scene zoom reset; replaced with one continuous slow zoom. Static-hold warnings remain in evidence/limits scenes (3-4 s).
+- Not verified: card-size readability, EN variant, claims beyond the spec text (runtime behaviour not re-run today).
+- Result: pending Yotam's verdict.
+
+## 2026-11-26 — AI Agent System (shell run) site video v1 (angle A, trust)
+- Hypothesis: a trust angle (one request = one RUN, separate Verifier, evidence order, honest status) answers "will agents ship unchecked code?" better than an outcome angle we cannot back with numbers.
+- Built: 30 s, 1920x1080@30, silent, HE; composition `AgentSystemShell-he`; motion graphics with the n8n spec's real role names and status words; no demo numbers.
+- Director's review: 5-second test passes (name + "בקשה אחת. ריצה אחת."); honesty: every on-screen claim maps to V1-V12 in `products/ai-agent-system-shell.md`; raised secondary text contrast after the first render; no static tail (fade-out, drifting background).
+- Not verified: card-size readability (stills only), EN variant, motion feel on a phone, spec drift after today, Yotam's reading. OCR reads "AI" as "Al" (font), so the must-appear check warns; confirmed by eye.
+- Result: pending Yotam's verdict.
+
+### EXP-010 — business week: pain-first vs builder-first hook (proposed 2026-11-26, not run)
+- **Product / asset:** business and capabilities posts (2 reels + 1 carousel), proof from Tori verified claims
+- **Hypothesis:** a pain-first hook (A) holds viewers past 3 seconds more often than a builder-first hook (B) with the same content.
+- **Variants:** A = pain-first · B = builder-first · (C = show-the-work carousel is the proof layer, not a test arm).
+- **Metric:** 3-second view rate per reel against the account median (29.1% in the demo file, n=4); at least 4 reels per arm; per-post medians; gap under 5 points = no signal.
+- **Evidence:** none yet; analysis of the demo insights shows one outlier (72% of reach) and an otherwise flat account. Nothing published.
+- **Decision:** pending Yotam's approval to publish.
+
+### EXP-011 — AI Agent System benchmark clip: hook question vs flow-first (proposed 2026-11-26, not run)
+- **Product / asset:** AI Agent System site clip (benchmark, not for publication), slug agent-system-bench
+- **Hypothesis:** the "I'm done. Who proves it?" hook keeps visitors watching longer than a flow-first opening.
+- **Variants:** A = question hook · B = name plus one-request-one-run first.
+- **Metric:** completion share and contact/project clicks per card view vs other cards; min 3 per arm.
+- **Evidence:** none; not published.
+- **Decision:** pending Yotam.

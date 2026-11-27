@@ -1,0 +1,85 @@
+{
+  "_about": "DEMO synthetic, fictional.",
+  "candidates": [
+    {
+      "id": "c1",
+      "name": "DEMO Tattoo Alef",
+      "type": "tattoo studio",
+      "public_signal": "asks clients to DM for slots",
+      "signal_date": "2026-11-11",
+      "channel": "public business email",
+      "consent": "none",
+      "_trap": null
+    },
+    {
+      "id": "c2",
+      "name": "DEMO Gym Bet",
+      "type": "gym",
+      "public_signal": "already runs a booking app",
+      "signal_date": "2026-11-02",
+      "channel": "public business email",
+      "consent": "none",
+      "_trap": "already-has-system"
+    },
+    {
+      "id": "c3",
+      "name": "DEMO Barber Gimel",
+      "type": "barber",
+      "public_signal": "complains about no-shows in public post",
+      "signal_date": "2026-11-15",
+      "channel": "public business email",
+      "consent": "none",
+      "_trap": null
+    },
+    {
+      "id": "c4",
+      "name": "DEMO Bakery Dalet",
+      "type": "bakery",
+      "public_signal": "no appointments",
+      "signal_date": "2026-10-20",
+      "channel": "public business email",
+      "consent": "none",
+      "_trap": "not-a-fit"
+    },
+    {
+      "id": "c5",
+      "name": "DEMO Kosmetika Hey",
+      "type": "cosmetician",
+      "public_signal": "signal undated",
+      "signal_date": "",
+      "channel": "public business email",
+      "consent": "none",
+      "_trap": "undated-signal"
+    },
+    {
+      "id": "c6",
+      "name": "DEMO Physio Vav",
+      "type": "physiotherapist",
+      "public_signal": "opted out of marketing in a past exchange",
+      "signal_date": "2026-11-03",
+      "channel": "public business email",
+      "consent": "none",
+      "_trap": "opted-out"
+    },
+    {
+      "id": "c7",
+      "name": "DEMO Salon Zayin",
+      "type": "hair salon",
+      "public_signal": "books by phone only, public post says so",
+      "signal_date": "2026-11-18",
+      "channel": "public business phone",
+      "consent": "none",
+      "_trap": null
+    },
+    {
+      "id": "c8",
+      "name": "DEMO Pet Het",
+      "type": "pet groomer",
+      "public_signal": "asks to book via comments",
+      "signal_date": "2026-11-16",
+      "channel": "public business email",
+      "consent": "none",
+      "_trap": null
+    }
+  ]
+}

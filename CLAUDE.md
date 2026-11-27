@@ -45,3 +45,5 @@ Commands: `/new-video <product>` runs the whole flow; `/log-experiment` adds a l
 
 ## Setup (sandbox or local)
 `npm ci` · system Chrome (`CHROME_PATH`, default `/usr/bin/google-chrome`; renders use `--gl=swangle`, `--concurrency=2`) · `ffmpeg` · `tesseract` with `heb` + `eng` · Python 3 with `numpy scipy pillow` (`pip install --break-system-packages …`). GitHub GraphQL is blocked in Claude Code sessions: use `gh api` REST for PRs. Details: `docs/07-setup.md`.
+
+Agents (Nov 2026): five agents run inside the Agent Shell (`docs/13-agent-shell.md`, roster in `docs/11-agents.md`): marketing, projects-scout, product-customers, sales, auditor. Run any of them via `node scripts/agent-shell.mjs prompt --agent <id>`; benchmark vs bare Claude with `scripts/agent-benchmark.mjs`.

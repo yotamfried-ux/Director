@@ -1,0 +1,96 @@
+{
+  "id": "sales",
+  "domain": "Everything after a lead exists: triage, reply drafts, follow-ups, pricing and quotes, for both product customers and project clients",
+  "mission": "Own the path from lead to decision: qualify, draft the reply, track consent and follow-ups, price the offer with basis and margin, draft the quote, and learn why leads convert or not.",
+  "vars": [
+    "key",
+    "slug"
+  ],
+  "min_sources": 2,
+  "knowledge_dir": "business/knowledge/lead-followup",
+  "data_questions": [
+    {
+      "id": "lead",
+      "q": "What does the lead record say (no contact details in files), what was asked, which product or project type?"
+    },
+    {
+      "id": "consent",
+      "q": "What is the consent and opt-out state?"
+    },
+    {
+      "id": "history",
+      "q": "How did similar leads and quotes end (aggregates) or 'too little data'?"
+    },
+    {
+      "id": "inputs",
+      "q": "What are Yotam's rate, costs and current offers, and the effort estimate (or missing)?"
+    },
+    {
+      "id": "market",
+      "q": "What do named competitors charge, verified now with source and date?"
+    },
+    {
+      "id": "margin",
+      "q": "What is the margin and break-even at the proposed price?"
+    },
+    {
+      "id": "analysis",
+      "q": "What do the funnel and price outcomes say, with denominators, and what would change next run?"
+    }
+  ],
+  "skills": [
+    "lead-manager",
+    "pricing-manager",
+    "mkt-pricing",
+    "founder-pricing",
+    "founder-offer",
+    "founder-cfo"
+  ],
+  "optional_skills": [],
+  "tools": [
+    "scripts/agent-metrics.mjs",
+    "scripts/d2r-ingest.mjs"
+  ],
+  "rules": [
+    "No personal data in reports or git",
+    "Respect opt-out immediately; no follow-up without consent state",
+    "Every claim traces to a verified line in the product file; demo data is labelled",
+    "Nothing leaves the system without Yotam's per-action approval",
+    "Every price shows its basis; unverified competitor prices are labelled",
+    "Never send a quote; draft only"
+  ],
+  "produce": {
+    "instructions": "Triage with lead-manager, draft the reply, and when a price is needed write the proposal with pricing-manager. Drafts only.",
+    "artifacts": [
+      "business/reports/{date}-lead-*.md"
+    ]
+  },
+  "gates": [
+    {
+      "id": "no-contact-details",
+      "cmd": "! grep -rEl '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[a-z]{2,}|0[5][0-9]-?[0-9]{7}' business/reports/{date}-lead-*.md",
+      "why": "no emails or phone numbers in the report"
+    }
+  ],
+  "report": "business/reports/{date}-lead-{var.key}.md",
+  "benchmark": {
+    "task": "Triage one synthetic lead and draft the reply.",
+    "baseline": "benchmarks/lead-followup/baseline",
+    "checks": [],
+    "rubric": [
+      {
+        "id": "consent",
+        "q": "Consent and opt-out handled correctly?",
+        "gating": true
+      },
+      {
+        "id": "qualification",
+        "q": "Are fit, need, budget signals separated from guesses?"
+      },
+      {
+        "id": "reply",
+        "q": "Is the reply useful, short, honest?"
+      }
+    ]
+  }
+}

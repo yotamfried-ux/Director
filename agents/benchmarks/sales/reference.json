@@ -1,0 +1,41 @@
+{
+ "agent": "sales",
+ "frozen_at": "2026-11-26T19:31:20Z",
+ "what": "bare Claude, no shell/charter/stages, same tasks as standard.json",
+ "tasks": {
+  "dev": [
+   {
+    "path": "business/benchmarks/sales/reference/dev/quote-pricing-note.md",
+    "sha256": "84b00c3c769fe4374ef8ecd35f555aae391f51c5745ee3ae3757167a56e5f937",
+    "bytes": 2032
+   },
+   {
+    "path": "business/benchmarks/sales/reference/dev/reply-draft.md",
+    "sha256": "e8f2e8e68614c7b48fcb375e089223d50cc21b574d5291d8f550fe83c07048a9",
+    "bytes": 1878
+   },
+   {
+    "path": "business/benchmarks/sales/reference/dev/triage-summary.md",
+    "sha256": "0db683bf77357464544dcf2e13c96ebaf9ace0b370078cf13200cbf5ed8b8a00",
+    "bytes": 1846
+   }
+  ],
+  "holdout": [
+   {
+    "path": "business/benchmarks/sales/reference/holdout/quote-pricing-note.md",
+    "sha256": "72ba4f10b8bf90e29efe66143c548415ce02c5cb2e65a0d035aeaaa272245cd1",
+    "bytes": 1772
+   },
+   {
+    "path": "business/benchmarks/sales/reference/holdout/reply-draft.md",
+    "sha256": "20bee2b73d1121a724a6dd77ecb3ec648af5326220b32fc56ac194ce0980a26d",
+    "bytes": 1295
+   },
+   {
+    "path": "business/benchmarks/sales/reference/holdout/triage-summary.md",
+    "sha256": "c7a8627917bf60c29283e46b9baebdd7b151208d3a59db2f59e20673d7ca7492",
+    "bytes": 1980
+   }
+  ]
+ }
+}

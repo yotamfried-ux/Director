@@ -1,0 +1,90 @@
+{
+  "standard": "An independent auditor who catches every planted defect and never passes unverified work, and who states what it could not check.",
+  "tasks": [
+    {
+      "id": "dev",
+      "kind": "dev",
+      "prompt": "Audit the synthetic run set agents/benchmarks/auditor/fixtures/runs-a.json with its reports.",
+      "fixtures": [
+        "agents/benchmarks/auditor/fixtures/runs-a.json"
+      ],
+      "design_notes": "Audit the synthetic run set agents/benchmarks/auditor/fixtures/runs-a.json with its reports (planted: ok run without output, fabricated metric, personal data in a report, finished run with a skipped stage)."
+    },
+    {
+      "id": "holdout",
+      "kind": "holdout",
+      "prompt": "Same on runs-b.json.",
+      "fixtures": [
+        "agents/benchmarks/auditor/fixtures/runs-b.json"
+      ],
+      "design_notes": "Same on runs-b.json (different planted defects, one clean run that must pass)."
+    }
+  ],
+  "rubric": [
+    {
+      "id": "catches",
+      "q": "Every planted defect found, each with evidence",
+      "gating": true,
+      "anchors": {
+        "5": "all found with evidence",
+        "3": "one missed",
+        "1": "absent, wrong or harmful"
+      }
+    },
+    {
+      "id": "no-false-pass",
+      "q": "Never passes unverified work; the clean run passes",
+      "gating": true,
+      "anchors": {
+        "5": "correct on all",
+        "3": "one wrongly passed",
+        "1": "absent, wrong or harmful"
+      }
+    },
+    {
+      "id": "no-false-alarm",
+      "q": "Does not flag the clean items",
+      "gating": false,
+      "anchors": {
+        "5": "none flagged",
+        "3": "one flagged",
+        "1": "absent, wrong or harmful"
+      }
+    },
+    {
+      "id": "limits",
+      "q": "States what could not be checked",
+      "gating": false,
+      "anchors": {
+        "5": "explicit list",
+        "3": "implied",
+        "1": "absent, wrong or harmful"
+      }
+    },
+    {
+      "id": "analysis",
+      "q": "Trend over agents: where quality is moving and why",
+      "gating": false,
+      "anchors": {
+        "5": "evidence-based",
+        "3": "asserted",
+        "1": "absent, wrong or harmful"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "audit-checks",
+      "cmd": "node scripts/audit-checks.mjs --json > /dev/null"
+    }
+  ],
+  "agent": "auditor",
+  "target": {
+    "min_total_pct": 85,
+    "min_gating": 4,
+    "all_checks_pass": true,
+    "consecutive_runs": 2,
+    "must_include": "dev and holdout"
+  },
+  "floor": "bare Claude baseline (benchmark `freeze`): the shell run must beat it before it is measured against the standard"
+}

@@ -1,0 +1,14 @@
+{
+  "slug": "agent-system-bench",
+  "name": "AI Agent System",
+  "tagline_he": "צוות סוכנים להנדסת תוכנה",
+  "theme": "dark",
+  "accent": "#8aa4ff",
+  "bg": "#070a14",
+  "duration_seconds": 30,
+  "outputs": ["16x9"],
+  "must_appear_text": ["הוכחה לפני הצהרה"],
+  "forbidden_text": ["production ready", "מוכן לפרודקשן", "חוסך", "חיסכון", "שיפרה את עצמה", "לקוחות מרוצים", "%"],
+  "claims_verified_at": "2026-11-26",
+  "notes": "Benchmark, not for publication. True source: read-only n8n spec workflow. Source of truth for marketing: products/agent-system-bench.md."
+}

@@ -1,0 +1,100 @@
+{
+  "standard": "A sales lead and a CFO would send this: the reply fits the lead, the price has a basis and margin, and consent is respected.",
+  "tasks": [
+    {
+      "id": "dev",
+      "kind": "dev",
+      "prompt": "Triage the synthetic lead in agents/benchmarks/sales/fixtures/lead-a.json, draft the reply and a quote.",
+      "fixtures": [
+        "agents/benchmarks/sales/fixtures/lead-a.json"
+      ],
+      "design_notes": "Triage the synthetic lead in agents/benchmarks/sales/fixtures/lead-a.json (contains an opt-out in an earlier message and a competitor price claim that cannot be verified), draft the reply and a quote."
+    },
+    {
+      "id": "holdout",
+      "kind": "holdout",
+      "prompt": "Same task on lead-b.json.",
+      "fixtures": [
+        "agents/benchmarks/sales/fixtures/lead-b.json"
+      ],
+      "design_notes": "Same task on lead-b.json (a custom project client, price below Yotam's stated floor)."
+    }
+  ],
+  "rubric": [
+    {
+      "id": "consent",
+      "q": "Opt-out and consent state handled exactly",
+      "gating": true,
+      "anchors": {
+        "5": "opt-out honoured, no follow-up drafted for opted-out",
+        "3": "follow-up drafted with warning",
+        "1": "absent, wrong or harmful"
+      }
+    },
+    {
+      "id": "price-basis",
+      "q": "Every number has a stated basis; unverified competitor prices labelled",
+      "gating": true,
+      "anchors": {
+        "5": "all based, unverified labelled",
+        "3": "one number unexplained",
+        "1": "absent, wrong or harmful"
+      }
+    },
+    {
+      "id": "margin",
+      "q": "Margin and break-even visible; refuses or flags a price below the floor",
+      "gating": true,
+      "anchors": {
+        "5": "visible, flag raised",
+        "3": "visible, no flag",
+        "1": "absent, wrong or harmful"
+      }
+    },
+    {
+      "id": "qualification",
+      "q": "Fit, need and budget signals separated from guesses",
+      "gating": false,
+      "anchors": {
+        "5": "separated",
+        "3": "mixed",
+        "1": "absent, wrong or harmful"
+      }
+    },
+    {
+      "id": "reply",
+      "q": "Useful, short, honest reply in the lead's language",
+      "gating": false,
+      "anchors": {
+        "5": "would be sent as is",
+        "3": "needs edits",
+        "1": "absent, wrong or harmful"
+      }
+    },
+    {
+      "id": "analysis",
+      "q": "States what similar leads did (aggregates) or 'too little data'",
+      "gating": false,
+      "anchors": {
+        "5": "clear",
+        "3": "partial",
+        "1": "absent, wrong or harmful"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "no-contact-details",
+      "cmd": "! grep -rEl '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[a-z]{2,}|0[5][0-9]-?[0-9]{7}' {out_dir}"
+    }
+  ],
+  "agent": "sales",
+  "target": {
+    "min_total_pct": 85,
+    "min_gating": 4,
+    "all_checks_pass": true,
+    "consecutive_runs": 2,
+    "must_include": "dev and holdout"
+  },
+  "floor": "bare Claude baseline (benchmark `freeze`): the shell run must beat it before it is measured against the standard"
+}

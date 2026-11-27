@@ -33,7 +33,7 @@ else if (cmd === "list") for (const a of reg.agents) console.log(`${a.status.pad
 else if (cmd === "payload") {
   const a = reg.agents.find(x => x.id === id); if (!a) { console.error("unknown agent"); process.exit(2); }
   if (a.status === "proposed") console.error("note: still proposed; create the scheduled task only after Yotam approves the cadence");
-  const body = { name: `Director: ${a.id}`, initiation: "human_request", prompt: `Read ${a.prompt} and routines/agents/_common.md in the Director repo and do exactly what they say. Role: ${a.role}.` };
+  const body = { name: `Director: ${a.id}`, initiation: "human_request", prompt: `In the Director repo run: node scripts/agent-shell.mjs prompt --agent ${a.id}  and follow the printed instructions exactly (the Agent Shell: mandatory stages, evidence checks, gates, closing check). Role: ${a.role}. A run that is not closed with agent-shell.mjs finish counts as failed.` };
   if (a.trigger.kind === "cron") body.cron_expression = `CRON_TZ=${reg.timezone} ${a.trigger.cron}`;
   console.log(JSON.stringify(body, null, 2));
 } else { console.error("usage: agents.mjs check|list|payload <id>"); process.exit(2); }

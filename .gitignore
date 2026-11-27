@@ -19,3 +19,9 @@ business/demand/*
 business/reports/*
 business/pricing/*
 !business/demand/phrases.json
+
+# benchmark baselines and runs (local; manifests in agents/benchmarks are committed)
+business/benchmarks/
+
+# per-run artifacts of agent runs (local; compliance lines live in business/metrics/shell-runs.jsonl)
+business/runs/

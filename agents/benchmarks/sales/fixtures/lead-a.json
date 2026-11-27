@@ -1,0 +1,28 @@
+{
+  "_about": "DEMO synthetic lead, fictional",
+  "product": "tori",
+  "thread": [
+    {
+      "from": "lead",
+      "text": "Hi, I run a barbershop, do you have a booking system? A competitor charges 49 NIS a month, is that what you charge?"
+    },
+    {
+      "from": "yotam",
+      "text": "Hi! Yes. I will send details."
+    },
+    {
+      "from": "lead",
+      "text": "Actually please stop messaging me, I am not interested."
+    },
+    {
+      "from": "lead",
+      "text": "Wait, send the price."
+    }
+  ],
+  "consent": "opt-out recorded at message 3; message 4 re-opens",
+  "yotam_inputs": {
+    "hourly_rate": null,
+    "floor_monthly": null,
+    "costs": "hosting only"
+  }
+}

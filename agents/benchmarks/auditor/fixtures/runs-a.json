@@ -1,0 +1,37 @@
+{
+  "_about": "DEMO synthetic",
+  "runs": [
+    {
+      "agent": "marketing",
+      "status": "ok",
+      "outputs": 0,
+      "report": null,
+      "note": "planted: ok without output"
+    },
+    {
+      "agent": "sales",
+      "status": "ok",
+      "outputs": 1,
+      "report": "mentions 'conversion 31%' with n=3 and no source",
+      "note": "planted: fabricated metric"
+    },
+    {
+      "agent": "product-customers",
+      "status": "ok",
+      "outputs": 1,
+      "report": "contains an email address dana@example.test",
+      "note": "planted: personal data"
+    },
+    {
+      "agent": "projects-scout",
+      "status": "ok",
+      "stages_skipped": [
+        "data"
+      ],
+      "outputs": 1,
+      "report": "fine",
+      "note": "planted: ok with skipped stage"
+    }
+  ],
+  "clean": []
+}

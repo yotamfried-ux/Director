@@ -1,0 +1,118 @@
+{
+  "standard": "A senior marketer plus a video director would publish this under their own name and the owner would not need to correct it.",
+  "tasks": [
+    {
+      "id": "dev",
+      "kind": "dev",
+      "prompt": "Produce a 30 s silent Hebrew 16:9 site video for the product shown on the portfolio card as 'AI Agent System' (Yotam's multi-agent end-to-end software development system with self-improvement, hosted in his own n8n; benchmark task only, not for publication), from its true source, plus brief, script and a one-paragraph next experiment.",
+      "needs": [
+        "master",
+        "slug"
+      ],
+      "reference": "frozen bare-Claude output (agents/benchmarks/marketing/baseline.json)"
+    },
+    {
+      "id": "holdout",
+      "kind": "holdout",
+      "prompt": "Plan one week of marketing for the business itself and Yotam's capabilities: positioning in 3 lines, 3 post drafts, one experiment, and an analysis of the supplied insights fixture (agents/benchmarks/marketing/fixtures/insights-demo.json), stating what the numbers do and do not support.",
+      "fixtures": [
+        "agents/benchmarks/marketing/fixtures/insights-demo.json"
+      ]
+    }
+  ],
+  "rubric": [
+    {
+      "id": "promise",
+      "q": "One promise a stranger can repeat after 5 seconds",
+      "gating": true,
+      "anchors": {
+        "5": "a cold viewer states the promise correctly",
+        "3": "promise exists but needs 'and'",
+        "1": "absent, wrong or harmful"
+      }
+    },
+    {
+      "id": "truth",
+      "q": "Every claim traces to a verified claim id; no invented numbers, customers or reviews",
+      "gating": true,
+      "anchors": {
+        "5": "all traced, nothing invented, demo data labelled",
+        "3": "one claim loosely supported",
+        "1": "absent, wrong or harmful"
+      }
+    },
+    {
+      "id": "positive-framing",
+      "q": "Sells what the product really does; no internal status or limitation stated as a negative",
+      "gating": true,
+      "anchors": {
+        "5": "no negatives, no apologies, no inflated promises",
+        "3": "one soft hedge about readiness",
+        "1": "absent, wrong or harmful"
+      }
+    },
+    {
+      "id": "buyer-insight",
+      "q": "Names the buyer's real pain in the buyer's words",
+      "gating": false,
+      "anchors": {
+        "5": "specific pain a business owner would say out loud",
+        "3": "generic pain",
+        "1": "absent, wrong or harmful"
+      }
+    },
+    {
+      "id": "craft",
+      "q": "Smooth motion, readable at card size, nothing snaps or ends frozen",
+      "gating": false,
+      "anchors": {
+        "5": "director would ship as is",
+        "3": "small blemishes",
+        "1": "absent, wrong or harmful"
+      }
+    },
+    {
+      "id": "plan",
+      "q": "Hypothesis, angles A/B/C with trade-offs, decision, success metric",
+      "gating": false,
+      "anchors": {
+        "5": "all four, metric matches results-spec",
+        "3": "metric vague",
+        "1": "absent, wrong or harmful"
+      }
+    },
+    {
+      "id": "analysis",
+      "q": "Conclusions from numbers with denominators; small samples called 'no signal'",
+      "gating": false,
+      "anchors": {
+        "5": "every claim has n and a stated limit; ignores noise",
+        "3": "one overreach",
+        "1": "absent, wrong or harmful"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "forbidden-negatives",
+      "cmd": "! grep -rEil 'לא מוכן|not production|not yet proven|עדיין לא הוכח' {out_dir}"
+    },
+    {
+      "id": "qa-gate",
+      "cmd": "python3 -I scripts/qa-gate.py {master} --product {slug}"
+    },
+    {
+      "id": "claims-fresh",
+      "cmd": "grep -q claims_verified_at products/{slug}.json"
+    }
+  ],
+  "agent": "marketing",
+  "target": {
+    "min_total_pct": 85,
+    "min_gating": 4,
+    "all_checks_pass": true,
+    "consecutive_runs": 2,
+    "must_include": "dev and holdout"
+  },
+  "floor": "bare Claude baseline (benchmark `freeze`): the shell run must beat it before it is measured against the standard"
+}

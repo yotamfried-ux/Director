@@ -1,0 +1,150 @@
+[
+  {
+    "id": "demo-b0",
+    "source": "demo-il-a",
+    "url": "https://example.test/demo/b0",
+    "seen_on": "2026-11-22",
+    "region": "IL",
+    "category": "etl",
+    "title": "DEMO listing",
+    "summary": "DEMO synthetic listing, not real",
+    "tags": [
+      "excel",
+      "sql",
+      "report"
+    ],
+    "poster_ref": "q1",
+    "budget_min": 600,
+    "budget_max": 1400,
+    "currency": "ILS"
+  },
+  {
+    "id": "demo-b1",
+    "source": "demo-il-a",
+    "url": "https://example.test/demo/b1",
+    "seen_on": "2026-11-22",
+    "region": "IL",
+    "category": "etl",
+    "title": "DEMO listing",
+    "summary": "DEMO synthetic listing, not real",
+    "tags": [
+      "excel",
+      "sql",
+      "report"
+    ],
+    "poster_ref": "q2",
+    "budget_min": 600,
+    "budget_max": 1400,
+    "currency": "ILS"
+  },
+  {
+    "id": "demo-b2",
+    "source": "demo-il-a",
+    "url": "https://example.test/demo/b2",
+    "seen_on": "2026-11-22",
+    "region": "IL",
+    "category": "etl",
+    "title": "DEMO listing",
+    "summary": "DEMO synthetic listing, not real",
+    "tags": [
+      "excel",
+      "sql",
+      "report"
+    ],
+    "poster_ref": "q3",
+    "budget_min": 600,
+    "budget_max": 1400,
+    "currency": "ILS"
+  },
+  {
+    "id": "demo-b3",
+    "source": "demo-il-a",
+    "url": "https://example.test/demo/b3",
+    "seen_on": "2026-11-22",
+    "region": "IL",
+    "category": "etl",
+    "title": "DEMO listing",
+    "summary": "DEMO synthetic listing, not real",
+    "tags": [
+      "excel",
+      "sql",
+      "report"
+    ],
+    "poster_ref": "q4",
+    "budget_min": 600,
+    "budget_max": 1400,
+    "currency": "ILS"
+  },
+  {
+    "id": "demo-b4",
+    "source": "demo-il-b",
+    "url": "https://example.test/demo/b4",
+    "seen_on": "2026-11-22",
+    "region": "IL",
+    "category": "automation",
+    "title": "DEMO listing",
+    "summary": "DEMO synthetic listing, not real",
+    "tags": [
+      "whatsapp",
+      "crm"
+    ],
+    "poster_ref": "q5",
+    "budget_min": 600,
+    "budget_max": 1400,
+    "currency": "ILS"
+  },
+  {
+    "id": "demo-b5",
+    "source": "demo-il-b",
+    "url": "https://example.test/demo/b5",
+    "seen_on": "2026-11-22",
+    "region": "IL",
+    "category": "automation",
+    "title": "DEMO listing",
+    "summary": "DEMO synthetic listing, not real",
+    "tags": [
+      "whatsapp",
+      "crm"
+    ],
+    "poster_ref": "q6",
+    "budget_min": 600,
+    "budget_max": 1400,
+    "currency": "ILS"
+  },
+  {
+    "id": "demo-b6",
+    "source": "demo-il-a",
+    "url": "https://example.test/demo/b6",
+    "seen_on": "2026-11-22",
+    "region": "IL",
+    "category": "web",
+    "title": "DEMO listing",
+    "summary": "DEMO URGENT!!! need a full marketplace NOW, will pay anything",
+    "tags": [
+      "landing"
+    ],
+    "poster_ref": "q7",
+    "budget_min": 5000,
+    "budget_max": 20000,
+    "currency": "ILS"
+  },
+  {
+    "id": "demo-b7",
+    "source": "demo-blocked",
+    "url": "https://example.test/demo/b7",
+    "seen_on": "2026-11-22",
+    "region": "IL",
+    "category": "etl",
+    "title": "DEMO listing",
+    "summary": "DEMO from a source marked forbidden in sources.json",
+    "tags": [
+      "excel",
+      "sql",
+      "report"
+    ],
+    "poster_ref": "q8",
+    "budget_min": 600,
+    "budget_max": 1400,
+    "currency": "ILS"
+  }
+]

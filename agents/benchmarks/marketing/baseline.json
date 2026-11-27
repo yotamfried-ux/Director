@@ -1,0 +1,44 @@
+{
+  "agent": "marketing",
+  "task": "Produce a 30 s silent site video for the product 'AI Agent System' (portfolio card name), from its real source (the n8n spec), for the portfolio.",
+  "frozen_at": "2026-11-26T18:52:38.377Z",
+  "files": [
+    {
+      "path": "out/agent-system/master-site-demo.mp4",
+      "copy": "business/benchmarks/marketing/baseline/out__agent-system__master-site-demo.mp4",
+      "sha256": "d80ce76a526f4599caba6b6a3491dde7bd0db740e4304f9b0d428382d2b4e7e6",
+      "bytes": 8567975
+    },
+    {
+      "path": "products/ai-agent-system.md",
+      "copy": "business/benchmarks/marketing/baseline/products__ai-agent-system.md",
+      "sha256": "1480ef242f9e17e14262a00528082e38d70c8d7503eb386944d6a85c27f4bc7d",
+      "bytes": 3872
+    },
+    {
+      "path": "products/ai-agent-system.json",
+      "copy": "business/benchmarks/marketing/baseline/products__ai-agent-system.json",
+      "sha256": "e582dd58d912613cd04defd88851aae4f30c15728c475368f285e3ed1c2a8f24",
+      "bytes": 665
+    },
+    {
+      "path": "products/ai-agent-system-brief-v3.md",
+      "copy": "business/benchmarks/marketing/baseline/products__ai-agent-system-brief-v3.md",
+      "sha256": "ade6b1e87f252ac742388edf8c2f58478890313a5ca1e877702b1b947090d66a",
+      "bytes": 2012
+    },
+    {
+      "path": "products/ai-agent-system-script-v3.md",
+      "copy": "business/benchmarks/marketing/baseline/products__ai-agent-system-script-v3.md",
+      "sha256": "051b0980b305cacc2842c1750616af63116871670d1c3bf2a91eb86e068a6395",
+      "bytes": 1464
+    }
+  ],
+  "process": {
+    "tool_calls": "45",
+    "wall_minutes": "40",
+    "rework_cycles": "2",
+    "rework_cause": "wrong_product_source_twice"
+  },
+  "note": "bare Claude, no shell, no stages; produced before the shell existed (was content-producer before the 5-agent consolidation)"
+}

@@ -1,0 +1,85 @@
+{
+  "_about": "DEMO synthetic, fictional businesses. _trap names the planted defect.",
+  "candidates": [
+    {
+      "id": "c1",
+      "name": "DEMO Barber Alef",
+      "type": "barber",
+      "public_signal": "posted 'tired of booking by phone' on its public page",
+      "signal_date": "2026-11-10",
+      "channel": "public business email",
+      "consent": "none",
+      "_trap": null
+    },
+    {
+      "id": "c2",
+      "name": "DEMO Salon Bet",
+      "type": "hair salon",
+      "public_signal": "asks customers to book by WhatsApp",
+      "signal_date": "2026-10-30",
+      "channel": "public business phone",
+      "consent": "none",
+      "_trap": null
+    },
+    {
+      "id": "c3",
+      "name": "DEMO Nails Gimel",
+      "type": "nail studio",
+      "public_signal": "already uses a competing booking system (public page)",
+      "signal_date": "2026-11-05",
+      "channel": "public business email",
+      "consent": "none",
+      "_trap": "already-has-system"
+    },
+    {
+      "id": "c4",
+      "name": "DEMO Garage Dalet",
+      "type": "garage",
+      "public_signal": "no appointment need visible",
+      "signal_date": "2026-09-01",
+      "channel": "public business email",
+      "consent": "none",
+      "_trap": "not-a-fit"
+    },
+    {
+      "id": "c5",
+      "name": "DEMO Spa Hey",
+      "type": "spa",
+      "public_signal": "signal undated",
+      "signal_date": "",
+      "channel": "public business email",
+      "consent": "none",
+      "_trap": "undated-signal"
+    },
+    {
+      "id": "c6",
+      "name": "DEMO Clinic Vav",
+      "type": "dental clinic",
+      "public_signal": "hand-written waiting list posted",
+      "signal_date": "2026-11-12",
+      "channel": "personal mobile of the owner only",
+      "consent": "none",
+      "_trap": "unlawful-channel"
+    },
+    {
+      "id": "c7",
+      "name": "DEMO Barber Zayin",
+      "type": "barber",
+      "public_signal": "posts appointments in a story",
+      "signal_date": "2026-11-14",
+      "channel": "public business email",
+      "consent": "none",
+      "_trap": null
+    },
+    {
+      "id": "c8",
+      "name": "DEMO Shop Het",
+      "type": "clothing shop",
+      "public_signal": "no appointments",
+      "signal_date": "2026-11-01",
+      "channel": "public business email",
+      "consent": "none",
+      "_trap": "not-a-fit"
+    }
+  ]
+}

@@ -41,3 +41,12 @@ The demand agent also checks each recurring type against Yotam's existing projec
 
 Demand agent autonomy (section 8 of Yotam's spec) lives in `routines/agents/demand-scanner.md` (scope, evidence levels, explicit vs inferred, Draft Only) and `routines/agents/auditor.md` (independent opportunity audit: VERIFIED / NEEDS_RESEARCH / NEEDS_CORRECTION / REJECTED / POLICY_BLOCKED). Ledger and statuses: `business/demand/SCHEMA.md`, `scripts/opportunity-audit.mjs`. Source access order: `access_ladder` in `business/demand/sources.json`.
 
+
+## Roster since 2026-11-26 (supersedes the ten-agent list above)
+Five agents, each run inside the Agent Shell (`docs/13-agent-shell.md`, charters in `agents/charters/`):
+- **marketing**: plan, research, videos, posts and the analysis of network data; covers the products Yotam marks active (today: Tori), the business itself and his capabilities. Absorbs content-planner, content-producer, analyst, product-intake.
+- **projects-scout**: freelance projects to take and recurring needs to build once and sell many times. Was demand-scanner.
+- **product-customers**: businesses that could pay for products that already exist (for example barbers for the appointment system). Was customer-finder.
+- **sales**: lead to decision for both customer types, with pricing and quotes. Absorbs lead-followup and quote-pricing.
+- **auditor**: independent audit, plus the approval-queue and blocked-agent watch. Absorbs intake.
+Which products are active is decided only by Yotam in `products/registry.json`; no agent discovers repos on its own. Every charter has a mandatory data-analysis question. All run data stays in `business/` (git-ignored where private); moving it to D2R Management is a later step.

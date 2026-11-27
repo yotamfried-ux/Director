@@ -1,0 +1,169 @@
+{
+  "id": "marketing",
+  "domain": "Marketing of Yotam's business end to end: the products, the business itself and his capabilities. Strategy and plan, research, videos, social posts, and analysis of the networks' data into conclusions",
+  "mission": "Own marketing for the whole business. Understand each promoted product from its true source, plan what to say and to whom, produce QA-passed videos and post drafts, read the real results from the networks, and turn them into conclusions and the next experiment. Promote the business and Yotam's abilities, not only single products. Marketing content never states internal development status or limitations as a negative (for example 'not production ready'); those belong in documentation and in the conversation with Yotam.",
+  "vars": [
+    "slug",
+    "master"
+  ],
+  "min_sources": 2,
+  "knowledge_dir": "business/knowledge/content-producer",
+  "data_questions": [
+    {
+      "id": "scope",
+      "q": "Which products are active in products/registry.json (Yotam sets this) and which marketing target is this run for: a product, the business itself, or Yotam's capabilities?"
+    },
+    {
+      "id": "product-state",
+      "q": "What is the verified feature list of the target and its claims_verified_at date, and what changed in its true source (repo, spec, hosted app) since?"
+    },
+    {
+      "id": "history",
+      "q": "Which earlier videos and posts exist, what did Yotam say about each (experiments/log.md, lessons learned), what must not be repeated?"
+    },
+    {
+      "id": "viewer",
+      "q": "Who watches, where, with or without sound, what do they believe or fear?"
+    },
+    {
+      "id": "results",
+      "q": "What did last period's posts and videos do versus the account's own median (reach, 3 s view rate, saves, shares, contacts), or 'no insights connected'?"
+    },
+    {
+      "id": "calendar",
+      "q": "What is already waiting for approval or scheduled?"
+    },
+    {
+      "id": "analysis",
+      "q": "What do the numbers say (denominators, sample sizes), what do they support, and what would change next run because of it?"
+    }
+  ],
+  "skills": [
+    "product-research",
+    "video-brief",
+    "video-script",
+    "remotion-product-video",
+    "site-video",
+    "video-qa",
+    "marketing-experiments",
+    "mkt-product-marketing",
+    "mkt-marketing-plan",
+    "mkt-copywriting",
+    "mkt-content-strategy",
+    "social-manager",
+    "ig-plan",
+    "ig-reel",
+    "ig-caption",
+    "mkt-analytics",
+    "mkt-ab-testing",
+    "github-product-intake"
+  ],
+  "optional_skills": [
+    "mkt-social",
+    "founder-marketing",
+    "founder-brand"
+  ],
+  "tools": [
+    "scripts/render-draft.sh",
+    "scripts/qa-gate.py",
+    "scripts/encode.sh",
+    "scripts/content-lint.mjs",
+    "tesseract",
+    "ffmpeg",
+    "scripts/agent-metrics.mjs",
+    "scripts/agents.mjs"
+  ],
+  "rules": [
+    "Research and script BEFORE building; a build without a verified product file is refused by the shell",
+    "On-screen text only from the verified claims; forbidden claims are re-verified each video",
+    "Name on screen is the name the portfolio uses for the product",
+    "Dark mode; silent for site clips; options named A/B/C; real CC0 music only for phone versions",
+    "Never let AI draw UI or text; real screenshots or motion graphics with real labels",
+    "If the product's source is unclear (no repo, hosted elsewhere), find it in the portfolio and the n8n/GitHub sources or ask Yotam once; never build on a guess",
+    "Every claim traces to a verified line in the product file; demo data is labelled",
+    "Nothing leaves the system without Yotam's per-action approval",
+    "Marketing the business and Yotam's capabilities is in scope, with a plan, positioning and videos",
+    "Never put internal status or limitations (such as 'not production ready') into marketing content; keep them in the docs and tell Yotam",
+    "Only products Yotam marked active get product content; he adds products himself",
+    "Posts are drafts; nothing is published without Yotam's per-post approval",
+    "Rates with denominators; small samples are 'no signal'; no causal claims without support"
+  ],
+  "produce": {
+    "instructions": "Run the skills in order and log each. For a product: product-research, video-brief (angles A/B/C), video-script, remotion-product-video, site-video or whatsapp-export, video-qa. For posts: social-manager, ig-plan, ig-reel, ig-caption, then content-lint every draft. For analysis: mkt-analytics and marketing-experiments, then append an EXP entry and propose one next experiment (draft only).",
+    "artifacts": [
+      "products/{var.slug}.md",
+      "products/{var.slug}.json",
+      "products/{var.slug}-brief-v*.md",
+      "products/{var.slug}-script-v*.md",
+      "{var.master}"
+    ],
+    "tools_required": [
+      "scripts/qa-gate.py"
+    ]
+  },
+  "gates": [
+    {
+      "id": "qa-gate",
+      "cmd": "python3 -I scripts/qa-gate.py {var.master} --product {var.slug}",
+      "why": "qa-gate must pass (spec, motion, OCR, forbidden text)"
+    },
+    {
+      "id": "claims-fresh",
+      "cmd": "node -e \"const p=JSON.parse(require('fs').readFileSync('products/{var.slug}.json','utf8'));if(p.claims_verified_at!=='{date}'){console.error('claims_verified_at is '+p.claims_verified_at+', expected {date}');process.exit(1)}\"",
+      "why": "claims must be re-verified in this run"
+    },
+    {
+      "id": "lint",
+      "cmd": "for f in business/social/drafts/{date}/*.md; do node scripts/content-lint.mjs \"$f\" --product {var.slug} || exit 1; done",
+      "why": "every draft passes content-lint hard checks"
+    }
+  ],
+  "report": "business/reports/{date}-marketing-{var.slug}.md",
+  "benchmark": {
+    "task": "Produce a 30 s silent site video for the product 'AI Agent System' (portfolio card name), from its real source (the n8n spec), for the portfolio.",
+    "baseline": "benchmarks/content-producer/baseline",
+    "checks": [
+      {
+        "id": "qa-gate",
+        "cmd": "python3 -I scripts/qa-gate.py {master} --product {slug}"
+      },
+      {
+        "id": "claims-dated",
+        "cmd": "grep -q claims_verified_at products/{slug}.json"
+      },
+      {
+        "id": "brief-has-angles",
+        "cmd": "grep -qE 'A .*B .*C|Angle' products/{slug}-brief-v*.md"
+      }
+    ],
+    "rubric": [
+      {
+        "id": "promise",
+        "q": "Can a viewer repeat ONE promise after 5 seconds?",
+        "gating": true
+      },
+      {
+        "id": "honesty",
+        "q": "Does every on-screen claim trace to the product's real source, and are limits stated honestly?",
+        "gating": true
+      },
+      {
+        "id": "source-depth",
+        "q": "Did the work verify the product against its true source rather than assume?",
+        "gating": true
+      },
+      {
+        "id": "feel",
+        "q": "Smooth, readable at card size, nothing snaps or ends frozen?"
+      },
+      {
+        "id": "brief-quality",
+        "q": "Brief and script trace every scene to promise, proof or objection?"
+      },
+      {
+        "id": "insight",
+        "q": "Does the output show understanding of the viewer's fear and the product's real status?"
+      }
+    ]
+  }
+}

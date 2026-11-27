@@ -36,12 +36,23 @@ for (const g of reg) {
     add("no-unqualified-outward-action-claim", hits.length ? "review" : "pass", hits.map(h => h.slice(0, 120)).join(" | ") || f);
   }
 }
-if (out["content-planner"]) for (const dir of existsSync(D) ? readdirSync(D).filter(d => d.startsWith(date)) : []) for (const f of files(`${D}/${dir}`)) {
+if (out["marketing"]) for (const dir of existsSync(D) ? readdirSync(D).filter(d => d.startsWith(date)) : []) for (const f of files(`${D}/${dir}`)) {
   const t = readFileSync(f, "utf8"), slug = (t.match(/^product:\s*(\S+)/m) ?? [])[1] ?? f.split("/").at(-1).split("-")[0], st = (t.match(/^status:\s*(\S+)/m) ?? [])[1];
   let lint = "n/a"; try { lint = execFileSync("node", ["scripts/content-lint.mjs", f, "--product", slug], { encoding: "utf8" }).trim().split("\n").at(-1); } catch (e) { lint = `FAILED: ${(e.stdout ?? "").toString().trim().split("\n").at(-1)}`; }
-  out["content-planner"].push({ check: "draft-is-draft", result: st === "draft" ? "pass" : "fail", evidence: `${f} status=${st}` });
-  out["content-planner"].push({ check: "draft-lint", result: /FAILED/.test(lint) ? "fail" : "pass", evidence: `${f}: ${lint}` });
-  out["content-planner"].push({ check: "draft-no-personal-data", result: PII.test(t) ? "fail" : "pass", evidence: f });
+  out["marketing"].push({ check: "draft-is-draft", result: st === "draft" ? "pass" : "fail", evidence: `${f} status=${st}` });
+  out["marketing"].push({ check: "draft-lint", result: /FAILED/.test(lint) ? "fail" : "pass", evidence: `${f}: ${lint}` });
+  out["marketing"].push({ check: "draft-no-personal-data", result: PII.test(t) ? "fail" : "pass", evidence: f });
+}
+// Agent Shell: every recorded agent run of the day must have a finished shell record with all required stages.
+{
+  const SR = "business/metrics/shell-runs.jsonl";
+  const rec = existsSync(SR) ? readFileSync(SR, "utf8").split("\n").filter(Boolean).map(l => { try { return JSON.parse(l); } catch { return null; } }).filter(Boolean) : [];
+  const RR = "business/metrics/runs.jsonl";
+  const runs = existsSync(RR) ? readFileSync(RR, "utf8").split("\n").filter(Boolean).map(l => { try { return JSON.parse(l); } catch { return null; } }).filter(Boolean) : [];
+  for (const r of runs.filter(x => String(x.finished ?? x.ts ?? "").startsWith(date))) {
+    const sh = rec.filter(x => x.agent === r.agent && String(x.finished ?? x.ts ?? "").startsWith(date));
+    (out[r.agent] ??= []).push({ check: "ran-inside-shell", result: sh.length ? (sh.some(x => x.status === "ok") ? "pass" : "review") : "review", evidence: sh.length ? `shell runs: ${sh.map(x => `${x.status} ${Math.round(x.compliance ?? 0)}%`).join(", ")}` : "recorded run has no Agent Shell record (ran as free improvisation)" });
+  }
 }
 const summary = Object.fromEntries(Object.entries(out).map(([k, v]) => [k, { pass: v.filter(x => x.result === "pass").length, fail: v.filter(x => x.result === "fail").length, review: v.filter(x => x.result === "review").length }]));
 if (process.argv.includes("--json")) { console.log(JSON.stringify({ date, agents_with_runs: Object.keys(out), summary, checks: out }, null, 2)); process.exit(0); }

@@ -1,0 +1,21 @@
+{
+ "agent": "product-customers",
+ "frozen_at": "2026-11-26T19:31:20Z",
+ "what": "bare Claude, no shell/charter/stages, same tasks as standard.json",
+ "tasks": {
+  "dev": [
+   {
+    "path": "business/benchmarks/product-customers/reference/dev/qualification-and-drafts.md",
+    "sha256": "366e45f567f4a398fe2afb707ec39f2e913e0edd2f69c746b0e148dce7f2d664",
+    "bytes": 6665
+   }
+  ],
+  "holdout": [
+   {
+    "path": "business/benchmarks/product-customers/reference/holdout/qualification-and-drafts.md",
+    "sha256": "11b1557d2290aa2081fea356d23695c69d71502e416ceb38405f35b67ecd09d1",
+    "bytes": 7197
+   }
+  ]
+ }
+}

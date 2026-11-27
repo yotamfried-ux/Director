@@ -1,0 +1,91 @@
+{
+  "standard": "A market analyst who would stake money on the ranking: every ranked need has counts, sources and an evidence level, and inferred needs are never sold as customer requests.",
+  "tasks": [
+    {
+      "id": "dev",
+      "kind": "dev",
+      "prompt": "Rank recurring needs from business/demand/fixtures/demo-listings.json with reuse coverage from demo-delivered.json and effort from demo-effort.json.",
+      "fixtures": [
+        "business/demand/fixtures/demo-listings.json",
+        "business/demand/fixtures/demo-delivered.json",
+        "business/demand/fixtures/demo-effort.json"
+      ]
+    },
+    {
+      "id": "holdout",
+      "kind": "holdout",
+      "prompt": "Same method on agents/benchmarks/projects-scout/fixtures/listings-b.json.",
+      "fixtures": [
+        "agents/benchmarks/projects-scout/fixtures/listings-b.json"
+      ],
+      "design_notes": "Same method on agents/benchmarks/projects-scout/fixtures/listings-b.json (different mix, includes a need that appears once with loud wording and a policy-blocked source)."
+    }
+  ],
+  "rubric": [
+    {
+      "id": "explicit-vs-inferred",
+      "q": "Inferred needs never presented as customer requests",
+      "gating": true,
+      "anchors": {
+        "5": "each need labelled explicit or inferred with the reason",
+        "3": "one blurred label",
+        "1": "absent, wrong or harmful"
+      }
+    },
+    {
+      "id": "recurrence",
+      "q": "Ranks by repetition across independent posters, not by loudness",
+      "gating": true,
+      "anchors": {
+        "5": "counts and denominators shown; single loud post not ranked high",
+        "3": "counts present, denominator missing",
+        "1": "absent, wrong or harmful"
+      }
+    },
+    {
+      "id": "policy",
+      "q": "Policy-blocked sources are reported as blocked, not used",
+      "gating": true,
+      "anchors": {
+        "5": "blocked source named, nothing taken from it",
+        "3": "used but flagged",
+        "1": "absent, wrong or harmful"
+      }
+    },
+    {
+      "id": "roi",
+      "q": "Reuse and effort turn into an ROI ordering Yotam can act on",
+      "gating": false,
+      "anchors": {
+        "5": "ordering with stated assumptions",
+        "3": "ordering without assumptions",
+        "1": "absent, wrong or harmful"
+      }
+    },
+    {
+      "id": "analysis",
+      "q": "States sample size, what the data cannot say, and what to look at next",
+      "gating": false,
+      "anchors": {
+        "5": "clear limits and next scan",
+        "3": "limits implied",
+        "1": "absent, wrong or harmful"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "ledger",
+      "cmd": "node scripts/opportunity-audit.mjs board --json > /dev/null"
+    }
+  ],
+  "agent": "projects-scout",
+  "target": {
+    "min_total_pct": 85,
+    "min_gating": 4,
+    "all_checks_pass": true,
+    "consecutive_runs": 2,
+    "must_include": "dev and holdout"
+  },
+  "floor": "bare Claude baseline (benchmark `freeze`): the shell run must beat it before it is measured against the standard"
+}

@@ -2,8 +2,8 @@
   "_about": "Which GitHub repos the content agent may produce content for. Yotam flips `active`. Only active products get research, videos and post drafts. Nothing is published without per-post approval in chat.",
   "products": [
     {"slug": "tori", "repo": "yotamfried-ux/appointment-scheduling-system", "active": true, "url": "https://turim.d2ryf.com", "videos": ["site-short", "site-long", "whatsapp"], "channels": ["instagram", "facebook"]},
-    {"slug": "sportreel", "repo": null, "active": true, "videos": ["site-long"], "channels": ["instagram", "facebook"], "note": "repo name to be filled by Yotam; footage in R2"},
+    {"slug": "sportreel", "repo": null, "active": true, "videos": ["site-long"], "channels": ["instagram", "facebook"], "note": "repo name to be filled by Yotam; footage in R2. Not ready for social yet (Yotam, 26 Nov 2026): no posts or bio link until he says so"},
     {"slug": "churn-prediction", "repo": "yotamfried-ux/-----------------ML", "active": true, "videos": ["site-long"], "channels": [], "note": "course project; not promoted on social unless Yotam says so"},
-    {"slug": "ai-agent-system", "repo": null, "active": false, "note": "postponed by Yotam"}
+    {"slug": "ai-agent-system", "repo": null, "active": false, "note": "lives in Yotam n8n (own server), not a GitHub repo; spec workflow PROJECT SPEC n8n On-Demand Engineering Run System; active flag left for Yotam. Internal infrastructure project, never for Instagram/Facebook (Yotam, 26 Nov 2026)"}
   ]
 }

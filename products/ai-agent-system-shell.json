@@ -1,0 +1,15 @@
+{
+  "slug": "ai-agent-system-shell",
+  "name": "AI Agent System",
+  "tagline_he": "סוכנים להנדסת תוכנה, עם ראיות לכל טענה",
+  "theme": "dark",
+  "accent": "#8fa8ff",
+  "bg": "#070b14",
+  "must_appear_text": ["AI Agent System"],
+  "forbidden_text": ["production ready", "מוכן לייצור", "מוכן לפרודקשן 100", "אלפי", "חוסך", "מהיר פי", "לקוחות מרוצים", "payment", "תשלום"],
+  "duration_seconds": 30,
+  "outputs": ["16x9"],
+  "source": "n8n spec workflow 'PROJECT SPEC — n8n On-Demand Engineering Run System' (read-only), no repo",
+  "notes": "Site clip, silent, he. Status per spec: SYSTEM_NOT_PRODUCTION_READY. Self-improvement not proven.",
+  "claims_verified_at": "2026-11-26"
+}
