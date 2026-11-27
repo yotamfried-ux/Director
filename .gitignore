@@ -25,3 +25,6 @@ business/benchmarks/
 
 # per-run artifacts of agent runs (local; compliance lines live in business/metrics/shell-runs.jsonl)
 business/runs/
+
+# social asset inbox: media stays local, only the ledger is committed
+business/social/assets/inbox/

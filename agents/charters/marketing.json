@@ -36,6 +36,10 @@
     {
       "id": "analysis",
       "q": "What do the numbers say (denominators, sample sizes), what do they support, and what would change next run because of it?"
+    },
+    {
+      "id": "assets",
+      "q": "How many unused real assets per active product are in the asset ledger (scripts/social-assets.mjs status), or is the inbox empty?"
     }
   ],
   "skills": [
@@ -71,7 +75,9 @@
     "tesseract",
     "ffmpeg",
     "scripts/agent-metrics.mjs",
-    "scripts/agents.mjs"
+    "scripts/agents.mjs",
+    "scripts/social-assets.mjs",
+    "scripts/social-debrief.mjs"
   ],
   "rules": [
     "Research and script BEFORE building; a build without a verified product file is refused by the shell",
@@ -86,7 +92,8 @@
     "Never put internal status or limitations (such as 'not production ready') into marketing content; keep them in the docs and tell Yotam",
     "Only products Yotam marked active get product content; he adds products himself",
     "Posts are drafts; nothing is published without Yotam's per-post approval",
-    "Rates with denominators; small samples are 'no signal'; no causal claims without support"
+    "Rates with denominators; small samples are 'no signal'; no causal claims without support",
+    "Read business/social/rules.md before planning or drafting; pick only unused assets from the asset ledger and ask Yotam for more when it is low; the weekly social debrief gives candidates with denominators, never causes"
   ],
   "produce": {
     "instructions": "Run the skills in order and log each. For a product: product-research, video-brief (angles A/B/C), video-script, remotion-product-video, site-video or whatsapp-export, video-qa. For posts: social-manager, ig-plan, ig-reel, ig-caption, then content-lint every draft. For analysis: mkt-analytics and marketing-experiments, then append an EXP entry and propose one next experiment (draft only).",
