@@ -12,3 +12,6 @@
 - Marketable core from the n8n spec: evidence over agent claims, one request = one run, separate investigator/verifier roles, failure loop, runs only on request and stops for approval; no outcome numbers exist.
 - qa-gate: end every scene drift with continuous linear motion, not an eased stop (frozen tail fail); keep dimmed text at opacity >= 0.5.
 - Lint gate lints all drafts of the day against the product slug: product video runs fail it when other drafts exist; scope it per run.
+
+## 2026-11-27 (marketing-20261127142341, daily batch for 29 Nov)
+- Batch of 3 Tori image cards from real public/shots; PIL Hebrew rendering notes (no reversal, no comma/period glyphs in Heebo subset). D2R env missing and Drive folder empty on first run; finished partial.

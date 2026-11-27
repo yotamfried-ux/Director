@@ -25,3 +25,5 @@
 {"agent":"sales","status":"partial","started":"2026-11-26T19:36:32.456Z","finished":"2026-11-26T19:38:26.614Z","seconds":114,"checks_pass":1,"checks_fail":0,"note":""}
 {"agent":"marketing","status":"partial","started":"2026-11-26T19:37:36Z","finished":"2026-11-26T19:49:58Z","seconds":742,"outputs":6,"checks_pass":2,"checks_fail":1,"note":"site video benchmark; lint gate scope"}
 {"agent":"marketing","status":"partial","started":"2026-11-26T19:37:36.729Z","finished":"2026-11-26T19:49:58.390Z","seconds":742,"checks_pass":2,"checks_fail":1,"note":""}
+{"agent":"marketing","status":"partial","started":"2026-11-27T14:23:00Z","finished":"2026-11-27T14:25:39Z","seconds":159,"outputs":3,"checks_pass":3,"checks_fail":0,"note":"daily batch 29 Nov; D2R env missing"}
+{"agent":"marketing","status":"partial","started":"2026-11-27T14:23:41.333Z","finished":"2026-11-27T14:25:39.504Z","seconds":118,"checks_pass":0,"checks_fail":0,"note":""}
