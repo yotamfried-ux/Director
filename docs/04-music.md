@@ -19,3 +19,11 @@ Also reachable in the sandbox: `raw.githubusercontent.com` only; Pixabay/Archive
 
 ## Open improvements
 Beat-align the logo reveal and key transitions to the track (needs a beat grid: try `librosa`/`madmom` if installable); try tracks with a clear drop for the logo.
+
+## Search routes (checked 2026-11-26)
+- **Primary, works today:** the GitHub CC0 library above (`scripts/fetch-music.sh`).
+- **`scripts/music-search.mjs`:** CC0-only search on Freesound's official API; the filter is built in and every result is re-checked, so a non-CC0 sound cannot be offered. Needs Yotam's free Freesound API key (`FREESOUND_API_KEY`). Not run live: freesound.org is not reachable from the sandbox, so only the mock-server test (`tests/music.test.mjs`) has run. Freesound is mostly sound effects; expect few full music tracks.
+- **Freesound MCP servers (`MuShan-bit/Freesound-MCP`, `johnkimdw/freesound-mcp-server`):** not installed. The first one is a personal GitHub project, not on npm; I read its ~230 lines: harmless, but it passes the license string to the API without checking it, mixes two `filter` parameters in one URL, and downloads only lossy MP3 previews. Using it could let a non-CC0 sound through, which breaks the CC0 rule.
+- **Lots of Sounds MCP:** CC0, but sound effects; search needs a paid plan.
+- **Engineering-OS `tools/openverse_audio_search.py`:** read-only Openverse search; the sandbox proxy blocked Openverse earlier, so not usable here.
+

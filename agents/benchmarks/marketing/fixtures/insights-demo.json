@@ -1,0 +1,65 @@
+{
+  "_about": "DEMO synthetic account insights, not real. Planted traps: n=6, one outlier, posting time changed after post 4 (confound), one post has no reach.",
+  "posts": [
+    {
+      "id": "p1",
+      "format": "reel",
+      "topic": "booking",
+      "posted": "2026-11-02T18:00",
+      "reach": 410,
+      "views3s": 120,
+      "saves": 3,
+      "shares": 1
+    },
+    {
+      "id": "p2",
+      "format": "reel",
+      "topic": "reminders",
+      "posted": "2026-11-05T18:00",
+      "reach": 380,
+      "views3s": 98,
+      "saves": 2,
+      "shares": 0
+    },
+    {
+      "id": "p3",
+      "format": "carousel",
+      "topic": "booking",
+      "posted": "2026-11-09T18:00",
+      "reach": 300,
+      "views3s": null,
+      "saves": 9,
+      "shares": 2
+    },
+    {
+      "id": "p4",
+      "format": "reel",
+      "topic": "reminders",
+      "posted": "2026-11-12T18:00",
+      "reach": 5200,
+      "views3s": 1900,
+      "saves": 40,
+      "shares": 22
+    },
+    {
+      "id": "p5",
+      "format": "reel",
+      "topic": "booking",
+      "posted": "2026-11-16T08:00",
+      "reach": 900,
+      "views3s": 260,
+      "saves": 6,
+      "shares": 3
+    },
+    {
+      "id": "p6",
+      "format": "carousel",
+      "topic": "reminders",
+      "posted": "2026-11-19T08:00",
+      "reach": null,
+      "views3s": null,
+      "saves": null,
+      "shares": null
+    }
+  ]
+}

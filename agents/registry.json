@@ -1,0 +1,175 @@
+{
+  "_about": "Roster of scheduled Claude agents for Yotam's business. `status` is proposed until Yotam approves the cadence; only then is a scheduled task created (scripts/agents.mjs prints the exact payload). Every agent is draft-only: it never posts, sends, spends or changes prices. Trigger kinds: cron (time) or event (poke-only task, fired by a person, a session, or a webhook caller; see docs/11-agents.md). `heartbeat_hours` (cron agents): if no run is recorded in scripts/agent-metrics.mjs within this many hours after the previous one, the report flags the agent SILENT. Set to cadence plus slack (intake skips Fri/Sat). Consolidated to 5 agents on 2026-11-26 (Yotam's decision): marketing, projects-scout, product-customers, sales, auditor.",
+  "timezone": "Asia/Jerusalem",
+  "agents": [
+    {
+      "id": "marketing",
+      "role": "Marketing for the whole business: plan, videos, posts, and conclusions from the networks' data",
+      "trigger": {
+        "kind": "cron",
+        "cron": "17 8 * * 0"
+      },
+      "prompt": "routines/agents/marketing.md",
+      "uses": [
+        "product-research",
+        "video-brief",
+        "video-script",
+        "remotion-product-video",
+        "site-video",
+        "video-qa",
+        "marketing-experiments",
+        "mkt-product-marketing",
+        "mkt-marketing-plan",
+        "mkt-copywriting",
+        "mkt-content-strategy",
+        "social-manager",
+        "ig-plan",
+        "ig-reel",
+        "ig-caption",
+        "mkt-analytics",
+        "mkt-ab-testing",
+        "github-product-intake",
+        "ext-marketing-content-creator",
+        "ext-marketing-social-media-strategist",
+        "ext-marketing-instagram-curator",
+        "ext-marketing-growth-hacker",
+        "ext-marketing-video-optimization-specialist",
+        "ext-marketing-short-video-editing-coach",
+        "ext-support-analytics-reporter",
+        "ext-project-management-experiment-tracker"
+      ],
+      "reads": [
+        "products/registry.json (active only)",
+        "products/<slug>.md",
+        "experiments/log.md",
+        "the target's true source",
+        "network insights when connected"
+      ],
+      "writes": [
+        "business/reports/<date>-marketing-<slug>.md",
+        "products/<slug>-brief-vN.md",
+        "products/<slug>-script-vN.md",
+        "business/social/drafts/<date>/",
+        "out/<slug>/ (local)"
+      ],
+      "needs": [
+        "event-caller (video on request)"
+      ],
+      "status": "proposed",
+      "heartbeat_hours": 192
+    },
+    {
+      "id": "projects-scout",
+      "role": "Finds freelance projects to take and recurring needs to build once and sell many times",
+      "trigger": {
+        "kind": "cron",
+        "cron": "12 9 * * 3"
+      },
+      "prompt": "routines/agents/projects-scout.md",
+      "uses": [
+        "mkt-customer-research",
+        "mkt-competitor-profiling",
+        "founder-competitors",
+        "founder-cfo",
+        "mkt-analytics",
+        "ext-sales-pipeline-analyst",
+        "ext-finance-financial-analyst"
+      ],
+      "reads": [
+        "allowed demand sources",
+        "business/demand/"
+      ],
+      "writes": [
+        "business/reports/<date>-projects-scout.md"
+      ],
+      "needs": [],
+      "status": "proposed",
+      "heartbeat_hours": 192
+    },
+    {
+      "id": "product-customers",
+      "role": "Finds businesses that could pay for products Yotam already built, with draft outreach",
+      "trigger": {
+        "kind": "cron",
+        "cron": "34 9 * * 2"
+      },
+      "prompt": "routines/agents/product-customers.md",
+      "uses": [
+        "customer-finder",
+        "mkt-prospecting",
+        "mkt-cold-email",
+        "ext-sales-outbound-strategist",
+        "ext-sales-offer-lead-gen-strategist",
+        "ext-support-legal-compliance-checker"
+      ],
+      "reads": [
+        "products/registry.json (active only)",
+        "public business information"
+      ],
+      "writes": [
+        "business/prospects/<date>.md (git-ignored)",
+        "business/reports/<date>-product-customers.md"
+      ],
+      "needs": [],
+      "status": "proposed",
+      "heartbeat_hours": 192
+    },
+    {
+      "id": "sales",
+      "role": "From lead to decision: triage, reply, follow-up, pricing and quotes",
+      "trigger": {
+        "kind": "event",
+        "event": "new lead ingested in D2R, Yotam asks for a quote, or he pokes it"
+      },
+      "prompt": "routines/agents/sales.md",
+      "uses": [
+        "lead-manager",
+        "pricing-manager",
+        "mkt-pricing",
+        "founder-pricing",
+        "founder-offer",
+        "founder-cfo",
+        "ext-sales-discovery-coach",
+        "ext-sales-proposal-strategist",
+        "ext-finance-fpa-analyst"
+      ],
+      "reads": [
+        "lead record (D2R)",
+        "pricing inputs from Yotam"
+      ],
+      "writes": [
+        "business/reports/<date>-lead-<key>.md",
+        "business/pricing/<date>-<slug>.md"
+      ],
+      "needs": [
+        "d2r-lead-source"
+      ],
+      "status": "proposed"
+    },
+    {
+      "id": "auditor",
+      "role": "Independent audit of every agent, plus the approval queue and blocked-agent watch",
+      "trigger": {
+        "kind": "cron",
+        "cron": "47 9 * * 4"
+      },
+      "prompt": "routines/agents/auditor.md",
+      "uses": [
+        "business-os",
+        "github-product-intake",
+        "ext-support-executive-summary-generator"
+      ],
+      "reads": [
+        "business/metrics/*",
+        "agent run records",
+        "shell-runs.jsonl"
+      ],
+      "writes": [
+        "business/reports/<date>-audit.md"
+      ],
+      "needs": [],
+      "status": "proposed",
+      "heartbeat_hours": 192
+    }
+  ]
+}

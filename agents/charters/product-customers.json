@@ -1,0 +1,87 @@
+{
+  "id": "product-customers",
+  "domain": "Finding paying customers (businesses) for products that already exist, for example barbers for the appointment system",
+  "mission": "Own the pipeline of businesses that could pay for an existing product: who has the problem, the public signal, a lawful and honest first message as a draft, and whether prospects become paying regulars. This is not about people who want a project built for them; that is Projects Scout.",
+  "vars": [],
+  "min_sources": 2,
+  "knowledge_dir": "business/knowledge/customer-finder",
+  "data_questions": [
+    {
+      "id": "fit",
+      "q": "Which product and which buyer type are we finding for, and what verified claim makes the offer true?"
+    },
+    {
+      "id": "signals",
+      "q": "Which public buying signals were found, from which allowed sources, with dates?"
+    },
+    {
+      "id": "conversion",
+      "q": "Of earlier prospects, how many replied, became leads, became regular paying customers (aggregates only) or 'too little data'?"
+    },
+    {
+      "id": "compliance",
+      "q": "Which channel rules (consent, opt-out, anti-spam) apply to each candidate's channel in Israel?"
+    },
+    {
+      "id": "analysis",
+      "q": "What do the numbers of this domain say (trend, anomaly, denominator, sample size), what conclusion do they support, and what would change next run because of it?"
+    }
+  ],
+  "skills": [
+    "customer-finder",
+    "mkt-prospecting",
+    "mkt-cold-email"
+  ],
+  "optional_skills": [],
+  "tools": [
+    "scripts/agent-metrics.mjs",
+    "scripts/content-lint.mjs"
+  ],
+  "rules": [
+    "Public business information only; no personal profiles, no scraping behind logins",
+    "Every draft message includes an opt-out and a true reason for contact",
+    "Personal data never goes to git; prospects stay in git-ignored files",
+    "Lawyer check is a named open item before any cold outreach",
+    "Every claim traces to a verified line in the product file; demo data is labelled",
+    "Nothing leaves the system without Yotam's per-action approval"
+  ],
+  "produce": {
+    "instructions": "List candidates with evidence and write draft outreach into business/prospects/{date}.md (git-ignored). Nothing is sent.",
+    "artifacts": [
+      "business/prospects/{date}.md"
+    ]
+  },
+  "gates": [
+    {
+      "id": "no-pii-in-git",
+      "cmd": "! git check-ignore -q business/prospects/{date}.md && { echo 'prospects file is not git-ignored'; exit 1; } || exit 0",
+      "why": "prospect files must be git-ignored"
+    }
+  ],
+  "report": "business/reports/{date}-customer-finder.md",
+  "benchmark": {
+    "task": "Find and qualify 5 candidate customers for one product from public information, with draft outreach.",
+    "baseline": "benchmarks/customer-finder/baseline",
+    "checks": [],
+    "rubric": [
+      {
+        "id": "evidence",
+        "q": "Does each candidate have a dated public signal?",
+        "gating": true
+      },
+      {
+        "id": "compliance",
+        "q": "Are opt-out, consent and lawful basis handled in every draft?",
+        "gating": true
+      },
+      {
+        "id": "fit",
+        "q": "Is each candidate truly a buyer of this product?"
+      },
+      {
+        "id": "message",
+        "q": "Is the draft specific, short and honest?"
+      }
+    ]
+  }
+}

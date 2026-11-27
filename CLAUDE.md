@@ -36,6 +36,8 @@ Owner: Yotam (independent builder, Israel). **Talk to him in Hebrew.** Docs and 
 | `marketing-experiments` | Logging hypotheses and results; improving this repo |
 | `social-content` | Posts/captions/carousels and the publishing approval gate |
 
+Business OS (Nov 2026): the agent also runs as Yotam's business manager on a schedule. Read `docs/10-business-os.md` (domains, data rules, Engineering-OS map, routines in `routines/`). New skills: `business-os` (router), `social-manager`, `pricing-manager`, `lead-manager`, `customer-finder`, `github-product-intake`; vendored method skills `mkt-*` and `ig-*` (see `third_party/NOTICE.md`; Director rules override them). **This repo is public: never commit personal data (leads, prospects, customers).** Active products are listed in `products/registry.json`.
+
 Commands: `/new-video <product>` runs the whole flow; `/log-experiment` adds a log entry.
 
 ## Repo map
@@ -43,3 +45,5 @@ Commands: `/new-video <product>` runs the whole flow; `/log-experiment` adds a l
 
 ## Setup (sandbox or local)
 `npm ci` · system Chrome (`CHROME_PATH`, default `/usr/bin/google-chrome`; renders use `--gl=swangle`, `--concurrency=2`) · `ffmpeg` · `tesseract` with `heb` + `eng` · Python 3 with `numpy scipy pillow` (`pip install --break-system-packages …`). GitHub GraphQL is blocked in Claude Code sessions: use `gh api` REST for PRs. Details: `docs/07-setup.md`.
+
+Agents (Nov 2026): five agents run inside the Agent Shell (`docs/13-agent-shell.md`, roster in `docs/11-agents.md`): marketing, projects-scout, product-customers, sales, auditor. Run any of them via `node scripts/agent-shell.mjs prompt --agent <id>`; benchmark vs bare Claude with `scripts/agent-benchmark.mjs`.

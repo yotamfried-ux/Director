@@ -1,0 +1,89 @@
+{
+  "standard": "A sales researcher whose list a lawyer and an owner would both accept: every candidate is a real fit with a dated public signal, and every draft is honest and opt-out-able.",
+  "tasks": [
+    {
+      "id": "dev",
+      "kind": "dev",
+      "prompt": "For the appointment system (Tori), qualify the 8 synthetic candidates in agents/benchmarks/product-customers/fixtures/candidates-a.json and draft outreach for the real fits.",
+      "fixtures": [
+        "agents/benchmarks/product-customers/fixtures/candidates-a.json"
+      ]
+    },
+    {
+      "id": "holdout",
+      "kind": "holdout",
+      "prompt": "Same task on candidates-b.json.",
+      "fixtures": [
+        "agents/benchmarks/product-customers/fixtures/candidates-b.json"
+      ],
+      "design_notes": "Same task on candidates-b.json (different trap mix)."
+    }
+  ],
+  "rubric": [
+    {
+      "id": "fit",
+      "q": "Rejects non-buyers and says why; keeps only true fits",
+      "gating": true,
+      "anchors": {
+        "5": "all traps rejected with reason",
+        "3": "one trap kept",
+        "1": "absent, wrong or harmful"
+      }
+    },
+    {
+      "id": "signal",
+      "q": "Each kept candidate has a dated public signal and its source",
+      "gating": true,
+      "anchors": {
+        "5": "all dated and sourced",
+        "3": "one undated",
+        "1": "absent, wrong or harmful"
+      }
+    },
+    {
+      "id": "compliance",
+      "q": "Opt-out, true reason for contact, consent state, lawful channel in every draft",
+      "gating": true,
+      "anchors": {
+        "5": "all four in every draft",
+        "3": "one draft misses opt-out",
+        "1": "absent, wrong or harmful"
+      }
+    },
+    {
+      "id": "message",
+      "q": "Specific, short, honest, in natural Hebrew; no invented claims about the product",
+      "gating": false,
+      "anchors": {
+        "5": "owner would answer it",
+        "3": "generic",
+        "1": "absent, wrong or harmful"
+      }
+    },
+    {
+      "id": "analysis",
+      "q": "Funnel numbers with denominators or 'too little data'; what to test next",
+      "gating": false,
+      "anchors": {
+        "5": "clear",
+        "3": "partial",
+        "1": "absent, wrong or harmful"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "git-ignored",
+      "cmd": "git check-ignore -q {prospects_file}"
+    }
+  ],
+  "agent": "product-customers",
+  "target": {
+    "min_total_pct": 85,
+    "min_gating": 4,
+    "all_checks_pass": true,
+    "consecutive_runs": 2,
+    "must_include": "dev and holdout"
+  },
+  "floor": "bare Claude baseline (benchmark `freeze`): the shell run must beat it before it is measured against the standard"
+}

@@ -1,0 +1,13 @@
+# Creative brief — AI Agent System — site clip (v1, 2026-11-26)
+- **Business goal (one):** a portfolio visitor understands the project and sees that Yotam builds agent systems with engineering discipline (inquiry or repo/project-page click).
+- **Viewer / where / sound:** potential clients and recruiters, portfolio project card (~600 px), silent, Hebrew RTL.
+- **What they believe or fear now:** "AI agents writing code are hype, or will ship unchecked changes."
+- **The one promise:** "סוכנים עושים את העבודה, והראיות מחליטות, לא הסוכן."
+- **Desired action / next step:** open the project page / contact Yotam.
+- **Claims verified on 2026-11-26 against** the live n8n spec workflow (read-only): ranked proof V4 failure loop, V5 evidence order, V6 separate Verifier, V1/V2 one request = one RUN with 15 roles, V8/V10 limits, V11/V12 honest status (see `products/ai-agent-system-shell.md`).
+- **Not shipped / not to claim:** production readiness; proven self-improvement; any metric.
+- **Objections and the scene that answers each:** "Is it safe?" scene 4 limits (V8, V10). "Is it real?" scene 5 states honest status (V11, V12). "Does the agent grade itself?" scene 3 (V5, V6). "Is it always running on my code?" scene 1 (V1).
+- **Angles:** A — trust: promise "the evidence decides"; opens on one request = one RUN; proof order loop, evidence, separation, limits; risk: abstract. B — pain-first: opens on "code shipped without proof"; risk: negative open. C — outcome-first: "one request, finished work"; risk: no verified outcome numbers, invites over-claiming. **Recommended: A**, because only trust claims are verified.
+- **Form:** 30 s, 1920x1080, 30 fps, silent, he. Five scenes of about 6 s; reading budget >= 0.4 s/word, text sized for 600 px.
+- **Success looks like:** Yotam approves the first cut; later (if published) contacts after the video. Qualitative until analytics exist.
+- **Open questions for Yotam (max 3, with recommendation):** (1) Keep the honest "לא מוכן לפרודקשן" status in the last scene? Recommend yes. (2) Show the English identifier SYSTEM_NOT_PRODUCTION_READY or only Hebrew? Recommend Hebrew with the identifier small. (3) Activate registry flag? His call.

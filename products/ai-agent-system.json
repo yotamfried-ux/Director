@@ -1,0 +1,15 @@
+{
+  "slug": "ai-agent-system",
+  "name": "AI Agent System",
+  "name_he": "מערכת סוכני בינה מלאכותית",
+  "hosting": "n8n (own server)",
+  "tagline_he": "ניסוי: סוכנים שמפתחים תוכנה, ומבקר שלא מאמין להם",
+  "theme": "dark",
+  "accent": "#8fa8ff",
+  "bg": "#07090f",
+  "must_appear_text": ["AI Agent System", "Verifier"],
+  "outputs": ["16x9"],
+  "duration_seconds": 30,
+  "forbidden_text": ["Director", "Engineering-OS", "אוטונומי לחלוטין", "מוכן לייצור", "production ready", "משפר את עצמו", "fully autonomous", "10x", "חוסך"],
+  "claims_verified_at": "2026-11-26"
+}

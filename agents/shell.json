@@ -1,0 +1,53 @@
+{
+  "_about": "Universal agent shell. Every Director agent is Claude acting as the LLM inside this fixed wrapper: same stages, same evidence, same closing checks each run. The shell verifies artifacts, runs the gate commands itself (the agent's word is not evidence), logs skills, tools and sources, and refuses to close a run as ok while a required stage is open. Domain charters in agents/charters/<id>.json add data questions, skills, produce artifacts, gates and rules. Written by Claude from Yotam's request (2026-11-26); Yotam confirms.",
+  "defaults": { "min_sources": 2, "min_chars": 160 },
+  "stages_before_produce": [
+    {
+      "id": "context", "title": "Load context",
+      "instructions": "Read CLAUDE.md, docs/10-business-os.md, docs/06-lessons-learned.md, products/registry.json (active only), your charter, and your knowledge dir (learning-log.md, findings from earlier runs). Write 01-context.md with '## Files read' (one path per line) and '## Open items inherited from earlier runs'.",
+      "artifact": "01-context.md", "headings": ["## Files read", "## Open items inherited from earlier runs"]
+    },
+    {
+      "id": "data", "title": "Investigate the domain data",
+      "instructions": "Answer EVERY data question of the charter from real data (files, logs, metrics, connected tools). Write 02-data.md: for each question id write a line 'Q:<id>' then 'A:' with the answer, the numbers with their denominators and where they came from; or 'NO DATA: <reason>' (never invent; no data is a finding). End with '## Surprises' (what the data says that you did not expect, or 'none').",
+      "artifact": "02-data.md", "headings": ["## Surprises"], "per_data_question": true
+    },
+    {
+      "id": "research", "title": "Research and learn",
+      "instructions": "Learn what the domain needs for this run from sources outside your head: the product/spec files, current docs, public sources the charter allows, and what earlier runs learned. Write 03-research.md with at least min_sources lines '- Source: <path or url> | <what it established>' and '## What I now know that I did not know before' . Log each source with 'agent-shell.mjs log --kind source'. Current facts must be looked up, not recalled.",
+      "artifact": "03-research.md", "headings": ["## What I now know that I did not know before"], "min_source_lines": true
+    },
+    {
+      "id": "plan", "title": "Decide",
+      "instructions": "Write 04-plan.md: '## Hypothesis' (what you expect the output to achieve and why), '## Alternatives' (>= 2, named A/B/C, with the trade-off), '## Decision' (which and why), '## Success metric' (how the world will tell us it worked; must match agents/results-spec.json when the agent has an entry).",
+      "artifact": "04-plan.md", "headings": ["## Hypothesis", "## Alternatives", "## Decision", "## Success metric"]
+    }
+  ],
+  "stages_after_produce": [
+    {
+      "id": "verify", "title": "Verify with gates the shell runs",
+      "instructions": "Run `agent-shell.mjs done --stage verify`: the shell executes the charter gates itself and records exit codes. Fix failures and run again; do not edit the gate logs.",
+      "gates_from_charter": true
+    },
+    {
+      "id": "impact", "title": "Understand the consequences of the output",
+      "instructions": "Write 07-impact.md: '## Who or what this affects' (customers, reputation, accounts, money, Yotam's time), '## Risks' (ranked), '## Reversible?' (what can be undone and how, and what cannot), '## What could go wrong in the world' (not in the files).",
+      "artifact": "07-impact.md", "headings": ["## Who or what this affects", "## Risks", "## Reversible?", "## What could go wrong in the world"]
+    },
+    {
+      "id": "results", "title": "Read the results of earlier outputs",
+      "instructions": "Run `node scripts/agent-metrics.mjs report` (all agents; read your own row) and paste the relevant lines. Write 08-results.md: '## Previous outputs and their results' (by the metric in agents/results-spec.json; under min_n say 'too little data', never a verdict) and '## Yotam's verdicts' (outcomes.jsonl, or 'none yet'). Say what the results change about today's decision.",
+      "artifact": "08-results.md", "headings": ["## Previous outputs and their results", "## Yotam's verdicts"], "needs_metrics_report": true
+    },
+    {
+      "id": "learn", "title": "Learn and write it down",
+      "instructions": "Write 09-learn.md: '## Learned' (facts about the domain that will still matter next month), '## Mistakes and corrections', '## Next run should'. Then APPEND one dated entry containing your run id to <knowledge_dir>/learning-log.md. Entries must be about the domain and process, never personal data.",
+      "artifact": "09-learn.md", "headings": ["## Learned", "## Mistakes and corrections", "## Next run should"], "learning_log": true
+    },
+    {
+      "id": "report", "title": "Report",
+      "instructions": "Write the report to the charter path, and 10-message.md (<= 8 lines, Hebrew, what is ready for approval and what is blocked). If you cannot send it, it stays at the top of the report; never claim it was sent.",
+      "artifact": "10-message.md", "max_lines": 8, "report_from_charter": true
+    }
+  ]
+}

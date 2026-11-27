@@ -10,6 +10,12 @@ Status: planned; drafting is allowed, publishing is not without approval.
 - Start from `products/<slug>.md` verified claims; Hebrew first, specific not grandiose, no invented urgency/testimonials.
 - Cut vertical clips from the Showcase (≤ 15s hook-first versions) and square/portrait variants via `Promo-*` compositions.
 - Caption = 1 line hook + 2 lines value + one clear call to action (link: the product URL). Hashtags minimal.
+- **Links (Yotam, 26 Nov 2026): every big project needs its link both in the profile bio and in its posts.** Use the full `https://` URL on its own line so it is clickable.
+  - Facebook: the URL in the post text is clickable.
+  - Instagram: a caption link is never clickable. Still put the full URL on its own line, and add "הקישור בביו". Instagram allows up to 5 links in the bio; add one only for a project that is ready and approved here.
+  - Right now Tori (`https://turim.d2ryf.com`) is the only project that gets a link and posts (Yotam, 26 Nov 2026). SportReel is not ready yet: no posts or bio link until Yotam says so. AI Agent System is an internal infrastructure project for Yotam only: never post it or link it on Instagram/Facebook.
+  - The portfolio link (`https://portfolio.d2ryf.com/projects`) stays in the bio always (Yotam, 26 Nov 2026): it is for people who may want to hire him, and it links to neither SportReel nor AI Agent System. Bio links now: portfolio + Tori. SportReel is added later when he says it is ready.
+  - A product without a `url` in the registry gets no post until Yotam supplies it.
 - Research platform specs/opening retention before choosing formats (Engineering-OS `docs/product-experience/video-hooks-and-retention-research.md`).
 
 ## Approval gate (hard rule)

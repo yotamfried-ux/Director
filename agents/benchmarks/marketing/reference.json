@@ -1,0 +1,52 @@
+{
+ "agent": "marketing",
+ "frozen_at": "2026-11-26T19:31:20Z",
+ "what": "bare Claude, no shell/charter/stages, same tasks as standard.json",
+ "tasks": {
+  "dev": [
+   {
+    "path": "business/benchmarks/marketing/reference/dev/agent-system__master-site-demo.mp4",
+    "sha256": "d80ce76a526f4599caba6b6a3491dde7bd0db740e4304f9b0d428382d2b4e7e6",
+    "bytes": 8567975
+   },
+   {
+    "path": "business/benchmarks/marketing/reference/dev/ai-agent-system-brief-v3.md",
+    "sha256": "ade6b1e87f252ac742388edf8c2f58478890313a5ca1e877702b1b947090d66a",
+    "bytes": 2012
+   },
+   {
+    "path": "business/benchmarks/marketing/reference/dev/ai-agent-system-script-v3.md",
+    "sha256": "051b0980b305cacc2842c1750616af63116871670d1c3bf2a91eb86e068a6395",
+    "bytes": 1464
+   },
+   {
+    "path": "business/benchmarks/marketing/reference/dev/ai-agent-system.json",
+    "sha256": "e582dd58d912613cd04defd88851aae4f30c15728c475368f285e3ed1c2a8f24",
+    "bytes": 665
+   },
+   {
+    "path": "business/benchmarks/marketing/reference/dev/ai-agent-system.md",
+    "sha256": "1480ef242f9e17e14262a00528082e38d70c8d7503eb386944d6a85c27f4bc7d",
+    "bytes": 3872
+   }
+  ],
+  "holdout": [
+   {
+    "path": "business/benchmarks/marketing/reference/holdout/analysis.md",
+    "sha256": "349e1e357bb671eac80566862e3c056cf6c1f66b2bdeb96298a15ac2ff6e412c",
+    "bytes": 4590
+   },
+   {
+    "path": "business/benchmarks/marketing/reference/holdout/drafts.md",
+    "sha256": "8405124c2abe4fd242ece1ac99bb9b61d1766a5c6c93863aa3a7f897b1f68a91",
+    "bytes": 4730
+   },
+   {
+    "path": "business/benchmarks/marketing/reference/holdout/plan.md",
+    "sha256": "8d93f1f0489dc35ea3f4ce50d8c3af468f2279bb8bbcd9254c064934bdc699c3",
+    "bytes": 4770
+   }
+  ]
+ },
+ "note": "dev reference = the earlier bare-Claude AI Agent System video (also in baseline.json); known to include a status scene that fails the positive-framing criterion"
+}

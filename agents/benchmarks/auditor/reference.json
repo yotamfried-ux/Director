@@ -1,0 +1,22 @@
+{
+ "agent": "auditor",
+ "frozen_at": "2026-11-26T19:31:20Z",
+ "what": "bare Claude, no shell/charter/stages, same tasks as standard.json",
+ "tasks": {
+  "dev": [
+   {
+    "path": "business/benchmarks/auditor/reference/dev/audit-report.md",
+    "sha256": "52d6d49006a127d319591b724693bedaf0fcd6277ceacaef06f9a06c659d5ec3",
+    "bytes": 5386
+   }
+  ],
+  "holdout": [
+   {
+    "path": "business/benchmarks/auditor/reference/holdout/audit-report.md",
+    "sha256": "d7273bc50cbbf9bcafcfd2ea497d8af632db10456da802bdefb57b3dbe8977a5",
+    "bytes": 3311
+   }
+  ]
+ },
+ "note": "first dev attempt discarded: that agent had seen task hints (dir dev-CONTAMINATED-saw-task-hints); dev redone with cleaned task"
+}

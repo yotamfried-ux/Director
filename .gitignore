@@ -4,3 +4,24 @@ tmp/
 *.wav
 .DS_Store
 public/sportreel/
+
+# business state: real records never committed
+business/leads/*
+!business/leads/SCHEMA.md
+business/prospects/*
+!business/prospects/SCHEMA.md
+business/demand/*
+!business/demand/SCHEMA.md
+!business/demand/sources.json
+!business/demand/effort.template.json
+!business/demand/fixtures/
+!business/demand/assets.json
+business/reports/*
+business/pricing/*
+!business/demand/phrases.json
+
+# benchmark baselines and runs (local; manifests in agents/benchmarks are committed)
+business/benchmarks/
+
+# per-run artifacts of agent runs (local; compliance lines live in business/metrics/shell-runs.jsonl)
+business/runs/

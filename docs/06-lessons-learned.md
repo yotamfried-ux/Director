@@ -40,3 +40,6 @@
 - **Check the live site, not only the repo.** What a visitor sees (cache, deploy lag) can differ from `main`; verify the project page and tell him what you could not see.
 - **Forbidden claims expire.** "Not shipped" is a dated fact, not a permanent rule (Yotam, 2026-11-25). Each video starts by re-verifying claims against the product's current state; `claims_verified_at` in the product json makes `qa-gate.py` warn after 14 days.
 - **Direction before craft.** Each video starts with a creative brief (goal, viewer and moment, one promise, sales angle, objections, form/length reason) and ends with a director's review (5-second, message, honesty, feel, cut). Skill: `video-brief`.
+
+## 2026-11-26 Marketing content never states internal status
+A promo video said "not production ready / improvement not yet proven" because the product spec said so. Yotam: that is not marketing. Internal status and limitations stay in docs and in the conversation with him; marketing content states what the product really does, never a negative self-assessment, and never invents results. The `marketing` charter carries this rule.

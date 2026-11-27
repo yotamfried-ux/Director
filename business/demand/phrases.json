@@ -1,0 +1,25 @@
+{
+  "_about": "Search phrase bank for the demand scanner, Hebrew and English. Seeded from Yotam's principle (Nov 2026); Hebrew phrases are Claude drafts (confirmed:false) for Yotam to correct. The agent EXPANDS it from findings: add a phrase only if it appeared in a real listing or post (record where in `added_from`, no personal data); a phrase with zero yield over 3 runs becomes a candidate to drop (Yotam decides). Only used on sources whose automated reading is allowed in sources.json.",
+  "confirmed": false,
+  "priority_rule": "Highest priority: evidence of existing spend, significant lost time, or recurring demand from several owners. Signals: existing-spend (3), time-loss (2), willing-to-pay (2), recurring = 3+ distinct posters across 2+ sources (3). tiers: high >= 5, medium 3-4, low < 3. Priority ranks attention; it never claims revenue.",
+  "phrases": [
+    {"id": "manual-process", "need": "manual-work", "en": ["manual process", "repetitive task"], "he": ["תהליך ידני", "עבודה חוזרת ונשנית"]},
+    {"id": "spreadsheets", "need": "spreadsheet-manual", "en": ["still using spreadsheets", "Excel manual work"], "he": ["עדיין עובדים באקסל", "מנהלים הכל בגיליון"]},
+    {"id": "software-frustration", "need": "tool-frustration", "en": ["I hate using", "software too expensive"], "he": ["תוכנה יקרה מדי", "מתסכל לעבוד עם"]},
+    {"id": "wish-tool", "need": "tool-gap", "en": ["Is there a tool that", "I wish there was an app"], "he": ["יש כלי ש", "הלוואי שהיה אפליקציה"]},
+    {"id": "integrations", "need": "missing-integration", "en": ["missing integration", "workaround"], "he": ["חסרה אינטגרציה", "פתרון עוקף"]},
+    {"id": "workload", "need": "time-loss", "en": ["hours every week", "time consuming"], "he": ["שעות כל שבוע", "גוזל המון זמן"]},
+    {"id": "willing-to-pay", "need": "willing-to-pay", "en": ["looking to hire", "paying someone to"], "he": ["מחפש מישהו שיעשה", "מוכן לשלם על"]},
+    {"id": "reporting", "need": "manual-reporting", "en": ["manual reporting", "weekly report"], "he": ["דוחות ידניים", "דוח שבועי ידני"]},
+    {"id": "hiring-ops", "need": "data-entry-hiring", "en": ["Data Entry", "Operations Assistant"], "he": ["הזנת נתונים", "עוזר/ת תפעול"]},
+    {"id": "appointments-by-messages", "need": "appointments-by-messages", "en": ["book appointments via WhatsApp", "double booked", "no-shows"], "he": ["קובעים תורים בווטסאפ", "תורים כפולים", "לקוחות לא מגיעים לתור"]}
+  ],
+  "need_patterns": [
+    {"id": "appointments-by-messages", "label": "A business manages appointments only through messages", "tags": ["booking", "whatsapp", "calendar", "reminders"], "flow": "spot need > check match to an existing product (assets.json) > prepare an offer draft for Yotam, claims only from products/<slug>.md"},
+    {"id": "manual-reporting", "label": "Reports built by hand every week", "tags": ["dashboard", "etl", "reporting"]},
+    {"id": "spreadsheet-manual", "label": "Operations run on spreadsheets", "tags": ["google-sheets", "automation"]},
+    {"id": "missing-integration", "label": "Two tools that do not talk to each other", "tags": ["integration", "n8n", "zapier"]},
+    {"id": "data-entry-hiring", "label": "Hiring a person for repetitive data work", "tags": ["automation", "etl"]}
+  ],
+  "expansion_log": []
+}

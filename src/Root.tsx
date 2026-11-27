@@ -13,6 +13,9 @@ import {ChurnJourney} from './ChurnJourney';
 import {ChurnOverviewB} from './ChurnOverviewB';
 import {ChurnStyleA, ChurnStyleB, ChurnStyleC} from './ChurnStyles';
 import {ChurnOverview} from './ChurnOverview';
+import {AgentSystemSite} from './AgentSystem';
+import {AgentSystemShell} from './AgentSystemShell';
+import {AgentSystemBench, BENCH_FRAMES} from './AgentSystemBench';
 
 const defaults: PromoProps = {
   name: 'TORI',
@@ -43,6 +46,9 @@ const showcaseHe: ShowcaseProps = {
 
 export const Root: React.FC = () => (
   <>
+    <Composition id="AgentSystemBench-he" component={AgentSystemBench} durationInFrames={BENCH_FRAMES} fps={30} width={1920} height={1080} />
+    <Composition id="AgentSystemShell-he" component={AgentSystemShell} durationInFrames={900} fps={30} width={1920} height={1080} />
+    <Composition id="AgentSystem-site-he" component={AgentSystemSite} durationInFrames={900} fps={30} width={1920} height={1080} />
     <Composition id="Churn-style-A" component={ChurnStyleA} durationInFrames={1} fps={30} width={1920} height={1080} />
     <Composition id="Churn-style-B" component={ChurnStyleB} durationInFrames={1} fps={30} width={1920} height={1080} />
     <Composition id="Churn-style-C" component={ChurnStyleC} durationInFrames={1} fps={30} width={1920} height={1080} />

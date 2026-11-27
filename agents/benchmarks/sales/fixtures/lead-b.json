@@ -1,0 +1,16 @@
+{
+  "_about": "DEMO synthetic, fictional",
+  "product": "custom-project",
+  "thread": [
+    {
+      "from": "lead",
+      "text": "I need a full system built, appointments plus invoices, budget 500 NIS total."
+    }
+  ],
+  "consent": "none recorded",
+  "yotam_inputs": {
+    "hourly_rate": 120,
+    "floor_project": 4000,
+    "estimate_hours": 60
+  }
+}

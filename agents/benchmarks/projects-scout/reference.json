@@ -1,0 +1,21 @@
+{
+ "agent": "projects-scout",
+ "frozen_at": "2026-11-26T19:31:20Z",
+ "what": "bare Claude, no shell/charter/stages, same tasks as standard.json",
+ "tasks": {
+  "dev": [
+   {
+    "path": "business/benchmarks/projects-scout/reference/dev/ranking.md",
+    "sha256": "f7bb071a8f2b003f5790155e8118b2643c2c8c760500febed3db1727ee783e21",
+    "bytes": 6468
+   }
+  ],
+  "holdout": [
+   {
+    "path": "business/benchmarks/projects-scout/reference/holdout/ranking.md",
+    "sha256": "e26079c0c732d3e4d638b3665c1d8d51209b3ad470c2410dff573220b68ceb72",
+    "bytes": 5116
+   }
+  ]
+ }
+}

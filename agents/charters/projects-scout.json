@@ -1,0 +1,97 @@
+{
+  "id": "projects-scout",
+  "domain": "Finding freelance projects for Yotam to do, and recurring needs worth building once and selling to many",
+  "mission": "Own the answer to 'which projects should Yotam take or build': scan allowed sources (freelance listings, complaints, manual data-entry job posts), count how often a need recurs, separate explicit from inferred, match to reusable assets, rank by ROI. Draft only.",
+  "vars": [],
+  "min_sources": 2,
+  "knowledge_dir": "business/knowledge/demand-scanner",
+  "data_questions": [
+    {
+      "id": "sources",
+      "q": "Which allowed sources were reachable and which were blocked?"
+    },
+    {
+      "id": "recurring",
+      "q": "Which needs recur across posters and sources, with counts and denominators?"
+    },
+    {
+      "id": "evidence-level",
+      "q": "What evidence level (1-4) does each need have, and is it explicit or inferred?"
+    },
+    {
+      "id": "reuse",
+      "q": "Which existing assets cover each need and how much work would reuse save?"
+    },
+    {
+      "id": "audit",
+      "q": "Which opportunities are VERIFIED / NEEDS_RESEARCH / NEEDS_CORRECTION / REJECTED / POLICY_BLOCKED?"
+    },
+    {
+      "id": "analysis",
+      "q": "What do the numbers of this domain say (trend, anomaly, denominator, sample size), what conclusion do they support, and what would change next run because of it?"
+    }
+  ],
+  "skills": [
+    "mkt-customer-research",
+    "mkt-competitor-profiling",
+    "founder-competitors",
+    "founder-cfo",
+    "mkt-analytics"
+  ],
+  "optional_skills": [
+    "founder-pricing"
+  ],
+  "tools": [
+    "scripts/demand-signals.mjs",
+    "scripts/demand-match.mjs",
+    "scripts/demand-reuse.mjs",
+    "scripts/opportunity-audit.mjs"
+  ],
+  "rules": [
+    "Do not present an inferred need as a customer request",
+    "Draft Only: no bids, applications, tenders, messages or payments",
+    "Allowed sources only; no bypassing limits or logins",
+    "VERIFIED needs level >= 2 and >= 2 independent sources",
+    "Every claim traces to a verified line in the product file; demo data is labelled",
+    "Nothing leaves the system without Yotam's per-action approval"
+  ],
+  "produce": {
+    "instructions": "Run demand-signals, demand-match, demand-reuse; record opportunities and audit statuses with opportunity-audit.mjs.",
+    "artifacts": [
+      "business/reports/{date}-demand-scanner.md"
+    ],
+    "tools_required": [
+      "scripts/demand-signals.mjs",
+      "scripts/opportunity-audit.mjs"
+    ]
+  },
+  "gates": [
+    {
+      "id": "board",
+      "cmd": "node scripts/opportunity-audit.mjs board --json > /dev/null",
+      "why": "opportunity ledger must be readable and consistent"
+    }
+  ],
+  "report": "business/reports/{date}-demand-scanner.md",
+  "benchmark": {
+    "task": "Scan the allowed demand sources and rank recurring needs with reuse coverage.",
+    "baseline": "benchmarks/demand-scanner/baseline",
+    "checks": [],
+    "rubric": [
+      {
+        "id": "explicit-vs-inferred",
+        "q": "Are inferred needs never presented as customer requests?",
+        "gating": true
+      },
+      {
+        "id": "evidence",
+        "q": "Every ranked need has counts, sources and an evidence level?",
+        "gating": true
+      },
+      {
+        "id": "reuse",
+        "q": "Does it identify reusable assets and the saved effort?"
+      }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+ "_about": "DEMO effort estimates for the fixture only",
+ "hourly_value": null,
+ "clusters": {
+  "automation:google-sheets+n8n+whatsapp": {
+   "first_build_hours": 30,
+   "repeat_build_hours": 6
+  },
+  "etl:airflow+postgres+python": {
+   "first_build_hours": 40,
+   "repeat_build_hours": 15
+  }
+ }
+}

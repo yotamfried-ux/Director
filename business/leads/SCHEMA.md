@@ -1,0 +1,3 @@
+# Lead record (private store = D2R Management, never in git)
+Ingest fields (lead): type=lead, key, name, contact, source, product, status, consent, nextAction, nextActionDue. See D2R `docs/OPERATIONS.md` for the full contract.
+id · created_at · source (inbound form / WhatsApp / referral / event) · product_slug · contact_ref (pointer to private store, not the details) · consent (what, when, where) · status (new/contacted/replied/qualified/quote_sent/won/lost/opted_out) · next_action · next_action_due · value_estimate (Yotam's own) · notes (no sensitive data) · opted_out (bool, checked before every send).
