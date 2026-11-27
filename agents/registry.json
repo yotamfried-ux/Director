@@ -173,8 +173,9 @@
         "pull requests (never merged by the agent)"
       ],
       "needs": [],
-      "status": "proposed",
-      "heartbeat_hours": 192
+      "status": "active",
+      "heartbeat_hours": 192,
+      "task": "scheduled task created 2026-11-27, Thursday 09:47 Asia/Jerusalem, first run 2026-12-03; unattended runs are not yet verified"
     }
   ]
 }
