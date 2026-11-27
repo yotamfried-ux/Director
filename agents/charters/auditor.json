@@ -33,29 +33,39 @@
     {
       "id": "analysis",
       "q": "What do the numbers of this domain say (trend, anomaly, denominator, sample size), what conclusion do they support, and what would change next run because of it?"
+    },
+    {
+      "id": "research",
+      "q": "What do official docs, GitHub, YouTube and Instagram sources show this week about how people work with Claude in marketing, social, agents and automation, which of them are new to the ledger, and what should change in Engineering-OS or in our agents because of them?"
     }
   ],
   "skills": [
     "business-os",
-    "github-product-intake"
+    "github-product-intake",
+    "marketing-experiments"
   ],
   "optional_skills": [],
   "tools": [
     "scripts/audit-checks.mjs",
     "scripts/agent-metrics.mjs",
-    "scripts/agent-shell.mjs"
+    "scripts/agent-shell.mjs",
+    "scripts/research-sources.mjs"
   ],
   "rules": [
     "Judge from evidence; an agent's claim is not evidence",
     "Unaudited means unverified",
     "Say plainly what was not checked",
     "Every claim traces to a verified line in the product file; demo data is labelled",
-    "Nothing leaves the system without Yotam's per-action approval"
+    "Nothing leaves the system without Yotam's per-action approval",
+    "Weekly research: run research-sources.mjs seen before opening a source and add every source you open with how much you actually read; a source read only by title or metadata is 'unverified' and never the basis of an upgrade",
+    "Upgrades from research are proposed as pull requests (agents, skills, Engineering-OS entries); never merge them, never connect an account, never install a tool without Yotam's approval",
+    "Say which source types were unreachable from this run (for example YouTube transcripts, Instagram) instead of filling the gap from memory"
   ],
   "produce": {
-    "instructions": "Run audit-checks.mjs, `agent-shell.mjs compliance`, calibrate on the known-bad sample, then record scores with agent-metrics audit.",
+    "instructions": "Run audit-checks.mjs, `agent-shell.mjs compliance`, calibrate on the known-bad sample, then record scores with agent-metrics audit. Then the weekly Claude-practice research (routines/agents/auditor.md): ledger, new sources, adopted/rejected with reasons, proposed upgrades as PRs.",
     "artifacts": [
-      "business/reports/{date}-audit.md"
+      "business/reports/{date}-audit.md",
+      "business/reports/{date}-claude-research.md"
     ],
     "tools_required": [
       "scripts/audit-checks.mjs"
@@ -66,6 +76,11 @@
       "id": "audit-checks",
       "cmd": "node scripts/audit-checks.mjs {date} --json > /dev/null",
       "why": "deterministic audit checks must run"
+    },
+    {
+      "id": "research-ledger",
+      "cmd": "node scripts/research-sources.mjs status",
+      "why": "the weekly research must leave a ledger of what was opened"
     }
   ],
   "report": "business/reports/{date}-audit.md",

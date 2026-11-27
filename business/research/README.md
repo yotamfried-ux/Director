@@ -1,0 +1,2 @@
+# Weekly Claude-practice research (owner: auditor agent)
+`sources.jsonl` is the ledger of what the weekly research has looked at: `node scripts/research-sources.mjs add|seen|list|status`. Check `seen` before opening a source so a week never starts from zero. Public URLs only; no tokens in links; no personal data. Each row says how much was actually read (`full`, `partial`, `metadata`) and the verdict (`adopted`, `rejected`, `watch`, `unverified`), so a claim is never stronger than the reading behind it.

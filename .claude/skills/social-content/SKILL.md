@@ -20,7 +20,7 @@ Status: planned; drafting is allowed, publishing is not without approval.
 
 ## Approval gate (hard rule)
 Prepare → send Yotam the exact text + file → wait for explicit "publish" for **that** post → publish through the connected tool (n8n/Postiz/channel API) → record it in `experiments/log.md` with the date and link. Never schedule or post on a standing instruction; never bulk-message people.
-**Daily batch (since 27 Nov 2026):** Yotam may approve all of one day's posts together. The batch message lists, per post, the exact IG/FB text, the file and the slot time; his approval covers exactly those items for that date and then expires. Anything changed afterwards needs a new approval. See `business/social/rules.md`.
+**Daily batch (since 27 Nov 2026):** Yotam may approve all of one day's posts together. The batch message lists, per post, the exact IG/FB text, the file and the slot time; his approval (given at the latest the day before) covers exactly those items on that date and then expires; a post not published within 2 hours after its slot lapses. Anything changed afterwards needs a new approval. See `business/social/rules.md`.
 
 ## Analytics (later)
 Pull metrics from official analytics only, store a dated summary in the experiment log, propose the next variation.
