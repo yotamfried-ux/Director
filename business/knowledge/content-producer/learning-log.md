@@ -12,3 +12,8 @@
 - Marketable core from the n8n spec: evidence over agent claims, one request = one run, separate investigator/verifier roles, failure loop, runs only on request and stops for approval; no outcome numbers exist.
 - qa-gate: end every scene drift with continuous linear motion, not an eased stop (frozen tail fail); keep dimmed text at opacity >= 0.5.
 - Lint gate lints all drafts of the day against the product slug: product video runs fail it when other drafts exist; scope it per run.
+
+## 2026-11-27 (marketing-20261127204138, three Tori reels for 2026-11-29)
+- Reels built from real Tori shots/labels in src/Reels.tsx (movelink, waitlist, booking), 15 s, silent except p3 (CC0 Elevate Inspirate). Sent to D2R as publication records (3 added, HTTP 200).
+- Render glitch: isolated dark frames under swangle; scripts/glitch-scan.py and glitch-fix.sh repair them before qa-gate.
+- Process: set the shell master var to the video path and render after `start`; never touch files to satisfy the evidence check.

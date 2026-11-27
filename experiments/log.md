@@ -103,3 +103,11 @@ Format: `experiments/template.md`. Qualitative entries are Yotam's feedback in c
 - **Metric:** completion share and contact/project clicks per card view vs other cards; min 3 per arm.
 - **Evidence:** none; not published.
 - **Decision:** pending Yotam.
+
+### EXP-012 — three Tori reels: pain-of-call (A) vs pain-of-empty-slot (B) vs no-call booking with real screens (C) (proposed 2026-11-27, not run)
+- **Product / asset:** Tori reels p1/p2/p3 for 2026-11-29, slots A/B/C
+- **Hypothesis:** pain-first hooks (A, B) hold viewers past 3 s more often than the process-first hook (C).
+- **Variants:** A = Reel-tori-movelink · B = Reel-tori-waitlist · C = Reel-tori-booking (slot and format differ too: confounded).
+- **Metric:** 3-second view rate and saves/shares per reel against the account median; no signal under 10 posts per angle or per slot.
+- **Evidence:** none yet; waiting for Yotam's approval and first insights.
+- **Decision:** pending Yotam's approval on the D2R screen.
