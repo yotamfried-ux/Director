@@ -24,5 +24,10 @@ Agents and `founder-*` skills write plans under the working directory only. Thei
 `guimatheus92/mcp-video-analyzer`, MIT license, run through `npx` at the pinned version 0.12.0 (see `.mcp.json`). Review the version before bumping it.
 
 
+## Vendored 2026-11-27 (after a file-by-file review)
+| Where | Upstream | Commit | Notes |
+|---|---|---|---|
+| `.claude/skills/ig-hook-extractor/`, `.claude/skills/ig-humanizer/` | https://github.com/sergebulaev/instagram-skills (MIT, licence in `LICENSE-sergebulaev-instagram-skills`) | 823c681 | Only these two skills plus the reference files they use. Removed: the Apify read layer, Python `lib/` helpers (Publora, Pixfaro, Apify), the illustration and voice-profile sub-skills. No network, posting or token use remains. The humanizer's wording lists are English-specific; see the adaptation note at the end of each SKILL.md |
+
 ## Reviewed, not vendored (2026-11-27)
-`sergebulaev/instagram-skills` (MIT): only Hook Extractor and Humanizer are candidates, after a file-by-file review; its Publora/Apify/Pixfaro parts are never used. `charlie947/social-media-skills` (MIT): reference only. Decisions and reasons: Engineering-OS `capability-registry/discoveries/claude-social-media-workflows-2026-11.md`.
+`sergebulaev/instagram-skills` other skills: overlap `ig-*` and need Publora/Apify/Pixfaro keys. `charlie947/social-media-skills` (MIT): reference only. Decisions and reasons: Engineering-OS `capability-registry/discoveries/claude-social-media-workflows-2026-11.md`.

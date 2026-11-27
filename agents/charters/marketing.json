@@ -60,7 +60,9 @@
     "ig-caption",
     "mkt-analytics",
     "mkt-ab-testing",
-    "github-product-intake"
+    "github-product-intake",
+    "ig-hook-extractor",
+    "ig-humanizer"
   ],
   "optional_skills": [
     "mkt-social",
@@ -77,7 +79,8 @@
     "scripts/agent-metrics.mjs",
     "scripts/agents.mjs",
     "scripts/social-assets.mjs",
-    "scripts/social-debrief.mjs"
+    "scripts/social-debrief.mjs",
+    "scripts/social-schedule.mjs"
   ],
   "rules": [
     "Research and script BEFORE building; a build without a verified product file is refused by the shell",
@@ -93,7 +96,8 @@
     "Only products Yotam marked active get product content; he adds products himself",
     "Posts are drafts; nothing is published without Yotam's per-post approval",
     "Rates with denominators; small samples are 'no signal'; no causal claims without support",
-    "Read business/social/rules.md before planning or drafting; pick only unused assets from the asset ledger and ask Yotam for more when it is low; the weekly social debrief gives candidates with denominators, never causes"
+    "Read business/social/rules.md before planning or drafting; pick only unused assets from the asset ledger and ask Yotam for more when it is low; the weekly social debrief gives candidates with denominators, never causes",
+    "Posting cadence is 3 posts a day with staggered slots from business/social/schedule.json (scripts/social-schedule.mjs). Yotam approves a day's three posts together (exact text + file + slot); that approval expires at the end of that day and is never standing. Slot results are 'no signal' under 10 posts per slot and are confounded with content."
   ],
   "produce": {
     "instructions": "Run the skills in order and log each. For a product: product-research, video-brief (angles A/B/C), video-script, remotion-product-video, site-video or whatsapp-export, video-qa. For posts: social-manager, ig-plan, ig-reel, ig-caption, then content-lint every draft. For analysis: mkt-analytics and marketing-experiments, then append an EXP entry and propose one next experiment (draft only).",
