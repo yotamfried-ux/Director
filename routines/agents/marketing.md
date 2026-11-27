@@ -1,4 +1,4 @@
-# marketing (weekly Sunday; also on request, e.g. "make a video for X")
+# marketing (daily 16:23 for the next day's posts; also on request, e.g. "make a video for X")
 Run inside the Agent Shell: `node scripts/agent-shell.mjs prompt --agent marketing`. Common rules: `_common.md`.
 Scope each run: the active products in `products/registry.json` (Yotam adds them; today only Tori), plus marketing of the business itself and of Yotam's capabilities.
 1. Understand the target from its TRUE source (repo, n8n spec, hosted app) before anything else; re-verify claims today and set `claims_verified_at`. If the source is unclear, ask Yotam once.
@@ -7,3 +7,6 @@ Scope each run: the active products in `products/registry.json` (Yotam adds them
 4. Produce: video via the video skills, posts via social skills; content-lint every draft.
 5. Never put internal status or limitations (for example "not production ready") into marketing content; tell Yotam instead.
 6. Log an experiment entry and one proposed next experiment. Drafts only; nothing published.
+
+## Daily batch for tomorrow (3 posts, from 29 Nov 2026)
+Read `business/social/rules.md` first. 1) `social-assets.mjs status`; make the assets for tomorrow yourself per `docs/14-asset-factory.md` (never wait for Yotam to supply them). 2) Draft three posts that differ in angle and format (hook, pillar, format per post), lint each. 3) `social-schedule.mjs --date <tomorrow> --posts p1,p2,p3` for the slots. 4) Send Yotam ONE Hebrew message with, per post, the exact IG/FB text, the file and the slot time, and ask for approval of the batch. 5) Do not queue or publish anything yourself: only when Yotam approves in chat is it queued (n8n queue, see `n8n-social-workflow.md`). Fewer than three good posts is better than three weak ones; say so.

@@ -1,11 +1,23 @@
 {
-  "_comment": "Posting slots (hypotheses to test, not facts). Yotam approves all of a day's posts at once; each post is then published at its own slot. Times are local (tz). Change only when Yotam says so and keep start so rotation stays comparable.",
+  "_comment": "Posting slots are hypotheses to test, not facts (chosen by the agent 27 Nov 2026, Yotam delegated the choice): A early commute, B lunch break, C evening after work. Yotam approves a day's posts at the latest the day before. Keep start fixed so the rotation stays comparable; change slots only with a note in rules.md.",
   "tz": "Asia/Jerusalem",
-  "start": "2026-11-28",
+  "start": "2026-11-29",
   "posts_per_day": 3,
   "slots": [
-    { "id": "A", "time": "08:00", "label": "morning" },
-    { "id": "B", "time": "13:00", "label": "midday" },
-    { "id": "C", "time": "20:00", "label": "evening" }
+    {
+      "id": "A",
+      "time": "07:45",
+      "label": "morning"
+    },
+    {
+      "id": "B",
+      "time": "12:30",
+      "label": "midday"
+    },
+    {
+      "id": "C",
+      "time": "20:30",
+      "label": "evening"
+    }
   ]
 }

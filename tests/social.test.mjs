@@ -66,3 +66,14 @@ test("debrief: slot table is normalised by format median and says no signal belo
   assert.match(r, /Leading candidate: slot A/);
   assert.match(run("social-debrief", "--now", "2026-11-27T00:00:00Z").stdout, /no signal \(n < 10\)/);
 });
+
+test("assets: add registers an agent-made file with provenance, is idempotent, refuses personal data in names", () => {
+  const src = join(dir, "made.png"); writeFileSync(src, "PNGDATA");
+  const out = run("social-assets", "add", "--file", src, "--product", "tori", "--source", "screenshot of public product page");
+  assert.equal(out.status, 0);
+  assert.match(run("social-assets", "next", "--product", "tori", "--kind", "graphic").stdout, /made\.png\t\(screenshot of public product page\)/);
+  assert.match(run("social-assets", "add", "--file", src, "--product", "tori", "--source", "x").stdout, /already registered/);
+  writeFileSync(join(dir, "b.png"), "OTHER");
+  assert.equal(run("social-assets", "add", "--file", join(dir, "b.png"), "--name", "a.b@example.com.png", "--product", "tori", "--source", "x").status, 2);
+  assert.equal(run("social-assets", "add", "--file", src, "--product", "tori").status, 2);
+});

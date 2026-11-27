@@ -4,10 +4,10 @@
   "agents": [
     {
       "id": "marketing",
-      "role": "Marketing for the whole business: plan, videos, posts, and conclusions from the networks' data",
+      "role": "Marketing for the whole business: plan, videos, posts, and conclusions from the networks' data; each afternoon prepares the next day's three posts and assets for Yotam's approval",
       "trigger": {
         "kind": "cron",
-        "cron": "17 8 * * 0"
+        "cron": "23 16 * * *"
       },
       "prompt": "routines/agents/marketing.md",
       "uses": [
@@ -56,7 +56,7 @@
         "event-caller (video on request)"
       ],
       "status": "proposed",
-      "heartbeat_hours": 192
+      "heartbeat_hours": 52
     },
     {
       "id": "projects-scout",
@@ -148,7 +148,7 @@
     },
     {
       "id": "auditor",
-      "role": "Independent audit of every agent, plus the approval queue and blocked-agent watch",
+      "role": "Independent audit of every agent, plus the approval queue and blocked-agent watch, plus the weekly Claude-practice research that upgrades Engineering-OS and our agents (as pull requests)",
       "trigger": {
         "kind": "cron",
         "cron": "47 9 * * 4"
@@ -162,10 +162,15 @@
       "reads": [
         "business/metrics/*",
         "agent run records",
-        "shell-runs.jsonl"
+        "shell-runs.jsonl",
+        "business/research/sources.jsonl",
+        "official docs, GitHub, YouTube, Instagram sources"
       ],
       "writes": [
-        "business/reports/<date>-audit.md"
+        "business/reports/<date>-audit.md",
+        "business/reports/<date>-claude-research.md",
+        "business/research/sources.jsonl",
+        "pull requests (never merged by the agent)"
       ],
       "needs": [],
       "status": "proposed",
