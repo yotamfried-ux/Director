@@ -23,3 +23,6 @@ Agents and `founder-*` skills write plans under the working directory only. Thei
 ## mcp-video-analyzer (referenced, not vendored)
 `guimatheus92/mcp-video-analyzer`, MIT license, run through `npx` at the pinned version 0.12.0 (see `.mcp.json`). Review the version before bumping it.
 
+
+## Reviewed, not vendored (2026-11-27)
+`sergebulaev/instagram-skills` (MIT): only Hook Extractor and Humanizer are candidates, after a file-by-file review; its Publora/Apify/Pixfaro parts are never used. `charlie947/social-media-skills` (MIT): reference only. Decisions and reasons: Engineering-OS `capability-registry/discoveries/claude-social-media-workflows-2026-11.md`.
