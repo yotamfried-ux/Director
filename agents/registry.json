@@ -55,8 +55,9 @@
       "needs": [
         "event-caller (video on request)"
       ],
-      "status": "proposed",
-      "heartbeat_hours": 52
+      "status": "active",
+      "heartbeat_hours": 52,
+      "task": "scheduled task created 2026-11-27, daily 16:23 Asia/Jerusalem, first run 2026-11-27 16:23; unattended runs are not yet verified"
     },
     {
       "id": "projects-scout",
