@@ -42,3 +42,27 @@ test("debrief: rows without an official Insights source are refused", () => {
   writeFileSync(join(dir, "posts.jsonl"), JSON.stringify({ id: "x", date: "2026-11-20", format: "reel", reach: 500, saves: 1, shares: 1, source: "my estimate" }) + "\n");
   assert.equal(run("social-debrief", "--now", "2026-11-27T00:00:00Z").status, 2);
 });
+
+test("schedule: rotation visits every slot, UTC follows the DST-aware local time, bad input is refused", () => {
+  writeFileSync(join(dir, "schedule.json"), JSON.stringify({ tz: "Asia/Jerusalem", start: "2026-11-28", posts_per_day: 3, slots: [{ id: "A", time: "08:00", label: "m" }, { id: "B", time: "13:00", label: "d" }, { id: "C", time: "20:00", label: "e" }] }));
+  const day = (d, ids = "p1,p2,p3") => JSON.parse(run("social-schedule", "--date", d, "--posts", ids, "--json").stdout);
+  const d0 = day("2026-11-28"), d1 = day("2026-11-29"), d2 = day("2026-11-30");
+  assert.deepEqual(d0.map(r => [r.post, r.slot]), [["p1", "A"], ["p2", "B"], ["p3", "C"]]);
+  assert.equal(d0[0].utc, "2026-11-28T06:00:00.000Z");
+  const slotsOfP1 = [d0, d1, d2].map(d => d.find(r => r.post === "p1").slot);
+  assert.deepEqual([...new Set(slotsOfP1)].sort(), ["A", "B", "C"]);
+  assert.equal(run("social-schedule", "--date", "2026-11-28", "--posts", "p1,p2").status, 2);
+  assert.equal(run("social-schedule", "--date", "2026-11-20", "--posts", "p1,p2,p3").status, 2);
+  // summer time: 08:00 in Israel is 05:00 UTC
+  writeFileSync(join(dir, "schedule.json"), JSON.stringify({ tz: "Asia/Jerusalem", start: "2026-01-01", slots: [{ id: "A", time: "08:00" }, { id: "B", time: "13:00" }, { id: "C", time: "20:00" }] }));
+  assert.equal(day("2026-07-10").find(r => r.slot === "A").utc, "2026-07-10T05:00:00.000Z");
+});
+test("debrief: slot table is normalised by format median and says no signal below the minimum n", () => {
+  const rows = [];
+  for (let i = 0; i < 12; i++) rows.push(JSON.stringify({ id: "s" + i, date: "2026-11-20", format: "reel", reach: 1000, saves: i % 3 === 0 ? 40 : 20, shares: 10, slot: ["A", "B", "C"][i % 3], source: "Meta Insights" }));
+  writeFileSync(join(dir, "posts.jsonl"), rows.join("\n") + "\n");
+  const r = run("social-debrief", "--now", "2026-11-27T00:00:00Z", "--slot-min-n", "4").stdout;
+  assert.match(r, /\| A \| 4 \| 1\.\d\d \|/);
+  assert.match(r, /Leading candidate: slot A/);
+  assert.match(run("social-debrief", "--now", "2026-11-27T00:00:00Z").stdout, /no signal \(n < 10\)/);
+});

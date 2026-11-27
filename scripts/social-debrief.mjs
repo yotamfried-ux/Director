@@ -2,7 +2,7 @@
 // Weekly social debrief: turns the post log into "double down / cut / no signal" CANDIDATES with denominators.
 //   node scripts/social-debrief.mjs [--days 28] [--now ISO] [--min-n 5] [--min-reach 100] [--out file.md]
 // Input: <dir>/posts.jsonl, one JSON per line, numbers copied from official Insights (never estimated):
-//   {"id","date":"YYYY-MM-DD","product","format":"reel|carousel|image|story","hook","pillar","reach","saves","shares","views3s"?,"source":"Meta Insights"}
+//   {"id","date":"YYYY-MM-DD","product","format":"reel|carousel|image|story","hook","pillar","reach","saves","shares","views3s"?,"slot"?:"A|B|C","source":"Meta Insights"}
 // Rules: rates are per reach; a format needs >= min-n posts with reach >= min-reach to have a median, otherwise "no signal";
 // candidates are 1.5x / 0.5x the format median of the same window. Output is correlation only, never a cause. Override dir with SOCIAL_DIR.
 import { readFileSync, existsSync, writeFileSync } from "node:fs";
@@ -35,6 +35,22 @@ for (const f of formats) {
   }
   ps.filter(p => p.reach < minReach).forEach(p => nosig.push(p.id)); out.push("");
 }
+// Posting-slot comparison: each post's rate relative to its own format median, so content type does not masquerade as time of day.
+const slotMin = Number(a["slot-min-n"] ?? 10), meds = {};
+for (const f of formats) { const ok = posts.filter(p => p.format === f && p.reach >= minReach); if (ok.length >= minN) meds[f] = { s: med(ok.map(p => p.saveRate)), h: med(ok.map(p => p.shareRate)) }; }
+const bySlot = {};
+for (const p of posts) if (p.slot && p.reach >= minReach && meds[p.format]) (bySlot[p.slot] ??= []).push((p.saveRate / meds[p.format].s + p.shareRate / meds[p.format].h) / 2);
+out.push("## Posting slots (rate relative to the format median; 1.00 = typical)");
+const sl = Object.entries(bySlot).sort(([x], [y]) => x.localeCompare(y));
+if (!sl.length) out.push("No signal: no posts with a slot and a format median yet.");
+else {
+  out.push("| slot | n | median ratio |", "|---|---|---|");
+  sl.forEach(([k, v]) => out.push(`| ${k} | ${v.length} | ${v.length >= slotMin ? med(v).toFixed(2) : "no signal (n < " + slotMin + ")"} |`));
+  const ready = sl.filter(([, v]) => v.length >= slotMin).map(([k, v]) => [k, med(v)]).sort((x, y) => y[1] - x[1]);
+  if (sl.length > 1 && ready.length === sl.length && ready[0][1] >= 1.25 * ready[1][1]) out.push("", `Leading candidate: slot ${ready[0][0]} (>= 1.25x the next). Still one account and a small sample: keep rotating and re-check next period.`);
+  else out.push("", "No slot leads yet: keep rotating. Time-of-day effects on one small account are easily noise.");
+}
+out.push("");
 out.push("## Double-down candidates (>= 1.5x the format median on saves or shares)", ...(dd.length ? dd.map(x => `- ${x}`) : ["- none"]), "", "## Cut candidates (<= 0.5x the median on both)", ...(cut.length ? cut.map(x => `- ${x}`) : ["- none"]), "", "## No signal (small format sample or low reach)", ...(nosig.length ? nosig.map(x => `- ${x}`) : ["- none"]), "", "## Next experiment (draft; one change only, approval by Yotam)", "- Hypothesis: <fill from the candidates above, one variable>", "- Success measure and window: <metric per reach, how many posts>", "");
 const text = out.join("\n");
 if (a.out && a.out !== true) writeFileSync(a.out, text); else console.log(text);
