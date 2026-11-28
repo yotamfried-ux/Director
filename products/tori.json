@@ -42,5 +42,6 @@
     "payment",
     "invoice"
   ],
-  "claims_verified_at": "2026-11-24"
+  "claims_verified_at": "2026-11-28",
+  "claims_verified_note": "2026-11-28: reminder, waitlist, no-app booking re-checked against repo main HEAD 57f30cb messages/he.json"
 }

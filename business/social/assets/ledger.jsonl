@@ -1,0 +1,6 @@
+{"type":"asset","id":"115c869f1265","product":"tori","kind":"clip","path":"tori/tori-reel-A.mp4","source":"Remotion ToriReel-A: motion graphics with he.json labels (reminder), demo data","added":"2026-11-28"}
+{"type":"asset","id":"4ad018ebdc0b","product":"tori","kind":"clip","path":"tori/tori-reel-B.mp4","source":"Remotion ToriReel-B: waitlist graphics + real screenshot crop public/shots/d-details.png","added":"2026-11-28"}
+{"type":"asset","id":"2e6016f6cbc2","product":"tori","kind":"clip","path":"tori/tori-reel-C.mp4","source":"Remotion ToriReel-C: real mobile screenshots public/shots/m-*.png","added":"2026-11-28"}
+{"type":"use","id":"115c869f1265","post":"tori-reel-2026-11-29-r3-p1","at":"2026-11-28"}
+{"type":"use","id":"4ad018ebdc0b","post":"tori-reel-2026-11-29-r3-p2","at":"2026-11-28"}
+{"type":"use","id":"2e6016f6cbc2","post":"tori-reel-2026-11-29-r3-p3","at":"2026-11-28"}
