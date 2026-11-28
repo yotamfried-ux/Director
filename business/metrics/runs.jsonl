@@ -25,3 +25,6 @@
 {"agent":"sales","status":"partial","started":"2026-11-26T19:36:32.456Z","finished":"2026-11-26T19:38:26.614Z","seconds":114,"checks_pass":1,"checks_fail":0,"note":""}
 {"agent":"marketing","status":"partial","started":"2026-11-26T19:37:36Z","finished":"2026-11-26T19:49:58Z","seconds":742,"outputs":6,"checks_pass":2,"checks_fail":1,"note":"site video benchmark; lint gate scope"}
 {"agent":"marketing","status":"partial","started":"2026-11-26T19:37:36.729Z","finished":"2026-11-26T19:49:58.390Z","seconds":742,"checks_pass":2,"checks_fail":1,"note":""}
+{"agent":"marketing","status":"failed","started":"2026-11-28T09:24:52.320Z","finished":"2026-11-28T09:47:45.901Z","seconds":1374,"checks_pass":0,"checks_fail":0,"note":""}
+{"agent":"marketing","status":"ok","started":"2026-11-28T09:47:45.988Z","finished":"2026-11-28T09:49:51.933Z","seconds":126,"checks_pass":3,"checks_fail":0,"note":""}
+{"agent":"marketing","status":"ok","started":"2026-11-28T09:24:00Z","finished":"2026-11-28T09:49:57Z","seconds":1557,"outputs":3,"checks_pass":3,"checks_fail":0,"note":""}

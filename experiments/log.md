@@ -103,3 +103,12 @@ Format: `experiments/template.md`. Qualitative entries are Yotam's feedback in c
 - **Metric:** completion share and contact/project clicks per card view vs other cards; min 3 per arm.
 - **Evidence:** none; not published.
 - **Decision:** pending Yotam.
+
+## 2026-11-28 — Tori reels for 29 Nov (hook type, run marketing-20261128094745)
+- Hypothesis: pain hooks (P1 reminder, P2 waitlist) hold viewers past 3 s more often than the friction hook (P3 no app/no password).
+- Built: 3 x 15 s 1080x1920, CC0 music, compositions ToriReel-A/B/C; qa-gate PASS. Not verified: audio by ear, phone playback.
+- Lesson: no CSS blur filters with swangle (corrupted frames).
+- Result: pending approval and publishing.
+
+### EXP-012 — Tori reels: hook type (proposed 2026-11-28, not run)
+- **Variants:** A = pain hook · C = friction hook. **Metric:** 3-second view rate vs account median, >= 4 reels per arm; gap under 5 points = no signal. **Decision:** pending Yotam's approval to publish.

@@ -1,0 +1,13 @@
+# Creative brief — Tori — three Reels for 2026-11-29 (v7, 2026-11-28)
+- **Business goal (one):** a small-business owner taps the bio link and opens turim.d2ryf.com.
+- **Viewer / where / sound:** Israeli owner of an appointment business, Instagram/Facebook Reels feed, 3 slots (07:45 / 12:30 / 20:30), probably sound off: Hebrew captions carry everything.
+- **What they believe or fear now:** no-shows and back-and-forth messages cost money and time; new software is a hassle.
+- **The one promise (per reel):** P1 the customer is reminded the day before and confirms in one tap; P2 a cancelled slot is offered to the first person waiting; P3 customers book alone from the phone, no app, no password.
+- **Desired action:** open the link in bio.
+- **Claims verified on 2026-11-28 against repo main HEAD 57f30cb (messages/he.json):** reminder day before by email with one-click arrival confirmation; waitlist offer by email with a timed confirmation to the first waiting customer; booking page without app or password, only free slots, instant confirmation.
+- **Not shipped / not to claim:** payments, invoicing, SMS, any percentages or customer stories.
+- **Objections and the scene that answers each:** "is it hard for my customers?" -> P3; "will it save me no-shows?" -> P1 shows the mechanism only, no result number; "empty slots?" -> P2.
+- **Angles:** A pain-first (P1, P2 hooks) · B product-first (feature list) · C result-first (needs numbers we do not have). **Recommended:** A for P1/P2, plain friction-removal for P3, because every line is verified and no result numbers exist.
+- **Form:** 15 s, 1080x1920, 30 fps, hook in 2 s, captions one idea each, CC0 music (Elevate Inspirate) at -17 LUFS; 15 s fits a single idea per reel.
+- **Success looks like:** approved on D2R; later 3-second view rate per hook type against the account median (no data yet).
+- **Director's review:** 5-second test passes on all three (name + hook + one mechanism); no frozen tail (outro push-in); no blur filters after the render showed corrupted frames with them (swangle).

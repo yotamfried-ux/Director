@@ -12,3 +12,8 @@
 - Marketable core from the n8n spec: evidence over agent claims, one request = one run, separate investigator/verifier roles, failure loop, runs only on request and stops for approval; no outcome numbers exist.
 - qa-gate: end every scene drift with continuous linear motion, not an eased stop (frozen tail fail); keep dimmed text at opacity >= 0.5.
 - Lint gate lints all drafts of the day against the product slug: product video runs fail it when other drafts exist; scope it per run.
+
+## 2026-11-28 (marketing-20261128094745, three Tori reels for 29 Nov)
+- Swangle renders can corrupt single frames when CSS blur filters are used on big layers: use opacity-only fades; qa-gate shows them as isolated spikes.
+- Shell var master must be a video path; drafts are linted from drafts/<run date>; qa-gate needs a working numpy/Pillow in the default python3.
+- A 15 s vertical reel renders in about a minute on 2 cores; push-in on the outro logo satisfies the frozen-tail gate.
