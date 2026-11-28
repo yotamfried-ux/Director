@@ -103,3 +103,12 @@ Format: `experiments/template.md`. Qualitative entries are Yotam's feedback in c
 - **Metric:** completion share and contact/project clicks per card view vs other cards; min 3 per arm.
 - **Evidence:** none; not published.
 - **Decision:** pending Yotam.
+
+### EXP-012 — Tori reels 29 Nov (v2): three hooks, three pillars (prepared 2026-11-28, awaiting approval)
+- **Product / asset:** Tori; reels `tori-reel-2026-11-29-v2-p1..p3` (customer no-app / owner day view / reminder+waitlist), 15 s, p2 silent, p1 and p3 with CC0 track.
+- **Hypothesis:** each concrete-moment hook holds 3-second views above the account median.
+- **Variants:** p1 pain "no app, no password" (slot A) · p2 curiosity "how many appointments today" (B, silent) · p3 last-minute cancellation (C).
+- **Metric:** 3 s view rate and shares+saves per reach vs account median, official Insights only; slots under 10 posts = no signal; sound/silent and slot are confounded with content.
+- **Evidence:** none yet; nothing published. Earlier locked reels with the same date exist on D2R; Yotam chooses one set.
+- **Proposed next experiment (draft):** same product, same hook, caption pill at the top vs bottom to test readability under Instagram's UI.
+- **Decision:** pending Yotam on the D2R approvals screen.
