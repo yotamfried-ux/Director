@@ -25,3 +25,6 @@
 {"agent":"sales","status":"partial","started":"2026-11-26T19:36:32.456Z","finished":"2026-11-26T19:38:26.614Z","seconds":114,"checks_pass":1,"checks_fail":0,"note":""}
 {"agent":"marketing","status":"partial","started":"2026-11-26T19:37:36Z","finished":"2026-11-26T19:49:58Z","seconds":742,"outputs":6,"checks_pass":2,"checks_fail":1,"note":"site video benchmark; lint gate scope"}
 {"agent":"marketing","status":"partial","started":"2026-11-26T19:37:36.729Z","finished":"2026-11-26T19:49:58.390Z","seconds":742,"checks_pass":2,"checks_fail":1,"note":""}
+{"agent":"marketing","status":"failed","started":"2026-11-28T08:29:28.829Z","finished":"2026-11-28T08:32:01.103Z","seconds":152,"checks_pass":0,"checks_fail":0,"note":""}
+{"agent":"marketing","status":"ok","started":"2026-11-28T08:29:00Z","finished":"2026-11-28T08:44:47Z","seconds":947,"outputs":3,"checks_pass":7,"checks_fail":0,"note":"3 Tori reels for 29 Nov sent to D2R as v2 keys (earlier same-key reels locked)"}
+{"agent":"marketing","status":"ok","started":"2026-11-28T08:32:01.184Z","finished":"2026-11-28T08:44:47.767Z","seconds":767,"checks_pass":3,"checks_fail":0,"note":""}

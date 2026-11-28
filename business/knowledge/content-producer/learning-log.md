@@ -12,3 +12,8 @@
 - Marketable core from the n8n spec: evidence over agent claims, one request = one run, separate investigator/verifier roles, failure loop, runs only on request and stops for approval; no outcome numbers exist.
 - qa-gate: end every scene drift with continuous linear motion, not an eased stop (frozen tail fail); keep dimmed text at opacity >= 0.5.
 - Lint gate lints all drafts of the day against the product slug: product video runs fail it when other drafts exist; scope it per run.
+
+## 2026-11-28 (marketing-20261128083201, Tori reels batch for 29 Nov)
+- D2R ingest returns HTTP 200 even when publications are "locked" (key already approved/finished): check added vs locked and use a v2 key for same-day re-runs.
+- Reels pipeline: src/Reels.tsx (3 compositions, 15 s, ~1 min per render), poster via --props poster, encode H.264 Main + AAC faststart, files to media-assets/reels/<date>-vN/.
+- qa-gate: opacity-only cross-fades with long overlap avoid false "hard cut" fails; split hook text into short lines.

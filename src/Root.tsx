@@ -16,6 +16,7 @@ import {ChurnOverview} from './ChurnOverview';
 import {AgentSystemSite} from './AgentSystem';
 import {AgentSystemShell} from './AgentSystemShell';
 import {AgentSystemBench, BENCH_FRAMES} from './AgentSystemBench';
+import {ToriReelBook, ToriReelOwner, ToriReelWaitlist, REEL_FRAMES} from './Reels';
 
 const defaults: PromoProps = {
   name: 'TORI',
@@ -46,6 +47,9 @@ const showcaseHe: ShowcaseProps = {
 
 export const Root: React.FC = () => (
   <>
+    <Composition id="ToriReel-book" component={ToriReelBook} durationInFrames={REEL_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="ToriReel-owner" component={ToriReelOwner} durationInFrames={REEL_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="ToriReel-waitlist" component={ToriReelWaitlist} durationInFrames={REEL_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="AgentSystemBench-he" component={AgentSystemBench} durationInFrames={BENCH_FRAMES} fps={30} width={1920} height={1080} />
     <Composition id="AgentSystemShell-he" component={AgentSystemShell} durationInFrames={900} fps={30} width={1920} height={1080} />
     <Composition id="AgentSystem-site-he" component={AgentSystemSite} durationInFrames={900} fps={30} width={1920} height={1080} />
