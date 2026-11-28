@@ -12,3 +12,8 @@
 - Marketable core from the n8n spec: evidence over agent claims, one request = one run, separate investigator/verifier roles, failure loop, runs only on request and stops for approval; no outcome numbers exist.
 - qa-gate: end every scene drift with continuous linear motion, not an eased stop (frozen tail fail); keep dimmed text at opacity >= 0.5.
 - Lint gate lints all drafts of the day against the product slug: product video runs fail it when other drafts exist; scope it per run.
+
+## 2026-11-28 (marketing-20261128142354, Tori reels for 29 Nov)
+- Three 15 s reels built in src/ToriReels.tsx (booking, waitlist, owner view) from real shots and real labels; qa-gate caught a corrupted swangle frame (hard cut), fixed by re-render.
+- D2R ingest answered 200 but added 0 / locked 3: earlier runs the same day already used the keys. Check existing media-assets commits and D2R before building a day's batch.
+- python3 -I needs pillow/numpy installed for the 3.11 interpreter.

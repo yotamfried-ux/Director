@@ -15,6 +15,7 @@ import {ChurnStyleA, ChurnStyleB, ChurnStyleC} from './ChurnStyles';
 import {ChurnOverview} from './ChurnOverview';
 import {AgentSystemSite} from './AgentSystem';
 import {AgentSystemShell} from './AgentSystemShell';
+import {ToriReelBooking, ToriReelWaitlist, ToriReelOwner, REEL_FRAMES} from './ToriReels';
 import {AgentSystemBench, BENCH_FRAMES} from './AgentSystemBench';
 
 const defaults: PromoProps = {
@@ -58,6 +59,9 @@ export const Root: React.FC = () => (
     <Composition id="Churn-overview-B-en" component={ChurnOverviewB} durationInFrames={1185} fps={30} width={1920} height={1080} defaultProps={{locale: 'en' as const}} />
     <Composition id="Churn-journey-he" component={ChurnJourney} durationInFrames={888} fps={30} width={1920} height={1080} defaultProps={{locale: 'he' as const}} />
     <Composition id="Churn-journey-en" component={ChurnJourney} durationInFrames={888} fps={30} width={1920} height={1080} defaultProps={{locale: 'en' as const}} />
+    <Composition id="ToriReel-booking" component={ToriReelBooking} durationInFrames={REEL_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="ToriReel-waitlist" component={ToriReelWaitlist} durationInFrames={REEL_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="ToriReel-owner" component={ToriReelOwner} durationInFrames={REEL_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="Promo-16x9" component={Promo} durationInFrames={240} fps={24} width={1920} height={1080} defaultProps={defaults} />
     <Composition id="Promo-9x16" component={Promo} durationInFrames={240} fps={24} width={1080} height={1920} defaultProps={defaults} />
     <Composition id="Promo-1x1" component={Promo} durationInFrames={240} fps={24} width={1080} height={1080} defaultProps={defaults} />
